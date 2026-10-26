@@ -1,0 +1,705 @@
+<title>Modulinių namų prototipas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,700;112,800&family=JetBrains+Mono:wght@500&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: blueprint grid — technical module drawings carry the identity; content in one 1180px column */
+:root {
+  --paper: #F2F4F1;
+  --surface: #FFFFFF;
+  --ink: #16211D;
+  --muted: #5A6862;
+  --spruce: #24493F;
+  --spruce-soft: #DCE6E1;
+  --timber: #B9844A;
+  --timber-ink: #1E140A;
+  --line: #CDD5D0;
+  --grid: rgba(36, 73, 63, .07);
+  --ok: #2F7A4F;
+  --font-display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius: 4px;
+  --wrap: 1180px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #141A18; --surface: #1C2421; --ink: #E6EBE8; --muted: #9AA8A2;
+    --spruce: #7FB5A4; --spruce-soft: #22322D; --timber: #D7A56B; --timber-ink: #1E140A;
+    --line: #2E3935; --grid: rgba(127, 181, 164, .06); --ok: #6CC496;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #141A18; --surface: #1C2421; --ink: #E6EBE8; --muted: #9AA8A2;
+  --spruce: #7FB5A4; --spruce-soft: #22322D; --timber: #D7A56B; --timber-ink: #1E140A;
+  --line: #2E3935; --grid: rgba(127, 181, 164, .06); --ok: #6CC496;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--font-display); font-stretch: 112%; line-height: 1.1; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(36px, 5.4vw, 60px); font-weight: 800; letter-spacing: -.01em; }
+h2 { font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; }
+h3 { font-size: 20px; font-weight: 700; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--timber); outline-offset: 2px; }
+.mono, .label {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lead { font-size: 19px; color: var(--muted); max-width: 58ch; }
+
+/* Prototype notice */
+.proto-bar { background: var(--spruce); color: var(--paper); font-size: 14px; }
+.proto-bar .wrap { padding-block: 8px; display: flex; gap: 8px 16px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.proto-bar b { font-family: var(--font-mono); font-weight: 500; letter-spacing: .05em; }
+
+/* Header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+header.site {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--surface); border-bottom: 1px solid var(--line);
+}
+header.site .wrap { display: flex; align-items: center; gap: 24px; padding-block: 14px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 20px; letter-spacing: .04em; }
+.logo svg { flex: none; }
+nav.main { display: flex; gap: 22px; margin-left: auto; }
+nav.main a { text-decoration: none; font-weight: 600; font-size: 15.5px; color: var(--muted); }
+nav.main a:hover { color: var(--ink); }
+.phone { font-family: var(--font-mono); font-size: 14px; white-space: nowrap; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 600 16px/1 var(--font-body); padding: 14px 20px; border-radius: var(--radius);
+  border: 2px solid transparent; cursor: pointer; text-decoration: none; white-space: nowrap;
+}
+.btn-primary { background: var(--timber); color: var(--timber-ink); }
+.btn-primary:hover { filter: brightness(1.06); }
+.btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
+.btn-sm { padding: 10px 14px; font-size: 15px; }
+@media (max-width: 960px) { nav.main, header.site .phone { display: none; } header.site .btn { margin-left: auto; } }
+
+/* Sections */
+section { padding-block: clamp(56px, 8vw, 96px); }
+.sec-head { display: grid; gap: 14px; margin-bottom: 40px; }
+.blueprint {
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.alt { background: var(--surface); border-block: 1px solid var(--line); }
+
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+.hero-copy { display: grid; gap: 22px; min-width: 0; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); margin-top: 8px; }
+.facts div { padding: 16px 16px 0 0; display: grid; gap: 2px; }
+.facts div + div { padding-left: 16px; border-left: 1px solid var(--line); }
+.facts strong { font-family: var(--font-display); font-stretch: 112%; font-size: 26px; font-weight: 700; }
+.hero-art { min-width: 0; }
+.hero-art svg { width: 100%; height: auto; display: block; }
+.hero-art figcaption { margin-top: 10px; }
+.mod-drop { animation: drop 1.6s cubic-bezier(.3,.7,.3,1) .3s both; }
+@keyframes drop { from { transform: translateY(-34px); } to { transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .mod-drop { animation: none; } }
+@media (max-width: 880px) { .hero .wrap { grid-template-columns: 1fr; } }
+@media (max-width: 460px) { .facts strong { font-size: 21px; } }
+
+/* Models */
+.models { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+@media (max-width: 1080px) { .models { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .models { grid-template-columns: 1fr; } }
+.model {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  display: grid; grid-template-rows: auto 1fr; overflow: hidden;
+}
+.model .plan { background: var(--paper); border-bottom: 1px solid var(--line); padding: 18px; aspect-ratio: 4 / 3; max-width: 100%; display: grid; place-items: center; }
+.model .plan svg { width: 100%; height: 100%; }
+.model .body { padding: 18px; display: grid; gap: 14px; align-content: start; }
+.specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; }
+.specs div { display: grid; gap: 2px; }
+.specs dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.specs dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; border-top: 1px dashed var(--line); padding-top: 12px; flex-wrap: wrap; }
+.price-row strong { font-family: var(--font-display); font-stretch: 112%; font-size: 22px; font-variant-numeric: tabular-nums; }
+.model .btn { width: 100%; }
+
+/* Process */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; counter-reset: s; border-top: 2px solid var(--ink); }
+.steps li { padding: 22px 22px 26px 0; display: grid; gap: 8px; border-bottom: 1px solid var(--line); align-content: start; }
+.steps li:not(:nth-child(3n+1)) { padding-left: 22px; border-left: 1px solid var(--line); }
+.steps .n { font-family: var(--font-display); font-stretch: 112%; font-weight: 800; font-size: 40px; color: var(--spruce); line-height: 1; }
+.steps .dur { font-family: var(--font-mono); font-size: 12.5px; color: var(--timber); letter-spacing: .04em; }
+.steps p { color: var(--muted); }
+@media (max-width: 860px) {
+  .steps { grid-template-columns: 1fr 1fr; }
+  .steps li:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
+  .steps li:nth-child(even) { padding-left: 22px; border-left: 1px solid var(--line); }
+}
+@media (max-width: 560px) {
+  .steps { grid-template-columns: 1fr; }
+  .steps li:nth-child(even) { padding-left: 0; border-left: 0; }
+}
+
+/* Calculator */
+.calc { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; align-items: start; }
+@media (max-width: 900px) { .calc { grid-template-columns: 1fr; } }
+.calc-form { display: grid; gap: 26px; min-width: 0; }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; min-width: 0; }
+legend { padding: 0; margin-bottom: 10px; font-weight: 600; }
+.seg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.seg.three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 560px) { .seg { grid-template-columns: 1fr 1fr; } .seg.three { grid-template-columns: 1fr; } }
+.seg input, .checks input { position: absolute; opacity: 0; pointer-events: none; }
+.seg label {
+  border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius);
+  padding: 12px; cursor: pointer; display: grid; gap: 2px; height: 100%;
+}
+.seg label b { font-family: var(--font-display); font-stretch: 112%; font-size: 17px; }
+.seg label span { font-size: 14px; color: var(--muted); }
+.seg input:checked + label { border-color: var(--spruce); box-shadow: inset 0 0 0 1px var(--spruce); background: var(--spruce-soft); }
+.seg input:focus-visible + label, .checks input:focus-visible + label { outline: 3px solid var(--timber); outline-offset: 2px; }
+.checks { display: grid; gap: 8px; }
+.checks label {
+  display: flex; justify-content: space-between; gap: 12px; align-items: center;
+  border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 12px 14px; cursor: pointer;
+}
+.checks label::before {
+  content: ""; flex: none; width: 18px; height: 18px; border: 2px solid var(--muted); border-radius: 3px; order: -1;
+}
+.checks input:checked + label::before { background: var(--spruce); border-color: var(--spruce); box-shadow: inset 0 0 0 3px var(--surface); }
+.checks label span:first-of-type { flex: 1; }
+.checks .mono { text-transform: none; letter-spacing: 0; white-space: nowrap; }
+.result {
+  background: var(--ink); color: var(--paper); border-radius: var(--radius); padding: 26px;
+  display: grid; gap: 18px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 90px);
+}
+.result .label { color: color-mix(in srgb, var(--paper) 65%, transparent); }
+.result .total { font-family: var(--font-display); font-stretch: 112%; font-size: clamp(34px, 4vw, 46px); font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
+.result dl { margin: 0; display: grid; gap: 8px; border-top: 1px solid color-mix(in srgb, var(--paper) 22%, transparent); padding-top: 14px; }
+.result dl div { display: flex; justify-content: space-between; gap: 12px; font-variant-numeric: tabular-nums; }
+.result dt { color: color-mix(in srgb, var(--paper) 72%, transparent); }
+.result dd { margin: 0; font-weight: 600; text-align: right; }
+.result small { color: color-mix(in srgb, var(--paper) 62%, transparent); font-size: 13.5px; }
+
+/* Comparison table */
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 620px; }
+th, td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--line); }
+thead th { font-family: var(--font-display); font-stretch: 112%; font-size: 16px; background: var(--paper); }
+thead th small { display: block; font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--muted); margin-top: 2px; }
+tbody tr:last-child td { border-bottom: 0; }
+td.c { text-align: center; font-weight: 700; width: 18%; }
+td.y { color: var(--ok); }
+td.n { color: var(--muted); }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-auto-rows: 200px; gap: 16px; }
+.projects figure { margin: 0; position: relative; border-radius: var(--radius); overflow: hidden; border: 1px dashed var(--muted); background: repeating-linear-gradient(135deg, var(--spruce-soft) 0 12px, transparent 12px 24px), var(--surface); }
+.projects figure:first-child { grid-row: span 2; }
+.projects figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px; background: var(--surface); border-top: 1px solid var(--line); display: grid; gap: 2px; }
+.projects figcaption b { font-weight: 600; }
+.ph { position: absolute; top: 12px; left: 12px; }
+@media (max-width: 760px) { .projects { grid-template-columns: 1fr 1fr; } .projects figure:first-child { grid-column: span 2; grid-row: span 1; } }
+@media (max-width: 460px) { .projects { grid-template-columns: 1fr; } .projects figure:first-child { grid-column: auto; } }
+
+/* FAQ */
+.faq { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; }
+@media (max-width: 860px) { .faq { grid-template-columns: 1fr; gap: 24px; } }
+.faq-list { border-top: 2px solid var(--ink); min-width: 0; }
+details { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; padding: 18px 36px 18px 0; font-weight: 600; font-size: 18px; list-style: none; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font-family: var(--font-mono); font-size: 22px; color: var(--spruce); }
+details[open] summary::after { content: "–"; }
+details p { padding: 0 0 20px; color: var(--muted); max-width: 62ch; }
+
+/* Contact */
+.contact { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; }
+@media (max-width: 900px) { .contact { grid-template-columns: 1fr; } }
+.contact-info { display: grid; gap: 20px; align-content: start; min-width: 0; }
+.contact-info dl { margin: 0; display: grid; gap: 14px; }
+.contact-info dd { margin: 2px 0 0; font-size: 18px; font-weight: 600; }
+form.lead-form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(18px, 3vw, 32px); display: grid; grid-template-columns: 1fr 1fr; gap: 16px; min-width: 0; }
+.f { display: grid; gap: 6px; min-width: 0; }
+.f.full { grid-column: 1 / -1; }
+@media (max-width: 560px) { form.lead-form { grid-template-columns: 1fr; } }
+.f label { font-weight: 600; font-size: 15px; }
+.f input, .f select, .f textarea {
+  font: inherit; font-size: 16px; color: var(--ink); background: var(--paper);
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 11px 12px; width: 100%;
+}
+.f textarea { min-height: 110px; resize: vertical; }
+.f input:focus, .f select:focus, .f textarea:focus { outline: 2px solid var(--spruce); outline-offset: 0; border-color: var(--spruce); }
+.err { color: #B3412E; font-size: 14px; }
+:root[data-theme="dark"] .err { color: #F08A75; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .err { color: #F08A75; } }
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; color: var(--muted); }
+.consent input { margin-top: 4px; accent-color: var(--spruce); }
+.form-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.success { grid-column: 1 / -1; border: 1px solid var(--ok); color: var(--ok); border-radius: var(--radius); padding: 14px 16px; font-weight: 600; }
+
+/* Footer */
+footer { background: var(--ink); color: var(--paper); }
+footer .wrap { padding-block: 48px 36px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
+footer h4 { margin: 0 0 12px; font-family: var(--font-mono); font-weight: 500; font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--paper) 60%, transparent); }
+footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+footer a { text-decoration: none; color: color-mix(in srgb, var(--paper) 85%, transparent); }
+footer a:hover { color: var(--paper); }
+footer .legal { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var(--paper) 18%, transparent); padding-top: 20px; font-size: 14px; color: color-mix(in srgb, var(--paper) 60%, transparent); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 760px) { footer .wrap { grid-template-columns: 1fr 1fr; } footer .wrap > div:first-child { grid-column: 1 / -1; } }
+
+/* Mobile call bar */
+.callbar { display: none; }
+@media (max-width: 960px) {
+  .callbar {
+    display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 6;
+    background: var(--surface); border-top: 1px solid var(--line);
+    padding: 10px max(16px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  }
+  .callbar .btn { flex: 1; }
+  footer { padding-bottom: 70px; }
+}
+</style>
+
+<div class="proto-bar">
+  <div class="wrap">
+    <span><b>PROTOTIPAS v0.1</b> · Pagrindinio puslapio struktūra ir dizaino kryptis</span>
+    <span>Pavadinimas, kainos ir nuotraukos pavyzdiniai, tvirtinami su klientu</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="MODULIS, pradžia">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+        <rect x="1.5" y="9" width="13" height="19.5" fill="none" stroke="currentColor" stroke-width="3"/>
+        <rect x="15.5" y="9" width="13" height="19.5" fill="currentColor"/>
+        <path d="M1.5 9 L15 1.5 L28.5 9" fill="none" stroke="currentColor" stroke-width="3"/>
+      </svg>
+      MODULIS
+    </a>
+    <nav class="main" aria-label="Pagrindinis meniu">
+      <a href="#namai">Namai</a>
+      <a href="#eiga">Kaip statome</a>
+      <a href="#kainos">Kainos</a>
+      <a href="#darbai">Atlikti darbai</a>
+      <a href="#duk">DUK</a>
+      <a href="#kontaktai">Kontaktai</a>
+    </nav>
+    <span class="phone">+370 600 00000</span>
+    <a class="btn btn-primary btn-sm" href="#kontaktai">Gauti pasiūlymą</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero blueprint">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="label">Moduliniai namai · Gamyba Lietuvoje</span>
+        <h1>Namas pagamintas angare. Sumontuotas per dieną.</h1>
+        <p class="lead">Karkasiniai moduliniai namai su pilna apdaila. Gaminame sausoje uždaroje gamykloje, atvežame ir sumontuojame ant paruoštų pamatų visoje Lietuvoje.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#kainos">Apskaičiuoti kainą</a>
+          <a class="btn btn-ghost" href="#namai">Peržiūrėti modelius</a>
+        </div>
+        <div class="facts">
+          <div><strong>3–5 mėn.</strong><span class="mono">nuo sutarties</span></div>
+          <div><strong>A++</strong><span class="mono">energinė klasė</span></div>
+          <div><strong>10 m.</strong><span class="mono">konstrukcijai</span></div>
+        </div>
+      </div>
+      <figure class="hero-art" style="margin:0">
+        <svg viewBox="0 0 520 360" role="img" aria-labelledby="heroArtT">
+          <title id="heroArtT">Namo fasadas iš trijų modulių, trečias modulis nuleidžiamas į vietą</title>
+          <g fill="none" stroke="var(--line)" stroke-width="1">
+            <line x1="20" y1="300" x2="500" y2="300" stroke="var(--ink)" stroke-width="2"/>
+            <line x1="20" y1="308" x2="500" y2="308" stroke-dasharray="4 6"/>
+          </g>
+          <!-- pamatai -->
+          <g fill="var(--muted)">
+            <rect x="62" y="300" width="10" height="16"/><rect x="190" y="300" width="10" height="16"/>
+            <rect x="318" y="300" width="10" height="16"/><rect x="446" y="300" width="10" height="16"/>
+          </g>
+          <!-- moduliai 1-2 -->
+          <g stroke="var(--ink)" stroke-width="2">
+            <rect x="60" y="170" width="130" height="130" fill="var(--surface)"/>
+            <rect x="190" y="170" width="130" height="130" fill="var(--spruce)"/>
+            <path d="M60 170 L190 112 L190 170 Z" fill="var(--surface)"/>
+            <path d="M190 112 L320 170 L190 170 Z" fill="var(--spruce)"/>
+          </g>
+          <g stroke="var(--line)" stroke-width="1.5" fill="none">
+            <line x1="76" y1="170" x2="76" y2="300"/><line x1="92" y1="170" x2="92" y2="300"/>
+            <line x1="108" y1="170" x2="108" y2="300"/><line x1="124" y1="170" x2="124" y2="300"/>
+            <line x1="140" y1="170" x2="140" y2="300"/><line x1="156" y1="170" x2="156" y2="300"/>
+            <line x1="172" y1="170" x2="172" y2="300"/>
+          </g>
+          <rect x="214" y="200" width="82" height="60" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="255" y1="200" x2="255" y2="260" stroke="var(--ink)" stroke-width="2"/>
+          <rect x="100" y="222" width="50" height="78" fill="var(--timber)" stroke="var(--ink)" stroke-width="2"/>
+          <!-- modulis 3 nuleidžiamas -->
+          <g class="mod-drop">
+            <line x1="385" y1="20" x2="385" y2="150" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="3 4"/>
+            <path d="M378 150 L385 140 L392 150" fill="none" stroke="var(--muted)" stroke-width="2"/>
+            <line x1="330" y1="164" x2="385" y2="150" stroke="var(--muted)" stroke-width="1.5"/>
+            <line x1="440" y1="164" x2="385" y2="150" stroke="var(--muted)" stroke-width="1.5"/>
+            <rect x="324" y="164" width="124" height="130" fill="var(--surface)" stroke="var(--ink)" stroke-width="2" stroke-dasharray="7 5"/>
+            <rect x="350" y="200" width="72" height="60" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+          </g>
+          <!-- matmenys -->
+          <g font-family="JetBrains Mono, monospace" font-size="12" fill="var(--muted)" stroke="none">
+            <line x1="60" y1="336" x2="190" y2="336" stroke="var(--muted)"/>
+            <line x1="60" y1="330" x2="60" y2="342" stroke="var(--muted)"/>
+            <line x1="190" y1="330" x2="190" y2="342" stroke="var(--muted)"/>
+            <text x="125" y="354" text-anchor="middle">3 600</text>
+            <line x1="190" y1="336" x2="320" y2="336" stroke="var(--muted)"/>
+            <line x1="320" y1="330" x2="320" y2="342" stroke="var(--muted)"/>
+            <text x="255" y="354" text-anchor="middle">3 600</text>
+            <line x1="40" y1="170" x2="40" y2="300" stroke="var(--muted)"/>
+            <line x1="34" y1="170" x2="46" y2="170" stroke="var(--muted)"/>
+            <line x1="34" y1="300" x2="46" y2="300" stroke="var(--muted)"/>
+            <text x="30" y="240" text-anchor="middle" transform="rotate(-90 30 240)">2 900</text>
+            <text x="400" y="34">M-03</text>
+          </g>
+        </svg>
+        <figcaption class="mono">Fasadas · moduliai 3 600 mm pločio · M-03 montuojamas kranu</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="namai">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Modeliai</span>
+        <h2>Pasirinkite namą pagal plotą</h2>
+        <p class="lead">Kiekvienas modelis sudarytas iš 3,6 m pločio modulių. Planą galima pritaikyti: perkelti pertvaras, pridėti terasą ar sujungti modelius.</p>
+      </div>
+      <div class="models" id="modelsGrid"></div>
+    </div>
+  </section>
+
+  <section id="eiga" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Kaip statome</span>
+        <h2>Nuo pirmo skambučio iki raktų: 6 žingsniai</h2>
+        <p class="lead">Kol gamykloje gaminami moduliai, sklype įrengiami pamatai. Todėl visas kelias trunka mėnesius, ne metus.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="n">1</span><h3>Konsultacija</h3><span class="dur">1 SAVAITĖ</span><p>Aptariame poreikius, sklypą ir biudžetą. Parenkame modelį arba individualų sprendimą.</p></li>
+        <li><span class="n">2</span><h3>Projektas ir leidimai</h3><span class="dur">4–8 SAVAITĖS</span><p>Parengiame techninį projektą ir padedame gauti statybą leidžiantį dokumentą.</p></li>
+        <li><span class="n">3</span><h3>Sutartis</h3><span class="dur">1 SAVAITĖ</span><p>Fiksuojame kainą, terminus, apdailos specifikaciją ir garantijos sąlygas.</p></li>
+        <li><span class="n">4</span><h3>Gamyba angare</h3><span class="dur">8–12 SAVAIČIŲ</span><p>Moduliai gaminami sausoje patalpoje. Tuo pat metu sklype įrengiami pamatai.</p></li>
+        <li><span class="n">5</span><h3>Transportas ir montavimas</h3><span class="dur">1–3 DIENOS</span><p>Atvežame modulius ir kranu sumontuojame. Sujungiame inžinerines sistemas.</p></li>
+        <li><span class="n">6</span><h3>Perdavimas</h3><span class="dur">1–2 SAVAITĖS</span><p>Baigiamieji darbai, sandarumo testas, dokumentai statybos užbaigimui.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="kainos" class="blueprint">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Kainos skaičiuoklė</span>
+        <h2>Apskaičiuokite orientacinę kainą</h2>
+        <p class="lead">Kaina priklauso nuo modelio, apdailos ir papildomų darbų. Galutinę kainą fiksuojame sutartyje po sklypo įvertinimo.</p>
+      </div>
+      <div class="calc">
+        <form class="calc-form" id="calcForm" aria-label="Kainos skaičiuoklė">
+          <fieldset>
+            <legend>1. Modelis</legend>
+            <div class="seg" id="calcModels"></div>
+          </fieldset>
+          <fieldset>
+            <legend>2. Apdailos lygis</legend>
+            <div class="seg three">
+              <input type="radio" name="finish" id="fin-partial" value="partial"><label for="fin-partial"><b>Dalinė</b><span>Karkasas, langai, stogas, fasadas</span></label>
+              <input type="radio" name="finish" id="fin-standard" value="standard" checked><label for="fin-standard"><b>Standartinė</b><span>+ vidaus apdaila, inžinerija</span></label>
+              <input type="radio" name="finish" id="fin-full" value="full"><label for="fin-full"><b>Pilna</b><span>+ virtuvė, santechnika, grindys</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>3. Papildomi darbai</legend>
+            <div class="checks">
+              <input type="checkbox" id="x-found" name="extra" value="found" checked><label for="x-found"><span>Poliniai pamatai</span><span class="mono" data-for="found"></span></label>
+              <input type="checkbox" id="x-trans" name="extra" value="trans" checked><label for="x-trans"><span>Transportas ir montavimas kranu</span><span class="mono" data-for="trans"></span></label>
+              <input type="checkbox" id="x-util" name="extra" value="util"><label for="x-util"><span>Prijungimas prie komunikacijų</span><span class="mono" data-for="util"></span></label>
+              <input type="checkbox" id="x-terr" name="extra" value="terr"><label for="x-terr"><span>Medinė terasa 20 m²</span><span class="mono" data-for="terr"></span></label>
+              <input type="checkbox" id="x-proj" name="extra" value="proj"><label for="x-proj"><span>Projektas ir statybos leidimas</span><span class="mono" data-for="proj"></span></label>
+            </div>
+          </fieldset>
+        </form>
+        <aside class="result" aria-live="polite">
+          <span class="label">Orientacinė kaina be PVM</span>
+          <div class="total" id="rTotal">–</div>
+          <dl>
+            <div><dt id="rHouseLbl">Namas</dt><dd id="rHouse">–</dd></div>
+            <div><dt>Papildomi darbai</dt><dd id="rExtras">–</dd></div>
+            <div><dt>Su PVM 21 %</dt><dd id="rVat">–</dd></div>
+            <div><dt>Terminas nuo sutarties</dt><dd id="rTime">–</dd></div>
+          </dl>
+          <a class="btn btn-primary" href="#kontaktai" id="rCta">Gauti tikslų pasiūlymą</a>
+          <small>Pavyzdinės kainos prototipui (rinkos vidurkis 2026 m.). Tikras kainas pateiks klientas.</small>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="iskaiciuota" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Kas įeina į kainą</span>
+        <h2>Apdailos lygių palyginimas</h2>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th scope="col">Darbai ir medžiagos</th><th scope="col">Dalinė<small>nuo 550 €/m²</small></th><th scope="col">Standartinė<small>nuo 850 €/m²</small></th><th scope="col">Pilna<small>nuo 1 000 €/m²</small></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Karkasas, 250 mm šiltinimas, vėjo izoliacija</td><td class="c y">✓</td><td class="c y">✓</td><td class="c y">✓</td></tr>
+            <tr><td>Stogo danga, lietvamzdžiai</td><td class="c y">✓</td><td class="c y">✓</td><td class="c y">✓</td></tr>
+            <tr><td>Trijų stiklų langai, lauko durys</td><td class="c y">✓</td><td class="c y">✓</td><td class="c y">✓</td></tr>
+            <tr><td>Fasado apdaila (medis arba tinkas)</td><td class="c y">✓</td><td class="c y">✓</td><td class="c y">✓</td></tr>
+            <tr><td>Elektros instaliacija, vandentiekis, nuotekos</td><td class="c n">–</td><td class="c y">✓</td><td class="c y">✓</td></tr>
+            <tr><td>Šilumos siurblys oras–vanduo, grindinis šildymas</td><td class="c n">–</td><td class="c y">✓</td><td class="c y">✓</td></tr>
+            <tr><td>Glaistytos, dažytos sienos ir lubos</td><td class="c n">–</td><td class="c y">✓</td><td class="c y">✓</td></tr>
+            <tr><td>Grindų danga, vidaus durys</td><td class="c n">–</td><td class="c n">–</td><td class="c y">✓</td></tr>
+            <tr><td>Vonios kambarys su santechnika</td><td class="c n">–</td><td class="c n">–</td><td class="c y">✓</td></tr>
+            <tr><td>Virtuvės baldai</td><td class="c n">–</td><td class="c n">–</td><td class="c y">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="darbai">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Atlikti darbai</span>
+        <h2>Pastatyti namai</h2>
+        <p class="lead">Čia bus kliento objektų nuotraukos su trumpa istorija: vieta, modelis, terminas.</p>
+      </div>
+      <div class="projects">
+        <figure><span class="label ph">Nuotrauka</span><figcaption><b>Gyvenamasis namas, Trakų r.</b><span class="mono">MODULIS 95 · 3 moduliai · 14 sav.</span></figcaption></figure>
+        <figure><span class="label ph">Nuotrauka</span><figcaption><b>Sodo namas, Kauno r.</b><span class="mono">MODULIS 40</span></figcaption></figure>
+        <figure><span class="label ph">Nuotrauka</span><figcaption><b>Namas prie ežero, Molėtų r.</b><span class="mono">MODULIS 65</span></figcaption></figure>
+        <figure><span class="label ph">Nuotrauka</span><figcaption><b>Gamyba angare</b><span class="mono">Vaizdo įrašas</span></figcaption></figure>
+        <figure><span class="label ph">Nuotrauka</span><figcaption><b>Montavimas kranu</b><span class="mono">1 diena</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="duk" class="alt">
+    <div class="wrap faq">
+      <div class="sec-head">
+        <span class="label">DUK</span>
+        <h2>Dažniausi klausimai</h2>
+        <p class="lead">Neradote atsakymo? Paskambinkite, atsakysime per kelias minutes.</p>
+      </div>
+      <div class="faq-list">
+        <details open><summary>Ar moduliniam namui reikia statybos leidimo?</summary><p>Gyvenamajam namui reikia statybą leidžiančio dokumento, kaip ir įprastam namui. Mažiems iki 80 m² pastatams tvarka gali būti paprastesnė. Padedame parengti projektą ir dokumentus.</p></details>
+        <details><summary>Kas neįeina į namo kainą?</summary><p>Įprastai atskirai skaičiuojami pamatai, transportas, montavimas kranu ir prijungimas prie komunikacijų. Skaičiuoklėje juos galite pažymėti ir matyti visą sumą.</p></details>
+        <details><summary>Kiek laiko trunka statyba?</summary><p>Moduliai gaminami 8–12 savaičių, montavimas trunka 1–3 dienas. Su projektavimu ir leidimais visas kelias paprastai užtrunka 3–5 mėnesius.</p></details>
+        <details><summary>Ar galima gyventi žiemą?</summary><p>Taip. Namai šiltinami 250 mm ir atitinka A++ energinę klasę, todėl tinka nuolatiniam gyvenimui ištisus metus.</p></details>
+        <details><summary>Kokia garantija?</summary><p>10 metų laikančioms konstrukcijoms ir paslėptiems darbams, 5 metai matomiems darbams. Įrenginiams taikoma gamintojų garantija. Visos sąlygos nurodomos sutartyje.</p></details>
+        <details><summary>Ar galite atvežti į bet kurį sklypą?</summary><p>Moduliai vežami vilkiku, montuojami kranu. Įvertiname privažiavimą: kelio plotį, posūkius, medžius ir elektros linijas.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontaktai">
+    <div class="wrap contact">
+      <div class="contact-info">
+        <span class="label">Kontaktai</span>
+        <h2>Gaukite pasiūlymą per 2 darbo dienas</h2>
+        <p class="lead">Parašykite, kur yra sklypas ir koks namas jus domina. Atsiųsime kainą ir terminą.</p>
+        <dl>
+          <div><dt class="mono">Telefonas</dt><dd>+370 600 00000</dd></div>
+          <div><dt class="mono">El. paštas</dt><dd>info@modulis.example</dd></div>
+          <div><dt class="mono">Gamykla</dt><dd>Vilniaus r., adresas tikslinamas</dd></div>
+          <div><dt class="mono">Darbo laikas</dt><dd>I–V 8:00–17:00</dd></div>
+        </dl>
+      </div>
+      <form class="lead-form" id="leadForm" novalidate>
+        <div class="f"><label for="lf-name">Vardas *</label><input id="lf-name" name="name" autocomplete="name" required><span class="err" hidden>Įrašykite vardą.</span></div>
+        <div class="f"><label for="lf-phone">Telefonas *</label><input id="lf-phone" name="phone" type="tel" autocomplete="tel" required><span class="err" hidden>Įrašykite telefono numerį, pvz. +370 600 12345.</span></div>
+        <div class="f"><label for="lf-email">El. paštas *</label><input id="lf-email" name="email" type="email" autocomplete="email" required><span class="err" hidden>Įrašykite el. paštą, pvz. vardas@pastas.lt.</span></div>
+        <div class="f"><label for="lf-place">Sklypo vieta</label><input id="lf-place" name="place" placeholder="pvz. Trakų r."></div>
+        <div class="f"><label for="lf-model">Dominantis modelis</label><select id="lf-model" name="model"><option value="">Dar nežinau</option></select></div>
+        <div class="f"><label for="lf-plot">Ar turite sklypą?</label><select id="lf-plot" name="plot"><option>Taip, su leidimu</option><option>Taip, be leidimo</option><option>Dar ieškau</option></select></div>
+        <div class="f full"><label for="lf-msg">Žinutė</label><textarea id="lf-msg" name="msg" placeholder="Kiek žmonių gyvens, kada norėtumėte įsikurti, ypatingi pageidavimai"></textarea></div>
+        <label class="consent full" for="lf-consent"><input type="checkbox" id="lf-consent" required><span>Sutinku, kad mano duomenys būtų tvarkomi pagal privatumo politiką *</span></label>
+        <span class="err full" id="consentErr" hidden></span>
+        <div class="form-actions full"><button class="btn btn-primary" type="submit">Siųsti užklausą</button><span class="mono">Prototipe užklausa niekur nesiunčiama</span></div>
+        <div class="success" id="leadOk" hidden>Užklausa paruošta. Tikroje svetainėje ji keliautų vadybininkui, o klientui grįžtų patvirtinimo laiškas.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#top">MODULIS</a>
+      <p style="margin-top:12px;max-width:34ch;color:color-mix(in srgb, var(--paper) 70%, transparent)">Moduliniai karkasiniai namai, pagaminti Lietuvoje.</p>
+    </div>
+    <div><h4>Namai</h4><ul><li><a href="#namai">Modeliai</a></li><li><a href="#kontaktai">Individualus projektas</a></li><li><a href="#kainos">Kainos</a></li></ul></div>
+    <div><h4>Informacija</h4><ul><li><a href="#eiga">Kaip statome</a></li><li><a href="#duk">DUK</a></li><li><a href="#duk">Garantija</a></li></ul></div>
+    <div><h4>Įmonė</h4><ul><li><a href="#darbai">Atlikti darbai</a></li><li><a href="#kontaktai">Kontaktai</a></li><li><a href="#top">EN</a></li></ul></div>
+    <div class="legal"><span>© 2026 MODULIS (darbinis pavadinimas)</span><span>Privatumo politika · Slapukai</span></div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-ghost btn-sm" href="tel:+37060000000">Skambinti</a>
+  <a class="btn btn-primary btn-sm" href="#kontaktai">Gauti pasiūlymą</a>
+</div>
+
+<script>
+(function () {
+  // Pavyzdiniai duomenys prototipui. Tikri modeliai ir kainos ateis iš CMS.
+  var MODULE_W = 3.6;
+  var MODELS = [
+    { id: "m40",  name: "MODULIS 40",  area: 40,  rooms: 1, modules: [11.1],            note: "Sodo namas ar svečių namelis" },
+    { id: "m65",  name: "MODULIS 65",  area: 65,  rooms: 2, modules: [9, 9],            note: "Pora ar maža šeima" },
+    { id: "m95",  name: "MODULIS 95",  area: 95,  rooms: 3, modules: [8.8, 8.8, 8.8],   note: "Šeimos namas" },
+    { id: "m120", name: "MODULIS 120", area: 120, rooms: 4, modules: [11.1, 11.1, 11.1], note: "Erdvus šeimos namas" }
+  ];
+  var FINISH = { partial: { rate: 550, label: "dalinė", weeks: 0 }, standard: { rate: 850, label: "standartinė", weeks: 2 }, full: { rate: 1000, label: "pilna", weeks: 4 } };
+  var EXTRAS = {
+    found: function (m) { return 3500 + m.area * 45; },
+    trans: function (m) { return 1800 * m.modules.length + 1200; },
+    util:  function () { return 6500; },
+    terr:  function () { return 4200; },
+    proj:  function () { return 3900; }
+  };
+
+  var eur = new Intl.NumberFormat("lt-LT", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+
+  function planSvg(m) {
+    var n = m.modules.length, len = Math.max.apply(null, m.modules);
+    var W = n * MODULE_W, pad = 1.4;
+    var vbW = W + pad * 2, vbH = len + pad * 2;
+    var s = '<svg viewBox="0 0 ' + vbW + ' ' + vbH + '" role="img" aria-label="' + m.name + ' planas: ' + n + ' modul' + (n === 1 ? 'is' : 'iai') + ' po ' + MODULE_W + ' m">';
+    m.modules.forEach(function (L, i) {
+      var x = pad + i * MODULE_W, y = pad + (len - L);
+      s += '<rect x="' + x + '" y="' + y + '" width="' + MODULE_W + '" height="' + L + '" fill="' + (i % 2 ? 'var(--spruce-soft)' : 'var(--surface)') + '" stroke="var(--ink)" stroke-width="0.12"/>';
+      s += '<text x="' + (x + MODULE_W / 2) + '" y="' + (y + L / 2) + '" font-family="JetBrains Mono, monospace" font-size="0.75" fill="var(--muted)" text-anchor="middle" dominant-baseline="middle">M-0' + (i + 1) + '</text>';
+    });
+    // vidinės pertvaros (schematiškai)
+    var rooms = m.rooms + 1;
+    for (var r = 1; r < rooms; r++) {
+      var yy = pad + (len / rooms) * r;
+      s += '<line x1="' + pad + '" y1="' + yy + '" x2="' + (pad + W * (r % 2 ? 0.55 : 1)) + '" y2="' + yy + '" stroke="var(--ink)" stroke-width="0.06" stroke-dasharray="0.3 0.2"/>';
+    }
+    // matmenys
+    var dy = pad + len + 0.75;
+    s += '<line x1="' + pad + '" y1="' + dy + '" x2="' + (pad + W) + '" y2="' + dy + '" stroke="var(--muted)" stroke-width="0.05"/>';
+    s += '<text x="' + (pad + W / 2) + '" y="' + (dy + 0.55) + '" font-family="JetBrains Mono, monospace" font-size="0.6" fill="var(--muted)" text-anchor="middle">' + (W * 1000).toLocaleString("lt-LT") + '</text>';
+    s += '<text x="' + (pad - 0.5) + '" y="' + (pad + len / 2) + '" font-family="JetBrains Mono, monospace" font-size="0.6" fill="var(--muted)" text-anchor="middle" transform="rotate(-90 ' + (pad - 0.5) + ' ' + (pad + len / 2) + ')">' + (len * 1000).toLocaleString("lt-LT") + '</text>';
+    return s + '</svg>';
+  }
+
+  var grid = document.getElementById("modelsGrid");
+  var calcModels = document.getElementById("calcModels");
+  var lfModel = document.getElementById("lf-model");
+
+  MODELS.forEach(function (m, i) {
+    var card = document.createElement("article");
+    card.className = "model";
+    card.innerHTML =
+      '<div class="plan">' + planSvg(m) + '</div>' +
+      '<div class="body">' +
+        '<div style="display:grid;gap:4px"><h3>' + m.name + '</h3><span style="color:var(--muted)">' + m.note + '</span></div>' +
+        '<dl class="specs"><div><dt>Plotas</dt><dd>' + m.area + ' m²</dd></div><div><dt>Kambariai</dt><dd>' + m.rooms + '</dd></div><div><dt>Moduliai</dt><dd>' + m.modules.length + '</dd></div></dl>' +
+        '<div class="price-row"><span class="mono">nuo, be PVM</span><strong>' + eur.format(m.area * FINISH.partial.rate) + '</strong></div>' +
+        '<a class="btn btn-ghost btn-sm" href="#kainos" data-pick="' + m.id + '">Skaičiuoti kainą</a>' +
+      '</div>';
+    grid.appendChild(card);
+
+    calcModels.insertAdjacentHTML("beforeend",
+      '<input type="radio" name="model" id="cm-' + m.id + '" value="' + m.id + '"' + (i === 2 ? ' checked' : '') + '>' +
+      '<label for="cm-' + m.id + '"><b>' + m.area + ' m²</b><span>' + m.rooms + ' kamb. · ' + m.modules.length + ' mod.</span></label>');
+
+    lfModel.insertAdjacentHTML("beforeend", '<option value="' + m.id + '">' + m.name + '</option>');
+  });
+
+  var form = document.getElementById("calcForm");
+  function calc() {
+    var mId = form.querySelector('input[name="model"]:checked').value;
+    var fId = form.querySelector('input[name="finish"]:checked').value;
+    var m = MODELS.filter(function (x) { return x.id === mId; })[0];
+    var f = FINISH[fId];
+    var house = m.area * f.rate;
+    var extras = 0;
+    Object.keys(EXTRAS).forEach(function (k) {
+      var price = EXTRAS[k](m);
+      var tag = form.querySelector('[data-for="' + k + '"]');
+      if (tag) tag.textContent = "+" + eur.format(price);
+      if (document.getElementById("x-" + k).checked) extras += price;
+    });
+    var weeksMin = 8 + m.modules.length + f.weeks + (document.getElementById("x-proj").checked ? 4 : 0);
+    var weeksMax = weeksMin + 6;
+    document.getElementById("rHouseLbl").textContent = m.name + ", " + f.label + " apdaila";
+    document.getElementById("rHouse").textContent = eur.format(house);
+    document.getElementById("rExtras").textContent = eur.format(extras);
+    document.getElementById("rTotal").textContent = eur.format(house + extras);
+    document.getElementById("rVat").textContent = eur.format((house + extras) * 1.21);
+    document.getElementById("rTime").textContent = weeksMin + "–" + weeksMax + " sav.";
+    document.getElementById("rCta").dataset.pick = m.id;
+  }
+  form.addEventListener("change", calc);
+  calc();
+
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("[data-pick]");
+    if (!a) return;
+    var id = a.dataset.pick;
+    var radio = document.getElementById("cm-" + id);
+    if (radio && a.getAttribute("href") === "#kainos") { radio.checked = true; calc(); }
+    if (a.getAttribute("href") === "#kontaktai") lfModel.value = id;
+  });
+
+  // Užklausos forma (prototipe niekur nesiunčiama)
+  var lead = document.getElementById("leadForm");
+  lead.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var ok = true;
+    ["lf-name", "lf-phone", "lf-email"].forEach(function (id) {
+      var el = document.getElementById(id);
+      var err = el.parentNode.querySelector(".err");
+      var valid = el.value.trim() !== "" && (el.type !== "email" || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value)) && (el.type !== "tel" || el.value.replace(/\D/g, "").length >= 8);
+      err.hidden = valid;
+      el.setAttribute("aria-invalid", valid ? "false" : "true");
+      if (!valid && ok) { el.focus(); ok = false; }
+    });
+    var consent = document.getElementById("lf-consent");
+    var cErr = document.getElementById("consentErr");
+    if (!consent.checked) { cErr.textContent = "Pažymėkite sutikimą, kad galėtume atsakyti į užklausą."; cErr.hidden = false; ok = false; }
+    else cErr.hidden = true;
+    document.getElementById("leadOk").hidden = !ok;
+  });
+})();
+</script>
