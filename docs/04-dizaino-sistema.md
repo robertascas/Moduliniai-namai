@@ -1,42 +1,41 @@
-# 4. Pirminės dizaino (Web UI) gairės
+# 4. Dizaino sistema (Web UI) – v0.2
 
-Kryptis: **„gamyklos tikslumas + medžio šiluma“.** Vizualinė kalba remiasi brėžiniais –
-moduliai rodomi kaip planai su matmenimis, techniniai duomenys – brėžinio etikečių stiliumi.
-Tai tiesiogiai pasakoja produkto esmę: namas surenkamas iš tikslių gamykloje pagamintų modulių.
+Kryptis: **architektūrinis brėžinys.** Svetainės vizualas yra pats produktas: namai rodomi
+aksonometriniais brėžiniais, kuriuos galima išskaidyti į modulius, planai nubraižyti tuo pačiu
+masteliu, techniniai duomenys pateikiami kaip brėžinio spaudas. Vengiama šabloninių sprendimų:
+nėra stock nuotraukų, emoji, gradientų ir vienodų kortelių su šešėliais.
 
-> Galutinės spalvos ir šriftai tvirtinami pagal kliento prekės ženklą (etapas 2).
+> Galutinės spalvos ir pavadinimas tvirtinami pagal kliento prekės ženklą. Visi tokenai yra
+> `site/public/css/site.css` pradžioje, todėl keičiami vienoje vietoje.
 
-## Spalvos (tokenai)
-| Tokenas | Šviesi tema | Tamsi tema | Paskirtis |
+## Spalvos
+| Tokenas | Šviesi | Tamsi | Paskirtis |
 |---|---|---|---|
-| `--paper` | `#F2F4F1` | `#141A18` | Fonas |
-| `--surface` | `#FFFFFF` | `#1C2421` | Kortelės, formos |
-| `--ink` | `#16211D` | `#E6EBE8` | Tekstas |
-| `--muted` | `#5A6862` | `#9AA8A2` | Antrinis tekstas |
-| `--spruce` | `#24493F` | `#7FB5A4` | Pagrindinė (eglės žalia) |
-| `--timber` | `#B9844A` | `#D7A56B` | Akcentas (mediena), CTA |
-| `--line` | `#CDD5D0` | `#2E3935` | Linijos, brėžiniai |
+| `--bg` | `#F1F3F5` | `#0B111C` | Fonas (šaltas, ne kreminis) |
+| `--surface` | `#FFFFFF` | `#111A28` | Kortelės, formos, brėžinių fonas |
+| `--ink` | `#0E1726` | `#E8ECF3` | Tekstas, linijos |
+| `--ink-2` | `#4B5567` | `#9AA6B8` | Antrinis tekstas |
+| `--cobalt` | `#2541B2` | `#8DA2FF` | Pagrindinė: mygtukai, akcentai, modulių sujungimai planuose |
+| `--larch` | `#B9773F` | `#D89A64` | Maumedis: medžiagos, sklypo darbai grafike |
 
 ## Tipografija
-| Rolė | Šriftas | Naudojimas |
+| Rolė | Šriftas | Kur |
 |---|---|---|
-| Antraštės | **Archivo** (Semi-Expanded, 600–800) | H1–H3, skaičiai |
-| Tekstas | **Source Sans 3** (400/600) | Pastraipos, formos |
-| Techniniai duomenys | **JetBrains Mono** (500) | m², matmenys, etiketės |
+| Antraštės | **Schibsted Grotesk** 800–900, glaudus tarpas | H1–H3, kainos, skaičiai |
+| Tekstas | **Instrument Sans** 400–600 | Pastraipos, formos, meniu |
+| Brėžinio užrašai | **IBM Plex Mono** 400–500 | Matmenys, etiketės, mastelis, pasiūlymo rekvizitai |
 
-Skalė: 14 / 16 / 18 / 22 / 28 / 40 / 56 px. Teksto eilutės plotis ≤ 65 simbolių.
+Visi trys šriftai palaiko lietuviškas raides (latin-ext).
 
-## Komponentai
-- **Mygtukai:** pagrindinis (medžio spalvos fonas), antrinis (kontūrinis), teksto nuoroda
-- **Modelio kortelė:** modulių planas (SVG, proporcingas m), pavadinimas, m² / kambariai / moduliai, kaina „nuo“
-- **Žingsnis:** numeris (tikra seka), pavadinimas, trukmė, aprašas
-- **Skaičiuoklė:** segmentuoti pasirinkimai, žymimieji laukeliai, rezultatų blokas
-- **Palyginimo lentelė:** ✓ / – žymėjimas
-- **Akordeonas (DUK):** `<details>` elementas
-- **Forma:** etiketė virš lauko, klaidos tekstas po lauku, aiškus sėkmės pranešimas
+## Išskirtiniai elementai
+- **Aksonometrinis namas** (`app.js → drawAxo`): generuojamas iš kainyno duomenų, keičiasi fasadas, stogas, galima išskaidyti į modulius.
+- **Planai tuo pačiu masteliu** (`drawPlan`): modelių palyginimas, patalpų plotai, modulių sujungimai mėlyna punktyrine linija.
+- **Sienos pjūvis** su sluoksniais ir storiais (`WallSection.astro`).
+- **Statybos grafikas savaitėmis** (`Gantt.astro`): matosi, kad gamykla ir sklypas dirba vienu metu.
+- **Pasiūlymo dokumentas** su numeriu, galiojimo data, brėžiniais ir kainų išskaidymu.
 
 ## Principai
-- Mobilioji versija pirmiausia; CTA „Skambinti“ prilipdytas mobiliame
-- Tikros nuotraukos iš gamybos ir objektų (ne stock)
-- Kaina visada su „+ PVM“ arba „su PVM“ – nuosekliai
-- Prieinamumas: kontrastas ≥ 4.5:1, matomas fokusas, formos etiketės
+- Asimetrinis 12 stulpelių tinklelis, kampai be apvalinimo (išskyrus filtrų „piliules“)
+- Šviesi ir tamsi tema, mobilioji versija su prilipusiu „Skambinti / Apskaičiuoti kainą“ mygtuku
+- Kaina visada su nuoroda „be PVM“ arba „su PVM“
+- Prieinamumas: matomas fokusas, formų etiketės, klaidų tekstai, `prefers-reduced-motion`

@@ -1,0 +1,106 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import AxoStage from "../components/AxoStage.astro";
+import { K, money, fromPrice, modelHref, width, bedrooms, slug, type Modelis } from "../lib/site";
+
+export function getStaticPaths() {
+  return K.modeliai.map((m) => ({ params: { slug: slug(m) }, props: { m } }));
+}
+const { m } = Astro.props as { m: Modelis };
+const others = K.modeliai.filter((x) => x.id !== m.id);
+const area = (r: { w: number; h: number }) => (r.w * r.h).toLocaleString("lt-LT", { maximumFractionDigits: 1 });
+const sum = m.patalpos.reduce((t, r) => t + r.w * r.h, 0);
+const W = width(m);
+---
+<Base title={m.pavadinimas} current="namai" description={`${m.pavadinimas}: ${m.plotas} m² modulinis namas, ${m.moduliai} moduliai. ${m.aprasymas}`}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="tag crumbs"><a href="index.html">Pradžia</a> / <a href="namai.html">Namai</a> / {m.pavadinimas}</span>
+      <h1>{m.pavadinimas}</h1>
+      <p class="lead">{m.aprasymas}</p>
+    </div>
+  </header>
+
+  <section class="section-tight">
+    <div class="wrap model-top">
+      <div class="model-stage">
+        <AxoStage id="model-axo" model={m.id} start="" dims={true} label={`${m.pavadinimas} aksonometrinis vaizdas`} />
+      </div>
+      <aside class="model-side">
+        <dl class="specs">
+          <div><dt>Plotas</dt><dd>{m.plotas} m²</dd></div>
+          <div><dt>Miegamieji</dt><dd>{bedrooms(m)}</dd></div>
+          <div><dt>Moduliai</dt><dd>{m.moduliai}</dd></div>
+        </dl>
+        <table class="finish-table">
+          <caption class="tag" style="text-align:left;padding-bottom:8px">Kaina pagal apdailą, be PVM</caption>
+          <tbody>
+            {K.apdaila.map((a) => (
+              <tr>
+                <td>{a.pavadinimas}<small>{a.aprasymas}</small></td>
+                <td data-finish-price={`${m.id}:${a.id}`}>{money(m.plotas * a.kainaM2)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="note">Pamatai, transportas ir prijungimai skaičiuojami atskirai. Gamyba apie {m.gamyba} savaites.</p>
+        <div style="display:grid;gap:10px">
+          <a class="btn btn-primary btn-block" href={`konfiguratorius.html#${m.id}`}>Konfigūruoti ir gauti kainą <Arrow /></a>
+          <a class="btn btn-line btn-block" href={`kontaktai.html#${m.id}`}>Užduoti klausimą</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag tag-strong">Planas</span>
+        <h2>{m.patalpos.length} patalpos, {m.moduliai} {m.moduliai === 1 ? "modulis" : "moduliai"}.</h2>
+        <p class="lead">Mėlyna punktyrinė linija rodo, kur susijungia moduliai. Pertvaras galima perkelti, išorinės sienos ir sujungimai lieka vietoje.</p>
+      </div>
+      <div class="plan-sheet">
+        <figure class="plan-sheet-fig" style="margin:0">
+          <svg class="plan" data-plan={m.id} data-labels="true" data-dims="true" viewBox={`-1.25 -1.25 ${W + 2.5} ${m.ilgis + 2.5}`} role="img" aria-label={`${m.pavadinimas} planas su matmenimis`} style={`max-height:72vh;margin-inline:auto`}></svg>
+          <div class="title-block">
+            <div><span class="tag">Objektas</span><span>{m.pavadinimas}</span></div>
+            <div><span class="tag">Lapas</span><span>Planas, 1 aukštas</span></div>
+            <div><span class="tag">Matmenys</span><span class="num">{W.toLocaleString("lt-LT")} × {m.ilgis.toLocaleString("lt-LT")} m</span></div>
+            <div><span class="tag">Mastelis</span><span>M 1:100</span></div>
+          </div>
+        </figure>
+        <div class="plan-sheet-list">
+          <table class="rooms">
+            <tbody>
+              {m.patalpos.map((r) => <tr><td>{r.pav}</td><td>{area(r)} m²</td></tr>)}
+            </tbody>
+            <tfoot><tr><td>Iš viso</td><td>{sum.toLocaleString("lt-LT", { maximumFractionDigits: 1 })} m²</td></tr></tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag tag-strong">Kiti modeliai</span>
+        <h2>Palyginkite su kitais.</h2>
+      </div>
+      <div class="projects">
+        {others.map((o) => (
+          <a class="project" href={modelHref(o)}>
+            <div class="project-fig">
+              <svg class="axo" data-axo data-model={o.id} data-fasadas="maumedis" data-stogas="slaitinis" role="img" aria-label={`${o.pavadinimas} aksonometrija`} viewBox="0 0 600 420"></svg>
+            </div>
+            <div class="project-meta">
+              <h3>{o.pavadinimas}</h3>
+              <span class="tag">{o.plotas} m² · nuo <span data-from-price={o.id}>{money(fromPrice(o))}</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

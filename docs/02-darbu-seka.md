@@ -35,7 +35,8 @@ tik tada pereinama prie kito. Valandos – orientacinės, tikslinamos po brifo (
 - [ ] Modulio plano iliustracijų stilius (kiekvieno modelio planas iš modulių)
 
 ## Etapas 3 – Maketai ir prototipas
-- [x] HTML prototipas v0.1 (pagrindinis puslapis) – `prototype/index.html`
+- [x] HTML prototipas v0.1 (pagrindinis puslapis)
+- [x] Veikiantis prototipas v0.2 (Astro, 12 puslapių, konfigūratorius, pasiūlymai, kainyno demo) – `site/`
 - [ ] Maketai: pagrindinis, modelių katalogas, modelio puslapis, kainos/skaičiuoklė, eiga, atlikti darbai, DUK, kontaktai
 - [ ] Mobilios versijos maketai
 - [ ] Prototipo pristatymas klientui, pastabų rinkimas (1–2 iteracijos)

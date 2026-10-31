@@ -1,0 +1,60 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import { K, money, fromPrice, modelHref, width, bedrooms } from "../lib/site";
+---
+<Base title="Namai" current="namai" description="Moduliniai namai nuo 40 iki 120 m²: planai, plotai, modulių skaičius ir kainos.">
+  <header class="page-head">
+    <div class="wrap">
+      <span class="tag crumbs"><a href="index.html">Pradžia</a> / Namai</span>
+      <h1>Modeliai nuo 40 iki 120 m².</h1>
+      <p class="lead">Kiekvieną modelį galima pritaikyti: perkelti pertvaras, pakeisti fasadą, pridėti terasą. Jei nė vienas netinka, suprojektuosime individualų namą iš tų pačių modulių.</p>
+    </div>
+  </header>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="filters" data-filters role="group" aria-label="Filtruoti pagal plotą">
+        <span class="tag">Plotas</span>
+        <button class="chip-btn" type="button" data-f="all" aria-pressed="true">Visi</button>
+        <button class="chip-btn" type="button" data-f="small" aria-pressed="false">iki 70 m²</button>
+        <button class="chip-btn" type="button" data-f="mid" aria-pressed="false">70–110 m²</button>
+        <button class="chip-btn" type="button" data-f="large" aria-pressed="false">110 m² ir daugiau</button>
+      </div>
+      <div class="catalog">
+        {K.modeliai.map((m) => (
+          <a class="cat-item" href={modelHref(m)} data-cat-item data-area={m.plotas}>
+            <div class="cat-axo">
+              <svg class="axo" data-axo data-model={m.id} data-fasadas="maumedis" data-stogas="slaitinis" role="img" aria-label={`${m.pavadinimas} aksonometrija`} viewBox="0 0 600 420" style="width:100%;height:auto"></svg>
+            </div>
+            <div class="cat-plan">
+              <svg class="plan" data-plan={m.id} data-labels="true" viewBox={`-0.25 -0.25 ${width(m) + 0.5} ${m.ilgis + 0.5}`} role="img" aria-label={`${m.pavadinimas} planas`}></svg>
+            </div>
+            <div class="cat-info">
+              <span class="tag">{m.paskirtis}</span>
+              <h3>{m.pavadinimas}</h3>
+              <dl class="specs">
+                <div><dt>Plotas</dt><dd>{m.plotas} m²</dd></div>
+                <div><dt>Miegamieji</dt><dd>{bedrooms(m)}</dd></div>
+                <div><dt>Moduliai</dt><dd>{m.moduliai}</dd></div>
+              </dl>
+              <div class="price-from"><span class="tag">nuo, be PVM</span><b data-from-price={m.id}>{money(fromPrice(m))}</b></div>
+              <span class="link-arrow" style="justify-self:start">Plačiau apie modelį <Arrow /></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="band-copy">
+        <span class="tag">Individualus projektas</span>
+        <h2>Turite savo eskizą?</h2>
+        <p style="max-width:52ch;opacity:.9">Atsiųskite eskizą ar pageidavimus. Pritaikysime jį prie modulių sistemos ir per savaitę pateiksime planą su kaina.</p>
+        <div class="hero-actions"><a class="btn btn-line" href="kontaktai.html">Aptarti projektą <Arrow /></a></div>
+      </div>
+    </div>
+  </section>
+</Base>

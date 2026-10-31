@@ -1,0 +1,82 @@
+---
+import Base from "../layouts/Base.astro";
+import { K } from "../lib/site";
+---
+<Base title="Kainyno valdymas" description="Demonstracija, kaip įmonė pati keičia kainas, o svetainė jas iškart naudoja.">
+  <header class="page-head">
+    <div class="wrap">
+      <span class="tag crumbs"><a href="index.html">Pradžia</a> / Kainyno valdymas (demo)</span>
+      <h1>Kainas keičiate patys.</h1>
+      <p class="lead">Pakeiskite skaičių, išsaugokite ir atidarykite konfigūratorių ar modelių puslapius. Kainos ten pasikeis iškart.</p>
+    </div>
+  </header>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="admin-note">
+        <b>Tai demonstracija.</b>
+        <span>Pakeitimai saugomi tik šioje naršyklėje. Tikroje svetainėje kainynas bus Google Sheets lentelėje arba turinio valdymo sistemoje, o pakeitimai pasieks visus lankytojus per minutę.</span>
+      </div>
+
+      <form id="admin" novalidate>
+        <h2 style="font-size:var(--step-3);margin-bottom:16px">Apdaila</h2>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th>Apdailos lygis</th><th>Aprašymas</th><th>€/m² be PVM</th></tr></thead>
+            <tbody>
+              {K.apdaila.map((a) => (
+                <tr><td><b>{a.pavadinimas}</b></td><td class="muted">{a.aprasymas}</td><td><input id={`adm-ap-${a.id}`} inputmode="decimal" data-k={`apdaila:${a.id}`} aria-label={`${a.pavadinimas} apdaila, eurai už m²`}></td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="font-size:var(--step-3);margin-bottom:16px">Fasadai ir stogai (priedas)</h2>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th>Pasirinkimas</th><th>Tipas</th><th>+ €/m² be PVM</th></tr></thead>
+            <tbody>
+              {K.fasadai.map((f) => (
+                <tr><td><span class="opt-swatch" style={`background:${f.spalvos[0]}`}></span>{f.pavadinimas}</td><td class="muted">Fasadas</td><td><input id={`adm-fa-${f.id}`} inputmode="decimal" data-k={`fasadai:${f.id}`} aria-label={`${f.pavadinimas}, priedas eurais už m²`}></td></tr>
+              ))}
+              {K.stogai.map((s) => (
+                <tr><td>{s.pavadinimas}</td><td class="muted">Stogas</td><td><input id={`adm-st-${s.id}`} inputmode="decimal" data-k={`stogai:${s.id}`} aria-label={`${s.pavadinimas} stogas, priedas eurais už m²`}></td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="font-size:var(--step-3);margin-bottom:16px">Papildomi darbai</h2>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead><tr><th>Darbas</th><th>Fiksuota, €</th><th>Už m², €</th><th>Už modulį, €</th></tr></thead>
+            <tbody>
+              {K.papildomi.map((p) => (
+                <tr>
+                  <td>{p.pavadinimas}</td>
+                  <td><input id={`adm-px-${p.id}-p`} inputmode="decimal" data-k={`papildomi:${p.id}:pastovi`} aria-label={`${p.pavadinimas}, fiksuota kaina`}></td>
+                  <td><input id={`adm-px-${p.id}-m`} inputmode="decimal" data-k={`papildomi:${p.id}:uzM2`} aria-label={`${p.pavadinimas}, kaina už m²`}></td>
+                  <td><input id={`adm-px-${p.id}-u`} inputmode="decimal" data-k={`papildomi:${p.id}:uzModuli`} aria-label={`${p.pavadinimas}, kaina už modulį`}></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="font-size:var(--step-3);margin-bottom:16px">Mokesčiai</h2>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <tbody><tr><td>PVM tarifas, %</td><td><input id="adm-pvm" inputmode="decimal" data-k="pvm" aria-label="PVM tarifas procentais"></td></tr></tbody>
+          </table>
+        </div>
+
+        <div class="admin-bar">
+          <button class="btn btn-primary" type="submit">Išsaugoti kainyną</button>
+          <button class="btn btn-line" type="button" id="admin-reset">Atkurti pradinį</button>
+          <a class="link-arrow" href="konfiguratorius.html">Atidaryti konfigūratorių</a>
+          <span class="status" id="admin-status" role="status"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+</Base>

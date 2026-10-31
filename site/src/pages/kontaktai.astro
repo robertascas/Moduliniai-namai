@@ -1,0 +1,88 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import { K, TEL, EMAIL } from "../lib/site";
+---
+<Base title="Kontaktai" current="kontaktai" description="Užklausa dėl modulinio namo: pasiūlymas per 2 darbo dienas.">
+  <header class="page-head">
+    <div class="wrap">
+      <span class="tag crumbs"><a href="index.html">Pradžia</a> / Kontaktai</span>
+      <h1>Pasiūlymas per 2 darbo dienas.</h1>
+      <p class="lead">Parašykite, kur yra sklypas ir koks namas jus domina. Atsiųsime kainą, terminą ir pasakysime, kokie pamatai tinka.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap contact">
+      <div class="contact-info">
+        <dl>
+          <div><dt class="tag">Telefonas</dt><dd><span>{TEL}</span><button class="copy-btn" type="button" data-copy={TEL}>Kopijuoti</button></dd></div>
+          <div><dt class="tag">El. paštas</dt><dd><span>{EMAIL}</span><button class="copy-btn" type="button" data-copy={EMAIL}>Kopijuoti</button></dd></div>
+          <div><dt class="tag">Gamykla</dt><dd>Vilniaus r., adresas tikslinamas</dd></div>
+          <div><dt class="tag">Darbo laikas</dt><dd>I–V 8:00–17:00</dd></div>
+        </dl>
+        <p class="muted">Gamyklą galima aplankyti iš anksto susitarus. Pamatysite, kaip gaminami moduliai, ir galėsite užeiti į baigtą namą.</p>
+      </div>
+      <div class="contact-form">
+        <form class="form" data-lead-form novalidate aria-label="Užklausos forma">
+          <div class="field">
+            <label for="lf-name">Vardas</label>
+            <input id="lf-name" autocomplete="name" required>
+            <span class="err" data-err-for="lf-name" hidden>Įrašykite vardą.</span>
+          </div>
+          <div class="field">
+            <label for="lf-phone">Telefonas</label>
+            <input id="lf-phone" type="tel" autocomplete="tel" required>
+            <span class="err" data-err-for="lf-phone" hidden>Įrašykite numerį, pvz. +370 600 12345.</span>
+          </div>
+          <div class="field">
+            <label for="lf-email">El. paštas</label>
+            <input id="lf-email" type="email" autocomplete="email" required>
+            <span class="err" data-err-for="lf-email" hidden>Įrašykite el. paštą, pvz. vardas@pastas.lt.</span>
+          </div>
+          <div class="field">
+            <label for="lf-place">Sklypo vieta</label>
+            <input id="lf-place" placeholder="pvz. Molėtų r.">
+          </div>
+          <div class="field">
+            <label for="lf-model">Dominantis modelis</label>
+            <select id="lf-model">
+              <option value="">Dar nežinau</option>
+              {K.modeliai.map((m) => <option value={m.id}>{m.pavadinimas}, {m.plotas} m²</option>)}
+              <option value="individualus">Individualus projektas</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="lf-plot">Ar turite sklypą?</label>
+            <select id="lf-plot">
+              <option>Taip, su statybos leidimu</option>
+              <option>Taip, be leidimo</option>
+              <option>Dar ieškau</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="lf-file">Sklypo planas ar eskizas (nebūtina)</label>
+            <input id="lf-file" type="file" accept=".pdf,.jpg,.jpeg,.png,.dwg">
+          </div>
+          <div class="field full">
+            <label for="lf-msg">Žinutė</label>
+            <textarea id="lf-msg" placeholder="Kiek žmonių gyvens, kada norėtumėte įsikurti, ypatingi pageidavimai"></textarea>
+          </div>
+          <label class="consent full" for="lf-consent">
+            <input type="checkbox" id="lf-consent" required>
+            <span>Sutinku, kad mano duomenys būtų tvarkomi pagal privatumo politiką.</span>
+          </label>
+          <span class="err full" data-err-for="lf-consent" hidden>Pažymėkite sutikimą, kad galėtume atsakyti.</span>
+          <div class="form-actions full">
+            <button class="btn btn-primary" type="submit">Siųsti užklausą <Arrow /></button>
+            <span class="tag">Atsakome per 2 darbo dienas</span>
+          </div>
+          <div class="ok-msg full" data-ok hidden>
+            <b>Užklausa paruošta.</b>
+            <span>Prototipe ji niekur nesiunčiama. Tikroje svetainėje ji keliautų vadybininkui, o jums grįžtų patvirtinimo laiškas.</span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>

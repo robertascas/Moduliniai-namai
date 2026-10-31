@@ -1,0 +1,59 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import Gantt from "../components/Gantt.astro";
+import { K } from "../lib/site";
+const steps = [
+  { t: "Ką atsinešti į konsultaciją", d: "Sklypo adresą arba kadastro numerį, norimą plotą ir kiek žmonių gyvens. Jei turite eskizą ar patinkančių namų nuotraukų, pasiimkite." },
+  { t: "Ką gaunate po konsultacijos", d: "Parinktą modelį ar individualų planą, orientacinę kainą su visais darbais ir terminų grafiką." },
+  { t: "Kada mokate", d: "30 % pasirašius sutartį, 50 % baigus gaminti modulius, 20 % po perdavimo. Bankai finansuoja modulinius namus kaip ir įprastus." },
+  { t: "Ką galite stebėti", d: "Gamybos metu kas savaitę siunčiame nuotraukas. Angare galite apsilankyti ir pamatyti savo namą prieš jį atvežant." },
+];
+---
+<Base title="Kaip statome" current="eiga" description="Modulinio namo statybos eiga savaitėmis: nuo konsultacijos iki raktų.">
+  <header class="page-head">
+    <div class="wrap">
+      <span class="tag crumbs"><a href="index.html">Pradžia</a> / Kaip statome</span>
+      <h1>Nuo pirmo skambučio iki raktų per {K.eiga[K.eiga.length - 1].iki} savaitę.</h1>
+      <p class="lead">Didžiausias laiko sutaupymas atsiranda todėl, kad gamykla ir sklypas dirba tuo pačiu metu, o oras gamybai netrukdo.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <Gantt />
+      <p class="note" style="margin-top:16px">Grafikas su projektu ir statybos leidimu. Jei leidimas jau turimas, viskas trumpėja apie 6 savaitėmis.</p>
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag tag-strong">Praktiškai</span>
+        <h2>Ką reikia žinoti iš anksto.</h2>
+      </div>
+      <div class="projects">
+        {steps.map((s) => (
+          <div class="project" style="grid-column:span 6;border-top:1px solid var(--rule-strong);padding-top:20px">
+            <h3>{s.t}</h3>
+            <p class="muted">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="band-copy">
+        <span class="tag">Pirmas žingsnis</span>
+        <h2>Pradėkime nuo sklypo.</h2>
+        <p style="max-width:52ch;opacity:.9">Atsiųskite adresą. Patikrinsime privažiavimą ir pasakysime, kokie pamatai tinka, dar prieš susitikimą.</p>
+        <div class="hero-actions"><a class="btn btn-line" href="kontaktai.html">Registruotis konsultacijai <Arrow /></a></div>
+      </div>
+    </div>
+  </section>
+</Base>
+<style>
+  @media (max-width: 760px) { .project { grid-column: 1 / -1 !important; } }
+</style>

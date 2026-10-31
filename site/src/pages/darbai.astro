@@ -1,0 +1,45 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import { K, PROJEKTAI, modelHref } from "../lib/site";
+---
+<Base title="Atlikti darbai" current="darbai" description="Pastatyti moduliniai namai: vieta, modelis, terminas ir trumpa istorija.">
+  <header class="page-head">
+    <div class="wrap">
+      <span class="tag crumbs"><a href="index.html">Pradžia</a> / Atlikti darbai</span>
+      <h1>Pastatyti namai.</h1>
+      <p class="lead">Prototipe objektai pavyzdiniai, vietoj nuotraukų rodomi brėžiniai. Tikroje svetainėje čia bus kliento nuotraukos, vaizdo įrašai iš gamybos ir montavimo bei atsiliepimai.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap projects">
+      {PROJEKTAI.map((p, i) => {
+        const m = K.modeliai.find((x) => x.id === p.model)!;
+        const f = K.fasadai.find((x) => x.id === p.fasadas)!;
+        return (
+          <article class="project" style="grid-column:span 6">
+            <div class="project-fig">
+              <span class="tag">Nuotrauka bus įkelta</span>
+              <svg class="axo" data-axo data-model={p.model} data-fasadas={p.fasadas} data-stogas={p.stogas} role="img" aria-label={`${p.pav}: ${m.pavadinimas}, ${f.pavadinimas.toLowerCase()}`} viewBox="0 0 600 420"></svg>
+            </div>
+            <div class="project-meta">
+              <h3>{p.pav}</h3>
+              <span class="tag">{p.vieta} · {p.metai}</span>
+            </div>
+            <p class="muted">{p.tekstas}</p>
+            <dl class="specs">
+              <div><dt>Modelis</dt><dd style="font-size:17px">{m.pavadinimas}</dd></div>
+              <div><dt>Fasadas</dt><dd style="font-size:17px">{f.pavadinimas.split(" ")[0]}</dd></div>
+              <div><dt>Terminas</dt><dd style="font-size:17px">{p.terminas}</dd></div>
+            </dl>
+            <a class="link-arrow" href={modelHref(m)} style="justify-self:start">Žiūrėti modelį <Arrow /></a>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+</Base>
+<style>
+  @media (max-width: 860px) { .project { grid-column: 1 / -1 !important; } }
+</style>

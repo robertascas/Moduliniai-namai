@@ -1,0 +1,59 @@
+---
+// Sienos pjūvis M 1:5, sluoksniai iš lauko į vidų (kairė → dešinė)
+const layers = [
+  { k: "01", pav: "Maumedžio fasado lenta", mm: 21, fill: "var(--larch)", pattern: "wood" },
+  { k: "02", pav: "Vėdinamas tarpas, grebėstai", mm: 25, fill: "var(--surface)", pattern: "air" },
+  { k: "03", pav: "Vėjo izoliacinė plokštė", mm: 15, fill: "#8C9AA8", pattern: "" },
+  { k: "04", pav: "Karkasas C24 su mineraline vata", mm: 250, fill: "#E9D58C", pattern: "wool" },
+  { k: "05", pav: "Garo izoliacinė plėvelė", mm: 1, fill: "var(--cobalt)", pattern: "" },
+  { k: "06", pav: "Instaliacinis sluoksnis su vata", mm: 45, fill: "#E9D58C", pattern: "wool" },
+  { k: "07", pav: "Dviguba gipso kartono plokštė", mm: 25, fill: "#D9DCE0", pattern: "" },
+];
+const total = layers.reduce((t, l) => t + l.mm, 0);
+const scale = 1.6; // px per mm piešinyje
+const H = 300;
+let x = 40;
+const drawn = layers.map((l) => { const w = Math.max(l.mm * scale, 4); const r = { ...l, x, w }; x += w; return r; });
+const W = x + 40;
+---
+<div class="wall">
+  <figure class="wall-fig" style="margin:0">
+    <svg viewBox={`0 0 ${W} ${H + 70}`} role="img" aria-label={`Sienos pjūvis, bendras storis ${total} mm`} style="width:100%;height:auto;display:block">
+      <defs>
+        <pattern id="wool" width="14" height="14" patternUnits="userSpaceOnUse">
+          <path d="M0 7 Q3.5 0 7 7 T14 7" fill="none" stroke="#B89B3C" stroke-width="1"/>
+        </pattern>
+        <pattern id="wood" width="6" height="40" patternUnits="userSpaceOnUse">
+          <path d="M3 0 Q5 20 3 40" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <text x="40" y="18" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink-2)">LAUKAS</text>
+      <text x={W - 40} y="18" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink-2)">VIDUS</text>
+      {drawn.map((l) => (
+        <g>
+          <rect x={l.x} y="30" width={l.w} height={H} fill={l.fill} stroke="var(--ink)" stroke-width="1"/>
+          {l.pattern === "wool" && <rect x={l.x} y="30" width={l.w} height={H} fill="url(#wool)"/>}
+          {l.pattern === "wood" && <rect x={l.x} y="30" width={l.w} height={H} fill="url(#wood)"/>}
+          {l.pattern === "air" && Array.from({ length: 6 }, (_, i) => <rect x={l.x + 4} y={50 + i * 50} width={l.w - 8} height="20" fill="var(--ink-2)" opacity=".35"/>)}
+          <text x={l.x + l.w / 2} y={H + 52} text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--cobalt)" font-weight="600">{l.k}</text>
+        </g>
+      ))}
+      <rect x={drawn[3].x} y="60" width={drawn[3].w} height="18" fill="#B58A4E" stroke="var(--ink)" stroke-width="1"/>
+      <rect x={drawn[3].x} y={H - 18} width={drawn[3].w} height="18" fill="#B58A4E" stroke="var(--ink)" stroke-width="1"/>
+      <line x1="40" y1={H + 62} x2={x} y2={H + 62} stroke="var(--ink-2)"/>
+      <text x={(40 + x) / 2} y={H + 76} text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--ink-2)">{total} mm</text>
+    </svg>
+    <p class="tag" style="margin-top:12px">Išorinės sienos pjūvis · M 1:5 · sluoksniai iš lauko į vidų</p>
+  </figure>
+  <div style="grid-column: 8 / -1; min-width:0" class="wall-side">
+    <ol class="wall-list">
+      {layers.map((l) => <li><span class="k">{l.k}</span><span>{l.pav}</span><span class="v">{l.mm} mm</span></li>)}
+    </ol>
+    <div class="wall-u">
+      <b class="num">U ≈ 0,12</b><span class="muted">W/m²K sienai. Pavyzdinė vertė, tikslinama pagal gamintojo šiluminį skaičiavimą.</span>
+    </div>
+  </div>
+</div>
+<style>
+  @media (max-width: 900px) { .wall-side { grid-column: 1 / -1 !important; } }
+</style>

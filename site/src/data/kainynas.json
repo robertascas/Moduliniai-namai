@@ -1,0 +1,122 @@
+{
+  "_pastaba": "Pavyzdinis kainynas prototipui. Tikroje svetainėje šie duomenys ateis iš Google Sheets arba TVS.",
+  "pvm": 0.21,
+  "moduloPlotis": 3.6,
+  "moduloAukstis": 2.9,
+  "modeliai": [
+    {
+      "id": "m40",
+      "pavadinimas": "Sala 40",
+      "plotas": 40,
+      "miegamieji": 1,
+      "miegamujuPastaba": "",
+      "moduliai": 1,
+      "ilgis": 11.1,
+      "paskirtis": "Sodo namas, svečių namelis, pirmas būstas",
+      "aprasymas": "Vieno modulio namas su atskiru miegamuoju ir erdvia svetaine, sujungta su virtuve. Atvežamas ir pastatomas per vieną dieną.",
+      "gamyba": 8,
+      "patalpos": [
+        { "pav": "Miegamasis", "x": 0, "y": 0, "w": 3.6, "h": 3.3 },
+        { "pav": "Vonia", "x": 0, "y": 3.3, "w": 1.8, "h": 2.2 },
+        { "pav": "Prieškambaris", "x": 1.8, "y": 3.3, "w": 1.8, "h": 2.2 },
+        { "pav": "Svetainė su virtuve", "x": 0, "y": 5.5, "w": 3.6, "h": 5.6 }
+      ]
+    },
+    {
+      "id": "m65",
+      "pavadinimas": "Pušis 65",
+      "plotas": 65,
+      "miegamieji": 2,
+      "miegamujuPastaba": "",
+      "moduliai": 2,
+      "ilgis": 9,
+      "paskirtis": "Porai ar mažai šeimai, nuolatiniam gyvenimui",
+      "aprasymas": "Du moduliai, du vienodi miegamieji ir per visą namo plotį einanti svetainė su virtuve. Techninė patalpa šilumos siurbliui ir skalbimo mašinai.",
+      "gamyba": 9,
+      "patalpos": [
+        { "pav": "Miegamasis", "x": 0, "y": 0, "w": 3.6, "h": 3.4 },
+        { "pav": "Miegamasis", "x": 3.6, "y": 0, "w": 3.6, "h": 3.4 },
+        { "pav": "Vonia", "x": 0, "y": 3.4, "w": 2.2, "h": 2.2 },
+        { "pav": "Prieškambaris", "x": 2.2, "y": 3.4, "w": 2.4, "h": 2.2 },
+        { "pav": "Techninė", "x": 4.6, "y": 3.4, "w": 2.6, "h": 2.2 },
+        { "pav": "Svetainė su virtuve", "x": 0, "y": 5.6, "w": 7.2, "h": 3.4 }
+      ]
+    },
+    {
+      "id": "m95",
+      "pavadinimas": "Giria 95",
+      "plotas": 95,
+      "miegamieji": 3,
+      "miegamujuPastaba": "",
+      "moduliai": 3,
+      "ilgis": 8.8,
+      "paskirtis": "Šeimos namas su trimis miegamaisiais",
+      "aprasymas": "Trijų modulių šeimos namas. Miegamieji vienoje pusėje, bendra erdvė kitoje, tarp jų vonia, WC su skalbykla ir techninė patalpa.",
+      "gamyba": 10,
+      "patalpos": [
+        { "pav": "Miegamasis", "x": 0, "y": 0, "w": 3.6, "h": 3.6 },
+        { "pav": "Miegamasis", "x": 3.6, "y": 0, "w": 3.6, "h": 3.6 },
+        { "pav": "Miegamasis", "x": 7.2, "y": 0, "w": 3.6, "h": 3.6 },
+        { "pav": "Vonia", "x": 0, "y": 3.6, "w": 2.4, "h": 2.0 },
+        { "pav": "Prieškambaris", "x": 2.4, "y": 3.6, "w": 3.6, "h": 2.0 },
+        { "pav": "Techninė", "x": 6.0, "y": 3.6, "w": 1.8, "h": 2.0 },
+        { "pav": "WC, skalbykla", "x": 7.8, "y": 3.6, "w": 3.0, "h": 2.0 },
+        { "pav": "Svetainė su virtuve", "x": 0, "y": 5.6, "w": 10.8, "h": 3.2 }
+      ]
+    },
+    {
+      "id": "m120",
+      "pavadinimas": "Sodyba 120",
+      "plotas": 120,
+      "miegamieji": 2,
+      "miegamujuPastaba": "+ kabinetas",
+      "moduliai": 3,
+      "ilgis": 11.1,
+      "paskirtis": "Erdvus namas su darbo kambariu",
+      "aprasymas": "Didžiausias standartinis modelis: šeimininkų miegamasis su drabužine ir vonia, antras miegamasis, kabinetas darbui iš namų ir 50 m² svetainė su virtuve.",
+      "gamyba": 12,
+      "patalpos": [
+        { "pav": "Šeimininkų miegamasis", "x": 0, "y": 0, "w": 3.6, "h": 4.2 },
+        { "pav": "Vonia", "x": 3.6, "y": 0, "w": 2.4, "h": 2.4 },
+        { "pav": "Drabužinė", "x": 3.6, "y": 2.4, "w": 2.4, "h": 1.8 },
+        { "pav": "Miegamasis", "x": 6.0, "y": 0, "w": 4.8, "h": 4.2 },
+        { "pav": "Prieškambaris", "x": 0, "y": 4.2, "w": 2.4, "h": 2.2 },
+        { "pav": "Kabinetas", "x": 2.4, "y": 4.2, "w": 3.0, "h": 2.2 },
+        { "pav": "Techninė", "x": 5.4, "y": 4.2, "w": 2.0, "h": 2.2 },
+        { "pav": "WC", "x": 7.4, "y": 4.2, "w": 3.4, "h": 2.2 },
+        { "pav": "Svetainė su virtuve", "x": 0, "y": 6.4, "w": 10.8, "h": 4.7 }
+      ]
+    }
+  ],
+  "apdaila": [
+    { "id": "dalinė", "pavadinimas": "Dalinė", "kainaM2": 560, "papildomosSavaites": 0, "aprasymas": "Karkasas, stogas, langai, fasadas. Vidų įsirengiate patys." },
+    { "id": "standartinė", "pavadinimas": "Standartinė", "kainaM2": 860, "papildomosSavaites": 2, "aprasymas": "Plius inžinerinės sistemos, šildymas ir paruoštos dažyti sienos." },
+    { "id": "pilna", "pavadinimas": "Pilna", "kainaM2": 1020, "papildomosSavaites": 4, "aprasymas": "Raktai į rankas: grindys, durys, vonia ir virtuvės baldai." }
+  ],
+  "fasadai": [
+    { "id": "maumedis", "pavadinimas": "Maumedžio lenta", "kainaM2": 0, "spalvos": ["#C98A55", "#A86E3F", "#E0A873"] },
+    { "id": "pilka", "pavadinimas": "Pilka sendinta lenta", "kainaM2": 0, "spalvos": ["#A9A49B", "#8A867E", "#C4C0B8"] },
+    { "id": "juoda", "pavadinimas": "Juoda deginta lenta", "kainaM2": 25, "spalvos": ["#2E2F33", "#1F2023", "#45464B"] },
+    { "id": "tinkas", "pavadinimas": "Baltas tinkas", "kainaM2": 15, "spalvos": ["#EEEDE8", "#D6D5D0", "#FAFAF7"] }
+  ],
+  "stogai": [
+    { "id": "slaitinis", "pavadinimas": "Šlaitinis", "kainaM2": 45 },
+    { "id": "plokscias", "pavadinimas": "Plokščias", "kainaM2": 0 }
+  ],
+  "papildomi": [
+    { "id": "pamatai", "pavadinimas": "Sraigtiniai poliai", "pastovi": 3500, "uzM2": 45, "uzModuli": 0, "numatyta": true, "aprasymas": "Įrengiami per 1–2 dienas, nereikia betonavimo." },
+    { "id": "transportas", "pavadinimas": "Transportas ir montavimas kranu", "pastovi": 1200, "uzM2": 0, "uzModuli": 1800, "numatyta": true, "aprasymas": "Iki 150 km nuo gamyklos. Toliau skaičiuojama atskirai." },
+    { "id": "komunikacijos", "pavadinimas": "Prijungimas prie komunikacijų", "pastovi": 6500, "uzM2": 0, "uzModuli": 0, "numatyta": false, "aprasymas": "Elektra, vanduo ir nuotekos iki 15 m nuo namo." },
+    { "id": "terasa", "pavadinimas": "Maumedžio terasa 20 m²", "pastovi": 4200, "uzM2": 0, "uzModuli": 0, "numatyta": false, "aprasymas": "Ant polių, su laiptais." },
+    { "id": "projektas", "pavadinimas": "Projektas ir statybos leidimas", "pastovi": 3900, "uzM2": 0, "uzModuli": 0, "numatyta": false, "aprasymas": "Techninis projektas ir pagalba gaunant leidimą. Prideda apie 6 savaites." }
+  ],
+  "eiga": [
+    { "pav": "Konsultacija ir sklypo įvertinimas", "nuo": 0, "iki": 1, "aprasymas": "Aptariame poreikius, apžiūrime sklypą ir privažiavimą, parenkame modelį." },
+    { "pav": "Projektas ir statybos leidimas", "nuo": 1, "iki": 7, "aprasymas": "Parengiame techninį projektą ir padedame gauti statybą leidžiantį dokumentą." },
+    { "pav": "Sutartis ir avansas", "nuo": 7, "iki": 8, "aprasymas": "Fiksuojame kainą, specifikaciją, terminus ir garantijos sąlygas." },
+    { "pav": "Modulių gamyba angare", "nuo": 8, "iki": 18, "aprasymas": "Karkasas, šiltinimas, langai, inžinerija ir apdaila sausoje patalpoje." },
+    { "pav": "Pamatai sklype", "nuo": 15, "iki": 17, "aprasymas": "Kol baigiami moduliai, sklype įsukami poliai ir paruošiami įvadai." },
+    { "pav": "Transportas ir montavimas", "nuo": 18, "iki": 19, "aprasymas": "Moduliai atvežami vilkiku ir per dieną sustatomi kranu." },
+    { "pav": "Sujungimai ir perdavimas", "nuo": 19, "iki": 21, "aprasymas": "Sujungiame sistemas, darome sandarumo testą, perduodame dokumentus." }
+  ]
+}

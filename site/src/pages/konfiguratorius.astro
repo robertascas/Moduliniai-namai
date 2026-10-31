@@ -1,0 +1,214 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import Logo from "../components/Logo.astro";
+import { K, money, fromPrice, rate, BRAND, TEL, EMAIL } from "../lib/site";
+const def = { model: "m95", apdaila: "standartinė", fasadas: "maumedis", stogas: "slaitinis" };
+---
+<Base title="Kainos skaičiuoklė" current="konfiguratorius" description="Susikonfigūruokite modulinį namą: modelis, apdaila, fasadas, stogas ir papildomi darbai. Kaina su PVM ir terminas iškart.">
+  <header class="page-head">
+    <div class="wrap">
+      <span class="tag crumbs"><a href="index.html">Pradžia</a> / Kaina</span>
+      <h1>Susikonfigūruokite namą.</h1>
+      <p class="lead">Kaina keičiasi kartu su pasirinkimais. Galutinę sumą fiksuojame sutartyje, kai apžiūrime sklypą ir privažiavimą.</p>
+    </div>
+  </header>
+
+  <section class="section-tight">
+    <div class="wrap cfg">
+      <div class="cfg-stage">
+        <div class="stage-bar">
+          <span class="tag">Vaizdas atnaujinamas pagal pasirinkimus</span>
+          <button class="chip-btn" type="button" id="cfg-explode" aria-pressed="false">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1" y="6" width="4" height="9"/><rect x="6" y="3" width="4" height="9"/><rect x="11" y="0.8" width="4" height="9"/></svg>
+            <span>Išskaidyti į modulius</span>
+          </button>
+        </div>
+        <svg class="axo" id="cfg-axo" role="img" aria-label="Pasirinkto namo aksonometrinis vaizdas" viewBox="0 0 600 420" style="width:100%;height:auto"></svg>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,150px);gap:16px;align-items:end">
+          <div class="stage-summary" style="border:0;padding:0;display:grid;gap:4px;justify-content:start">
+            <b id="cfg-name">Giria 95</b>
+            <span class="tag" id="cfg-sub">95 m² · 3 mod.</span>
+          </div>
+          <svg class="plan" id="cfg-plan" role="img" aria-label="Pasirinkto namo planas" viewBox="0 0 11 9"></svg>
+        </div>
+        <div class="stage-summary">
+          <span class="tag">Be PVM</span>
+          <b id="cfg-total" class="num">–</b>
+          <span class="tag">Terminas: <span id="cfg-weeks">–</span></span>
+        </div>
+      </div>
+
+      <div class="cfg-panel">
+        <form id="cfg" class="cfg-form" style="display:grid;gap:40px" aria-label="Namo konfigūratorius" onsubmit="return false">
+          <fieldset>
+            <legend><span class="tag tag-strong">1</span>Modelis</legend>
+            <div class="opt-grid">
+              {K.modeliai.map((m) => (
+                <div class="opt">
+                  <input type="radio" name="model" id={`cfg-model-${m.id}`} value={m.id} checked={m.id === def.model}>
+                  <label for={`cfg-model-${m.id}`}>
+                    <span class="row"><b>{m.pavadinimas}</b><span class="p" data-opt-price={`model:${m.id}`}>nuo {money(fromPrice(m))}</span></span>
+                    <small>{m.plotas} m² · {m.moduliai} mod. · {m.miegamieji} miegam.</small>
+                  </label>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="tag tag-strong">2</span>Apdaila</legend>
+            <div class="opt-grid cols-1">
+              {K.apdaila.map((a) => (
+                <div class="opt">
+                  <input type="radio" name="apdaila" id={`cfg-ap-${a.id}`} value={a.id} checked={a.id === def.apdaila}>
+                  <label for={`cfg-ap-${a.id}`}>
+                    <span class="row"><b>{a.pavadinimas}</b><span class="p" data-opt-price={`apdaila:${a.id}`}>{rate(a.kainaM2)}</span></span>
+                    <small>{a.aprasymas}</small>
+                  </label>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="tag tag-strong">3</span>Fasadas</legend>
+            <div class="opt-grid">
+              {K.fasadai.map((f) => (
+                <div class="opt">
+                  <input type="radio" name="fasadas" id={`cfg-fa-${f.id}`} value={f.id} checked={f.id === def.fasadas}>
+                  <label for={`cfg-fa-${f.id}`}>
+                    <span class="row"><b><span class="opt-swatch" style={`background:${f.spalvos[0]}`}></span>{f.pavadinimas}</b></span>
+                    <span class="p" data-opt-price={`fasadai:${f.id}`}>įskaičiuota</span>
+                  </label>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="tag tag-strong">4</span>Stogas</legend>
+            <div class="opt-grid">
+              {K.stogai.map((s) => (
+                <div class="opt">
+                  <input type="radio" name="stogas" id={`cfg-st-${s.id}`} value={s.id} checked={s.id === def.stogas}>
+                  <label for={`cfg-st-${s.id}`}>
+                    <span class="row"><b>{s.pavadinimas}</b></span>
+                    <span class="p" data-opt-price={`stogai:${s.id}`}>įskaičiuota</span>
+                  </label>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span class="tag tag-strong">5</span>Papildomi darbai</legend>
+            <div class="opt-grid cols-1">
+              {K.papildomi.map((p) => (
+                <div class="opt chk">
+                  <input type="checkbox" name="papildomi" id={`cfg-px-${p.id}`} value={p.id} checked={p.numatyta}>
+                  <label for={`cfg-px-${p.id}`}>
+                    <b>{p.pavadinimas}</b>
+                    <span class="p" data-opt-price={`papildomi:${p.id}`}></span>
+                    <small>{p.aprasymas}</small>
+                  </label>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="total-box">
+          <span class="tag">Orientacinė kaina</span>
+          <dl class="breakdown" id="cfg-breakdown"></dl>
+          <p class="note">Pavyzdinės prototipo kainos. Tikrame puslapyje jos ateis iš kainyno, kurį tvarko įmonė.</p>
+        </div>
+
+        <form id="offer-form" class="form" novalidate aria-label="Pasiūlymo užklausa">
+          <h3 class="full">Gauti pasiūlymą su šia konfigūracija</h3>
+          <div class="field">
+            <label for="of-name">Vardas, pavardė</label>
+            <input id="of-name" autocomplete="name" required>
+            <span class="err" data-err-for="of-name" hidden>Įrašykite vardą.</span>
+          </div>
+          <div class="field">
+            <label for="of-phone">Telefonas</label>
+            <input id="of-phone" type="tel" autocomplete="tel" required>
+            <span class="err" data-err-for="of-phone" hidden>Įrašykite numerį, pvz. +370 600 12345.</span>
+          </div>
+          <div class="field">
+            <label for="of-email">El. paštas</label>
+            <input id="of-email" type="email" autocomplete="email" required>
+            <span class="err" data-err-for="of-email" hidden>Įrašykite el. paštą, pvz. vardas@pastas.lt.</span>
+          </div>
+          <div class="field">
+            <label for="of-place">Sklypo vieta</label>
+            <input id="of-place" placeholder="pvz. Trakų r., Lentvaris">
+          </div>
+          <label class="consent full" for="of-consent">
+            <input type="checkbox" id="of-consent" required>
+            <span>Sutinku, kad duomenys būtų naudojami pasiūlymui parengti.</span>
+          </label>
+          <span class="err full" data-err-for="of-consent" hidden>Pažymėkite sutikimą, kad galėtume parengti pasiūlymą.</span>
+          <div class="form-actions full">
+            <button class="btn btn-primary" type="submit">Sugeneruoti pasiūlymą <Arrow /></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer-wrap" id="offer-section" hidden>
+    <div class="wrap">
+      <article class="offer" aria-label="Komercinio pasiūlymo projektas">
+        <div class="offer-head">
+          <div style="display:grid;gap:10px">
+            <span class="brand"><Logo />{BRAND}</span>
+            <span class="tag">MB „{BRAND}“ (darbinis pavadinimas) · {TEL} · {EMAIL}</span>
+          </div>
+          <div class="offer-meta">
+            <span>Pasiūlymas</span><span id="of-no">–</span>
+            <span>Data</span><span id="of-date">–</span>
+            <span>Galioja iki</span><span id="of-valid">–</span>
+          </div>
+        </div>
+
+        <div style="display:grid;gap:6px">
+          <span class="tag">Komercinio pasiūlymo projektas</span>
+          <h2 style="font-size:var(--step-3)" id="of-model">–</h2>
+          <span class="tag" id="of-spec">–</span>
+        </div>
+
+        <div class="offer-grid">
+          <div class="offer-fig"><svg class="axo" id="of-axo" viewBox="0 0 600 420" role="img" aria-label="Namo vaizdas" style="width:100%;height:auto"></svg></div>
+          <div class="offer-fig"><svg class="plan" id="of-plan" viewBox="0 0 12 12" role="img" aria-label="Namo planas" style="max-height:300px"></svg></div>
+        </div>
+
+        <div class="offer-grid">
+          <div style="display:grid;gap:4px"><span class="tag">Klientas</span><b id="of-client">–</b><span id="of-contacts">–</span></div>
+          <div style="display:grid;gap:4px"><span class="tag">Sklypas</span><b id="of-place-out">–</b><span class="tag">Terminas</span><span id="of-weeks">–</span></div>
+        </div>
+
+        <table>
+          <thead><tr><th style="width:36px">Nr.</th><th>Darbai ir medžiagos</th><th>Suma</th></tr></thead>
+          <tbody id="of-lines"></tbody>
+          <tfoot>
+            <tr><td></td><td>Iš viso be PVM</td><td id="of-net">–</td></tr>
+            <tr><td></td><td id="of-vat-label">PVM</td><td id="of-vat">–</td></tr>
+            <tr class="grand"><td></td><td>Iš viso su PVM</td><td id="of-gross">–</td></tr>
+          </tfoot>
+        </table>
+
+        <div class="fine">
+          <p>Mokėjimas: 30 % avansas pasirašius sutartį, 50 % baigus gaminti modulius, 20 % po perdavimo.</p>
+          <p>Garantija: 10 metų konstrukcijoms ir paslėptiems darbams, 5 metai matomiems darbams.</p>
+          <p>Kaina orientacinė. Ji patikslinama apžiūrėjus sklypą, įvertinus privažiavimą ir gruntą.</p>
+        </div>
+      </article>
+      <div class="offer-actions">
+        <span class="tag">Prototipe pasiūlymas niekur nesiunčiamas. Tikroje svetainėje jis keliautų vadybininkui ir klientui el. paštu PDF formatu.</span>
+        <a class="btn btn-line btn-sm" href="#cfg">Keisti konfigūraciją</a>
+      </div>
+    </div>
+  </section>
+</Base>

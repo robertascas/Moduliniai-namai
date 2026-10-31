@@ -1,0 +1,169 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import AxoStage from "../components/AxoStage.astro";
+import Gantt from "../components/Gantt.astro";
+import WallSection from "../components/WallSection.astro";
+import { K, DUK, PROJEKTAI, money, fromPrice, modelHref, width, bedrooms } from "../lib/site";
+
+const maxL = Math.max(...K.modeliai.map((m) => m.ilgis));
+const example = K.modeliai.find((m) => m.id === "m95")!;
+const std = K.apdaila.find((a) => a.id === "standartinė")!;
+const exampleNet = example.plotas * std.kainaM2 + K.papildomi.filter((p) => p.numatyta).reduce((t, p) => t + p.pastovi + p.uzM2 * example.plotas + p.uzModuli * example.moduliai, 0);
+const proj = PROJEKTAI.slice(0, 3);
+---
+<Base title="MODULIS" description="Moduliniai karkasiniai namai iš Lietuvos gamyklos. Keturi modeliai nuo 40 iki 120 m², kainos skaičiuoklė ir aiški statybos eiga.">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="tag">Moduliniai namai · gamyba Vilniaus r. · montavimas visoje Lietuvoje</span>
+        <h1>Namas, kuris atvažiuoja <em>baigtas.</em></h1>
+        <p class="lead">Modulius gaminame sausame angare, kol sklype įrengiami pamatai. Atvežame vilkiku, per dieną sustatome kranu ir po poros savaičių perduodame raktus.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="konfiguratorius.html">Susikonfigūruoti namą <Arrow /></a>
+          <a class="btn btn-line" href="namai.html">Žiūrėti modelius</a>
+        </div>
+      </div>
+      <div class="hero-stage">
+        <AxoStage id="hero-axo" model="m95" fasadas="maumedis" stogas="slaitinis" start="exploded" dims={true} label="Giria 95: trijų modulių namas su šlaitiniu stogu, aksonometrinis vaizdas" />
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="facts">
+      <div><b>1 diena</b><span class="tag">montavimas sklype</span></div>
+      <div><b>A++</b><span class="tag">energinė klasė</span></div>
+      <div><b>10 m.</b><span class="tag">garantija konstrukcijai</span></div>
+      <div><b class="num">≈ 21 sav.</b><span class="tag">nuo skambučio iki raktų</span></div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag tag-strong">Modeliai</span>
+        <h2>Keturi namai, nubraižyti tuo pačiu masteliu.</h2>
+        <p class="lead">Taip iškart matote, kiek vietos gaunate. Kiekvienas namas sudarytas iš {K.moduloPlotis.toString().replace(".", ",")} m pločio modulių, planą galima keisti.</p>
+      </div>
+      <div class="lineup-scroll">
+        <div class="lineup">
+          {K.modeliai.map((m) => (
+            <a href={modelHref(m)} style={`--w:${width(m)}`}>
+              <div class="plan-box">
+                <svg class="plan" data-plan={m.id} data-labels="false" viewBox={`-0.25 -0.25 ${width(m) + 0.5} ${m.ilgis + 0.5}`} role="img" aria-label={`${m.pavadinimas} planas`} style={`aspect-ratio:${(width(m) + 0.5) / (m.ilgis + 0.5)}`}></svg>
+              </div>
+              <div class="meta">
+                <b>{m.pavadinimas}</b>
+                <span class="tag">{m.plotas} m² · {m.moduliai} mod. · {bedrooms(m)} miegam.</span>
+                <span class="price">nuo <span data-from-price={m.id}>{money(fromPrice(m))}</span></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="scale-note">
+        <span class="tag">M 1:200 · kainos be PVM, dalinė apdaila</span>
+        <a class="link-arrow" href="namai.html">Visi modeliai ir planai <Arrow /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag tag-strong">Technologija</span>
+        <h2>Siena, surinkta ten, kur nelyja.</h2>
+        <p class="lead">Karkasas, šiltinimas ir garo izoliacija sumontuojami sausoje patalpoje. Medžiagos nesušlampa, siena išlieka sandari, o namui šildyti užtenka šilumos siurblio.</p>
+      </div>
+      <WallSection />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag tag-strong">Kaip statome</span>
+        <h2>Gamykla ir sklypas dirba tuo pačiu metu.</h2>
+        <a class="link-arrow sec-link" href="eiga.html">Visa eiga su paaiškinimais <Arrow /></a>
+      </div>
+      <Gantt compact={true} />
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="band-copy">
+        <span class="tag">Kainos skaičiuoklė</span>
+        <h2>Kiek kainuotų jūsų namas, sužinosite per minutę.</h2>
+        <p style="max-width:52ch;opacity:.9">Pasirinkite modelį, apdailą, fasadą ir papildomus darbus. Matysite visą sumą su PVM ir terminą, o paspaudę mygtuką gausite pasiūlymo projektą.</p>
+        <div class="hero-actions">
+          <a class="btn btn-line" href="konfiguratorius.html">Atidaryti konfigūratorių <Arrow /></a>
+        </div>
+      </div>
+      <div class="band-price">
+        <span class="tag">Pavyzdys: {example.pavadinimas}, standartinė apdaila, su pamatais ir montavimu</span>
+        <b class="num">{money(exampleNet)}</b>
+        <span class="tag">be PVM</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag tag-strong">Atlikti darbai</span>
+        <h2>Pastatyti namai.</h2>
+        <a class="link-arrow sec-link" href="darbai.html">Visi objektai <Arrow /></a>
+      </div>
+      <div class="projects">
+        {proj.map((p, i) => {
+          const m = K.modeliai.find((x) => x.id === p.model)!;
+          return (
+            <a class="project" href="darbai.html">
+              <div class="project-fig">
+                <span class="tag">Nuotrauka bus įkelta</span>
+                <svg class="axo" data-axo data-model={p.model} data-fasadas={p.fasadas} data-stogas={p.stogas} role="img" aria-label={`${p.pav}, ${m.pavadinimas}`} viewBox="0 0 600 420"></svg>
+              </div>
+              <div class="project-meta">
+                <h3>{p.pav}</h3>
+                <span class="tag">{p.vieta} · {m.pavadinimas} · {p.terminas}</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section surface">
+    <div class="wrap faq">
+      <div class="faq-head">
+        <span class="tag tag-strong">DUK</span>
+        <h2>Ko klausia dažniausiai.</h2>
+        <a class="link-arrow" href="duk.html">Visi klausimai ir garantija <Arrow /></a>
+      </div>
+      <div class="faq-list">
+        {DUK.slice(0, 5).map((d, i) => (
+          <details open={i === 0}>
+            <summary>{d.q}</summary>
+            <div class="ans">{d.a.map((p) => <p>{p}</p>)}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="tag tag-strong">Kontaktai</span>
+        <h2>Turite sklypą? Atsiųskite adresą, įvertinsime nemokamai.</h2>
+        <div class="sec-link hero-actions">
+          <a class="btn btn-primary" href="kontaktai.html">Parašyti užklausą <Arrow /></a>
+          <a class="btn btn-line" href="konfiguratorius.html">Apskaičiuoti kainą</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

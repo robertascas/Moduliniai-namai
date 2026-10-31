@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import { DUK } from "../lib/site";
+---
+<Base title="DUK ir garantija" current="duk" description="Dažniausi klausimai apie modulinius namus: leidimai, kaina, terminai, garantija, mokėjimas.">
+  <header class="page-head">
+    <div class="wrap">
+      <span class="tag crumbs"><a href="index.html">Pradžia</a> / DUK</span>
+      <h1>Klausimai ir garantija.</h1>
+      <p class="lead">Neradote atsakymo? Paskambinkite darbo dienomis 8–17 val. arba parašykite, atsakysime tą pačią dieną.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap faq">
+      <div class="faq-head">
+        <span class="tag tag-strong">Garantija</span>
+        <dl class="specs" style="grid-template-columns:1fr 1fr">
+          <div><dt>Konstrukcijai</dt><dd>10 metų</dd></div>
+          <div><dt>Matomiems darbams</dt><dd>5 metai</dd></div>
+        </dl>
+        <p class="muted">Garantija skaičiuojama nuo perdavimo akto datos. Įrenginiams taikoma gamintojų garantija. Visos sąlygos surašomos vienoje vietoje: sutartyje.</p>
+        <a class="btn btn-primary" href="kontaktai.html" style="justify-self:start">Užduoti klausimą <Arrow /></a>
+      </div>
+      <div class="faq-list">
+        {DUK.map((d, i) => (
+          <details open={i === 0}>
+            <summary>{d.q}</summary>
+            <div class="ans">{d.a.map((p) => <p>{p}</p>)}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
