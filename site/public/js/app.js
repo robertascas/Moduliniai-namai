@@ -2,6 +2,17 @@
 (function () {
   "use strict";
 
+  // Atidarius puslapį visada pradėti nuo viršaus (nebent nuoroda veda į konkrečią vietą)
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  function toTop() {
+    var id = location.hash.slice(1);
+    if (id && document.getElementById(id)) return;
+    window.scrollTo(0, 0);
+  }
+  toTop();
+  window.addEventListener("pageshow", toTop);
+  window.addEventListener("load", function () { setTimeout(toTop, 0); });
+
   // Meniu mobiliajame
   var tog = document.querySelector(".nav-toggle"), nav = document.getElementById("nav");
   if (tog && nav) {
