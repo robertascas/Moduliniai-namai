@@ -1,0 +1,70 @@
+[
+  {
+    "id": "namas",
+    "slug": "moduliniai-namai",
+    "pavadinimas": "Moduliniai namai",
+    "trumpai": "Sodui, poilsiui ar nuolatiniam gyvenimui.",
+    "aprasymas": "Modulinius namus gaminame kontroliuojamose patalpose, todėl medžiagos jūsų sklype negadinamos lietaus. Išplanavimą, spalvas ir medžiagas deriname su kiekvienu klientu, o pagamintą namą pristatome ir sumontuojame Vilniuje ir Vilniaus rajone.",
+    "punktai": [
+      "Sodui, poilsiui ar nuolatiniam gyvenimui",
+      "Išplanavimas, spalvos ir medžiagos derinami individualiai",
+      "Dalinė apdaila arba pilnas įrengimas „iki rakto“",
+      "Pristatymas ir montavimas Vilniuje ir Vilniaus rajone"
+    ],
+    "nuotrauka": "modulinis-namas",
+    "alt": "Modulinio namo vizualizacija žiemos vakarą su apšviestais langais",
+    "seoTitle": "Moduliniai namai Vilniuje ir Vilniaus rajone",
+    "seoDescription": "Moduliniai namai sodui, poilsiui ar nuolatiniam gyvenimui. Gamyba kontroliuojamose patalpose, dalinė apdaila arba „iki rakto“. Montavimas Vilniuje ir Vilniaus r."
+  },
+  {
+    "id": "pirtis",
+    "slug": "modulines-pirtys",
+    "pavadinimas": "Modulinės pirtys",
+    "trumpai": "Su malkinėmis arba elektrinėmis krosnelėmis, poilsio kambariais, terasomis.",
+    "aprasymas": "Modulines pirtis gaminame su malkine arba elektrine krosnele, poilsio kambariu ir terasa pagal jūsų pageidavimus. Pilno įrengimo atveju pirtis perduodama su sumontuota ir sureguliuota krosnimi.",
+    "punktai": [
+      "Malkinė arba elektrinė krosnelė",
+      "Poilsio kambarys",
+      "Terasa",
+      "Pilnu įrengimu: su sumontuota pirties krosnimi"
+    ],
+    "nuotrauka": "moduline-pirtis",
+    "alt": "Modulinės pirties su terasa vizualizacija žiemos vakarą",
+    "seoTitle": "Modulinės pirtys su malkine ar elektrine krosnele",
+    "seoDescription": "Modulinės pirtys su malkinėmis arba elektrinėmis krosnelėmis, poilsio kambariais ir terasomis. Pristatymas ir montavimas Vilniuje ir Vilniaus rajone."
+  },
+  {
+    "id": "sandeliukas",
+    "slug": "sandeliukai-ir-ukio-pastatai",
+    "pavadinimas": "Lauko sandėliukai ir ūkio pastatai",
+    "trumpai": "Tvarkingi, ilgaamžiai, greitai pastatomi.",
+    "aprasymas": "Lauko sandėliukus ir ūkio pastatus gaminame taip pat kaip namus: kontroliuojamose patalpose, iš sertifikuotos, kalibruotos medienos. Spalvas ir medžiagas deriname, kad pastatas derėtų prie jūsų namo ir sklypo.",
+    "punktai": [
+      "Tvarkingi ir ilgaamžiai",
+      "Greitai pastatomi",
+      "Sertifikuota, kalibruota mediena",
+      "Spalvos ir medžiagos derinamos individualiai"
+    ],
+    "nuotrauka": "lauko-sandeliukas",
+    "alt": "Lauko sandėliuko su malkine vizualizacija žiemą",
+    "seoTitle": "Lauko sandėliukai ir ūkio pastatai",
+    "seoDescription": "Tvarkingi, ilgaamžiai, greitai pastatomi lauko sandėliukai ir ūkio pastatai iš sertifikuotos, kalibruotos medienos. Vilnius ir Vilniaus rajonas."
+  },
+  {
+    "id": "karkasinis",
+    "slug": "karkasiniai-namai-ir-garazai",
+    "pavadinimas": "Karkasiniai namai ir garažai",
+    "trumpai": "Namai, vasarnamiai ir garažai pagal jūsų arba mūsų projektą.",
+    "aprasymas": "Projektuojame ir statome ilgaamžius, šiltus bei modernius karkasinius namus, pirtis, vasarnamius ir garažus. Statome pagal jūsų arba mūsų siūlomus projektus, nuo pamatų iki raktų pridavimo.",
+    "punktai": [
+      "Karkasiniai namai, vasarnamiai ir garažai",
+      "Pagal jūsų arba mūsų siūlomus projektus",
+      "Puiki šilumos ir garso izoliacija",
+      "Nuo pamatų iki raktų pridavimo"
+    ],
+    "nuotrauka": "karkasas",
+    "alt": "Karkasinio namo konstrukcijos vizualizacija saulėlydžio šviesoje",
+    "seoTitle": "Karkasiniai namai, vasarnamiai ir garažai",
+    "seoDescription": "Projektuojame ir statome ilgaamžius, šiltus bei modernius karkasinius namus, vasarnamius ir garažus. Nuo pamatų iki raktų pridavimo, sąmata suderinama iš anksto."
+  }
+]

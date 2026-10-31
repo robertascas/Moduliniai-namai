@@ -1,11 +1,8 @@
 import { defineConfig } from "astro/config";
 
-// Prototipas generuojamas kaip plokšti HTML failai su santykinėmis nuorodomis,
-// kad veiktų atidarius tiesiai iš disko ir bet kokiame statiniame talpinime.
+// Plokšti HTML failai su santykinėmis nuorodomis: veikia iš disko, Cloudflare Pages ir Artifact peržiūroje.
 export default defineConfig({
-  build: {
-    format: "file",
-    inlineStylesheets: "always",
-  },
+  site: "https://www.siltaskarkasas.lt",
+  build: { format: "file", inlineStylesheets: "always" },
   devToolbar: { enabled: false },
 });

@@ -1,85 +1,128 @@
 ---
 import Base from "../layouts/Base.astro";
 import Arrow from "../components/Arrow.astro";
-import { K, TEL, EMAIL } from "../lib/site";
+import { imone, produktai, img, telHref, crumbsSchema } from "../lib/site";
 ---
-<Base title="Kontaktai" current="kontaktai" description="Užklausa dėl modulinio namo: pasiūlymas per 2 darbo dienas.">
+<Base
+  path="kontaktai.html"
+  current="kontaktai"
+  title="Kontaktai ir užklausa | Šiltas karkasas"
+  description={`Aptarkime jūsų projektą: ${imone.telefonai.join(", ")}, ${imone.elPastas}. ${imone.vietove}.`}
+  schema={[crumbsSchema([{ name: "Pradžia", path: "" }, { name: "Kontaktai", path: "kontaktai.html" }])]}
+>
   <header class="page-head">
     <div class="wrap">
-      <span class="tag crumbs"><a href="index.html">Pradžia</a> / Kontaktai</span>
-      <h1>Pasiūlymas per 2 darbo dienas.</h1>
-      <p class="lead">Parašykite, kur yra sklypas ir koks namas jus domina. Atsiųsime kainą, terminą ir pasakysime, kokie pamatai tinka.</p>
+      <span class="crumbs"><a href="index.html">Pradžia</a> / Kontaktai</span>
+      <h1>Susisiekite ir aptarkime jūsų projektą.</h1>
+      <p class="lead">Paskambinkite arba užpildykite užklausą. Pažymėkite, kas jus domina, ir sąmatą suderinsime iš anksto.</p>
     </div>
   </header>
 
   <section class="section">
     <div class="wrap contact">
-      <div class="contact-info">
-        <dl>
-          <div><dt class="tag">Telefonas</dt><dd><span>{TEL}</span><button class="copy-btn" type="button" data-copy={TEL}>Kopijuoti</button></dd></div>
-          <div><dt class="tag">El. paštas</dt><dd><span>{EMAIL}</span><button class="copy-btn" type="button" data-copy={EMAIL}>Kopijuoti</button></dd></div>
-          <div><dt class="tag">Gamykla</dt><dd>Vilniaus r., adresas tikslinamas</dd></div>
-          <div><dt class="tag">Darbo laikas</dt><dd>I–V 8:00–17:00</dd></div>
-        </dl>
-        <p class="muted">Gamyklą galima aplankyti iš anksto susitarus. Pamatysite, kaip gaminami moduliai, ir galėsite užeiti į baigtą namą.</p>
-      </div>
+      <aside class="contact-info">
+        <div class="info-block">
+          <span class="eyebrow">Telefonai</span>
+          {imone.telefonai.map((t) => <a href={telHref(t)}>{t}</a>)}
+        </div>
+        <div class="info-block">
+          <span class="eyebrow">El. paštas</span>
+          <div><span class="v" id="email-text">{imone.elPastas}</span><button class="copy-btn" type="button" data-copy={imone.elPastas}>Kopijuoti</button></div>
+        </div>
+        <div class="info-block">
+          <span class="eyebrow">Vietovė</span>
+          <span class="v">{imone.vietove}</span>
+        </div>
+      </aside>
+
       <div class="contact-form">
-        <form class="form" data-lead-form novalidate aria-label="Užklausos forma">
-          <div class="field">
-            <label for="lf-name">Vardas</label>
-            <input id="lf-name" autocomplete="name" required>
-            <span class="err" data-err-for="lf-name" hidden>Įrašykite vardą.</span>
-          </div>
-          <div class="field">
-            <label for="lf-phone">Telefonas</label>
-            <input id="lf-phone" type="tel" autocomplete="tel" required>
-            <span class="err" data-err-for="lf-phone" hidden>Įrašykite numerį, pvz. +370 600 12345.</span>
-          </div>
-          <div class="field">
-            <label for="lf-email">El. paštas</label>
-            <input id="lf-email" type="email" autocomplete="email" required>
-            <span class="err" data-err-for="lf-email" hidden>Įrašykite el. paštą, pvz. vardas@pastas.lt.</span>
-          </div>
-          <div class="field">
-            <label for="lf-place">Sklypo vieta</label>
-            <input id="lf-place" placeholder="pvz. Molėtų r.">
-          </div>
-          <div class="field">
-            <label for="lf-model">Dominantis modelis</label>
-            <select id="lf-model">
-              <option value="">Dar nežinau</option>
-              {K.modeliai.map((m) => <option value={m.id}>{m.pavadinimas}, {m.plotas} m²</option>)}
-              <option value="individualus">Individualus projektas</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="lf-plot">Ar turite sklypą?</label>
-            <select id="lf-plot">
-              <option>Taip, su statybos leidimu</option>
-              <option>Taip, be leidimo</option>
-              <option>Dar ieškau</option>
-            </select>
-          </div>
-          <div class="field full">
-            <label for="lf-file">Sklypo planas ar eskizas (nebūtina)</label>
-            <input id="lf-file" type="file" accept=".pdf,.jpg,.jpeg,.png,.dwg">
-          </div>
-          <div class="field full">
-            <label for="lf-msg">Žinutė</label>
-            <textarea id="lf-msg" placeholder="Kiek žmonių gyvens, kada norėtumėte įsikurti, ypatingi pageidavimai"></textarea>
-          </div>
-          <label class="consent full" for="lf-consent">
-            <input type="checkbox" id="lf-consent" required>
-            <span>Sutinku, kad mano duomenys būtų tvarkomi pagal privatumo politiką.</span>
-          </label>
-          <span class="err full" data-err-for="lf-consent" hidden>Pažymėkite sutikimą, kad galėtume atsakyti.</span>
-          <div class="form-actions full">
-            <button class="btn btn-primary" type="submit">Siųsti užklausą <Arrow /></button>
-            <span class="tag">Atsakome per 2 darbo dienas</span>
-          </div>
-          <div class="ok-msg full" data-ok hidden>
-            <b>Užklausa paruošta.</b>
-            <span>Prototipe ji niekur nesiunčiama. Tikroje svetainėje ji keliautų vadybininkui, o jums grįžtų patvirtinimo laiškas.</span>
+        <form class="wizard" id="uzklausa" novalidate aria-label="Užklausos forma">
+          <fieldset>
+            <legend><span>01</span>Kas jus domina?</legend>
+            <div class="cards">
+              {produktai.map((p, i) => (
+                <div class="card with-img">
+                  <input type="radio" name="tipas" id={`t-${p.id}`} value={p.id} data-label={p.pavadinimas} checked={i === 0}>
+                  <label for={`t-${p.id}`}><img src={img(p.nuotrauka, true)} alt="" loading="lazy"><b>{p.pavadinimas}</b><small>{p.trumpai}</small></label>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span>02</span>Įrengimo lygis</legend>
+            <div class="cards three">
+              <div class="card"><input type="radio" name="irengimas" id="ir-daline" value="Dalinė apdaila" checked><label for="ir-daline"><b>Dalinė apdaila</b><small>Karkasas, apšiltinimas, išorė, langai ir durys, komunikacijos</small></label></div>
+              <div class="card"><input type="radio" name="irengimas" id="ir-rakto" value="Pilnas įrengimas „iki rakto“"><label for="ir-rakto"><b>„Iki rakto“</b><small>Plius vidaus apdaila, elektra, santechnika, šildymas</small></label></div>
+              <div class="card"><input type="radio" name="irengimas" id="ir-nezinau" value="Dar nežinau"><label for="ir-nezinau"><b>Dar nežinau</b><small>Patarsime pokalbio metu</small></label></div>
+            </div>
+          </fieldset>
+
+          <fieldset data-only="pirtis" hidden>
+            <legend><span>03</span>Pirtis</legend>
+            <div class="cards three">
+              <div class="card"><input type="radio" name="krosnele" id="kr-malkine" value="Malkinė krosnelė" checked><label for="kr-malkine"><b>Malkinė krosnelė</b></label></div>
+              <div class="card"><input type="radio" name="krosnele" id="kr-elektrine" value="Elektrinė krosnelė"><label for="kr-elektrine"><b>Elektrinė krosnelė</b></label></div>
+              <div class="card"><input type="radio" name="krosnele" id="kr-nezinau" value="Krosnelė dar nepasirinkta"><label for="kr-nezinau"><b>Dar nežinau</b></label></div>
+            </div>
+            <div class="cards">
+              <div class="card"><input type="checkbox" name="priedai" id="pr-poilsio" value="Poilsio kambarys"><label for="pr-poilsio"><b>Poilsio kambarys</b></label></div>
+              <div class="card"><input type="checkbox" name="priedai" id="pr-terasa" value="Terasa"><label for="pr-terasa"><b>Terasa</b></label></div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span data-step-num>03</span>Projektas ir vieta</legend>
+            <div class="cards three">
+              <div class="card"><input type="radio" name="projektas" id="pj-mano" value="Turiu savo projektą"><label for="pj-mano"><b>Turiu savo projektą</b></label></div>
+              <div class="card"><input type="radio" name="projektas" id="pj-jusu" value="Domina jūsų siūlomi projektai"><label for="pj-jusu"><b>Domina jūsų projektai</b></label></div>
+              <div class="card"><input type="radio" name="projektas" id="pj-nezinau" value="Dar nežinau" checked><label for="pj-nezinau"><b>Dar nežinau</b></label></div>
+            </div>
+            <div class="form" style="margin-top:8px">
+              <div class="field full">
+                <label for="u-vieta">Kur bus statoma?</label>
+                <input id="u-vieta" placeholder="pvz. Vilniaus r., Pagiriai">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend><span data-step-num>04</span>Jūsų kontaktai</legend>
+            <div class="form">
+              <div class="field">
+                <label for="u-vardas">Vardas</label>
+                <input id="u-vardas" autocomplete="name" required>
+                <span class="err" data-err-for="u-vardas" hidden>Įrašykite vardą.</span>
+              </div>
+              <div class="field">
+                <label for="u-tel">Telefonas</label>
+                <input id="u-tel" type="tel" autocomplete="tel" required>
+                <span class="err" data-err-for="u-tel" hidden>Įrašykite numerį, pvz. +370 600 12345.</span>
+              </div>
+              <div class="field full">
+                <label for="u-pastas">El. paštas</label>
+                <input id="u-pastas" type="email" autocomplete="email" required>
+                <span class="err" data-err-for="u-pastas" hidden>Įrašykite el. paštą, pvz. vardas@pastas.lt.</span>
+              </div>
+              <div class="field full">
+                <label for="u-zinute">Žinutė</label>
+                <textarea id="u-zinute" placeholder="Matmenys, pageidavimai, kada norėtumėte pradėti"></textarea>
+              </div>
+              <label class="consent full" for="u-sutikimas">
+                <input type="checkbox" id="u-sutikimas" required>
+                <span>Sutinku, kad mano duomenys būtų naudojami atsakyti į šią užklausą.</span>
+              </label>
+              <span class="err full" data-err-for="u-sutikimas" hidden>Pažymėkite sutikimą, kad galėtume atsakyti.</span>
+              <div class="actions full">
+                <button class="btn btn-amber" type="submit">Siųsti užklausą <Arrow /></button>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="summary" id="u-santrauka" hidden role="status">
+            <h3>Užklausa paruošta</h3>
+            <dl id="u-santrauka-dl"></dl>
+            <p class="muted">Prototipe užklausa niekur nesiunčiama. Paleistoje svetainėje ji ateis į {imone.elPastas}.</p>
           </div>
         </form>
       </div>

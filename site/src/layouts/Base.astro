@@ -1,42 +1,55 @@
 ---
 import Logo from "../components/Logo.astro";
 import Arrow from "../components/Arrow.astro";
-import { K, NAV, BRAND, TEL, EMAIL, modelHref } from "../lib/site";
+import { imone, produktai, NAV, BRAND, SITE, telHref, productHref, orgSchema } from "../lib/site";
 
-interface Props { title: string; description: string; current?: string; }
-const { title, description, current } = Astro.props;
-const fullTitle = title === BRAND ? `${BRAND} · Moduliniai namai` : `${title} · ${BRAND}`;
+interface Props { title: string; description: string; path: string; current?: string; image?: string; schema?: object[]; }
+const { title, description, path, current, image = "og.jpg", schema = [] } = Astro.props;
+const canonical = `${SITE}/${path === "index.html" ? "" : path}`;
+const ld = [orgSchema(), ...schema];
+const tel = imone.telefonai[0];
 ---
 <!doctype html>
 <html lang="lt">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>{fullTitle}</title>
+  <title>{title}</title>
   <meta name="description" content={description}>
   <meta name="claude:viewport-fit-sides" content="cover">
+  <link rel="canonical" href={canonical}>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="lt_LT">
+  <meta property="og:site_name" content={BRAND}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:image" content={`${SITE}/${image}`}>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0F4C45">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="css/site.css">
+  {ld.map((s) => <script is:inline type="application/ld+json" set:html={JSON.stringify(s)}></script>)}
 </head>
 <body>
   <div class="proto">
     <div class="wrap">
-      <span>PROTOTIPAS v0.2 · pavadinimas, kainos ir objektai pavyzdiniai</span>
-      <a href="kainynas.html">Kainyno valdymo demo →</a>
+      <span>Prototipas v0.3 · vaizdai yra laikinos 3D vizualizacijos, bus pakeisti tikromis darbų nuotraukomis</span>
     </div>
   </div>
 
   <header class="site-head">
     <div class="wrap">
-      <a class="brand" href="index.html" aria-label={`${BRAND}, pradžia`}><Logo />{BRAND}</a>
+      <a class="brand" href="index.html" aria-label={`${BRAND}, pradžia`}><Logo /></a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Meniu</button>
       <nav class="nav" id="nav" data-open="false" aria-label="Pagrindinis meniu">
         {NAV.map((n) => <a href={n.href} aria-current={current === n.key ? "page" : undefined}>{n.label}</a>)}
       </nav>
-      <a class="head-tel" href={`tel:${TEL.replace(/\s/g, "")}`}>{TEL}</a>
-      <a class="btn btn-primary btn-sm btn-cta" href="konfiguratorius.html">Apskaičiuoti kainą <Arrow /></a>
+      <a class="btn btn-spruce btn-sm btn-head" href={telHref(tel)}>{tel}</a>
     </div>
   </header>
 
@@ -47,47 +60,42 @@ const fullTitle = title === BRAND ? `${BRAND} · Moduliniai namai` : `${title} �
   <footer class="site-foot">
     <div class="wrap">
       <div class="foot-brand">
-        <a class="brand" href="index.html"><Logo />{BRAND}</a>
-        <p>Moduliniai karkasiniai namai, pagaminti sausame angare Vilniaus rajone ir sumontuoti visoje Lietuvoje.</p>
+        <a class="brand" href="index.html" aria-label={`${BRAND}, pradžia`}><Logo /></a>
+        <p>Moduliniai namai, pirtys, lauko sandėliukai, karkasiniai namai ir garažai. {imone.vietove}.</p>
       </div>
       <div class="foot-col">
-        <h4>Namai</h4>
-        <ul>
-          {K.modeliai.map((m) => <li><a href={`modelis-${m.pavadinimas.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-")}.html`}>{m.pavadinimas}</a></li>)}
-        </ul>
+        <h4>Gaminame</h4>
+        <ul>{produktai.map((p) => <li><a href={productHref(p)}>{p.pavadinimas}</a></li>)}</ul>
       </div>
       <div class="foot-col">
         <h4>Informacija</h4>
         <ul>
-          <li><a href="eiga.html">Kaip statome</a></li>
-          <li><a href="konfiguratorius.html">Kaina</a></li>
-          <li><a href="duk.html">DUK ir garantija</a></li>
-          <li><a href="darbai.html">Atlikti darbai</a></li>
+          <li><a href="index.html#irengimas">Įrengimo lygiai</a></li>
+          <li><a href="index.html#eiga">Kaip dirbame</a></li>
+          <li><a href="index.html#duk">DUK</a></li>
+          <li><a href="kontaktai.html">Užklausa</a></li>
         </ul>
       </div>
-      <div class="foot-col">
+      <div class="foot-col wide">
         <h4>Kontaktai</h4>
         <ul>
-          <li>{TEL}</li>
-          <li>{EMAIL}</li>
-          <li>I–V 8:00–17:00</li>
-          <li><a href="kontaktai.html">Užklausos forma</a></li>
+          {imone.telefonai.map((t) => <li><a href={telHref(t)}>{t}</a></li>)}
+          <li><a href={`mailto:${imone.elPastas}`}>{imone.elPastas}</a></li>
+          <li>{imone.vietove}</li>
         </ul>
       </div>
-      <div class="foot-word" aria-hidden="true">{BRAND}</div>
       <div class="foot-legal">
-        <span>© 2026 {BRAND} (darbinis pavadinimas)</span>
-        <span>Privatumo politika · Slapukai · EN</span>
+        <span>© 2026 {BRAND}</span>
+        <span>Privatumo politika · Slapukai</span>
       </div>
     </div>
   </footer>
 
   <div class="callbar">
-    <a class="btn btn-line btn-sm" href={`tel:${TEL.replace(/\s/g, "")}`}>Skambinti</a>
-    <a class="btn btn-primary btn-sm" href="konfiguratorius.html">Apskaičiuoti kainą</a>
+    <a class="btn btn-ghost btn-sm" href={telHref(tel)}>Skambinti</a>
+    <a class="btn btn-amber btn-sm" href="kontaktai.html">Aptarti projektą</a>
   </div>
 
-  <script is:inline id="kainynas" type="application/json" set:html={JSON.stringify(K)}></script>
   <script is:inline src="js/app.js" defer></script>
 </body>
 </html>

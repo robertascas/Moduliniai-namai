@@ -1,0 +1,75 @@
+# Sveltia CMS (suderinama su Decap CMS). Turinys saugomas GitHub repozitorijoje,
+# kiekvienas išsaugojimas paleidžia naują svetainės versiją Cloudflare Pages.
+backend:
+  name: github
+  repo: robertascas/Moduliniai-namai
+  branch: main
+  # Prisijungimui per Cloudflare reikalingas OAuth tarpininkas (sveltia-cms-auth Worker):
+  # base_url: https://<jusu-worker>.workers.dev
+
+locale: lt
+media_folder: site/public/img
+public_folder: img
+
+collections:
+  - name: nustatymai
+    label: Įmonės duomenys
+    files:
+      - name: imone
+        label: Kontaktai
+        file: site/src/data/imone.json
+        fields:
+          - { name: pavadinimas, label: Pavadinimas, widget: string }
+          - { name: svetaine, label: Svetainės adresas, widget: string }
+          - { name: telefonai, label: Telefonai, widget: list, field: { name: telefonas, label: Telefonas, widget: string } }
+          - { name: elPastas, label: El. paštas, widget: string }
+          - { name: vietove, label: Vietovė, widget: string }
+          - { name: sukis, label: Šūkis, widget: string }
+      - name: turinys
+        label: Įrengimas, privalumai, eiga, DUK
+        file: site/src/data/turinys.json
+        fields:
+          - name: irengimas
+            label: Įrengimo lygiai
+            widget: list
+            fields:
+              - { name: id, label: ID, widget: string }
+              - { name: pavadinimas, label: Pavadinimas, widget: string }
+              - { name: punktai, label: Kas įeina, widget: list, field: { name: punktas, label: Punktas, widget: string } }
+          - name: privalumai
+            label: Privalumai
+            widget: list
+            fields:
+              - { name: pavadinimas, label: Pavadinimas, widget: string }
+              - { name: tekstas, label: Tekstas, widget: text }
+          - name: eiga
+            label: Darbų eiga
+            widget: list
+            fields:
+              - { name: pavadinimas, label: Žingsnis, widget: string }
+              - { name: tekstas, label: Tekstas, widget: text }
+          - name: duk
+            label: DUK
+            widget: list
+            fields:
+              - { name: klausimas, label: Klausimas, widget: string }
+              - { name: atsakymas, label: Atsakymas, widget: text }
+      - name: produktai
+        label: Produktai
+        file: site/src/data/produktai.json
+        fields:
+          - name: items
+            label: Produktai
+            widget: list
+            root: true
+            fields:
+              - { name: id, label: ID, widget: string }
+              - { name: slug, label: Adresas (URL), widget: string }
+              - { name: pavadinimas, label: Pavadinimas, widget: string }
+              - { name: trumpai, label: Trumpai, widget: string }
+              - { name: aprasymas, label: Aprašymas, widget: text }
+              - { name: punktai, label: Svarbiausi punktai, widget: list, field: { name: punktas, label: Punktas, widget: string } }
+              - { name: nuotrauka, label: Nuotraukos failo vardas (be .webp), widget: string }
+              - { name: alt, label: Nuotraukos aprašymas (alt), widget: string }
+              - { name: seoTitle, label: SEO pavadinimas, widget: string }
+              - { name: seoDescription, label: SEO aprašymas, widget: text }

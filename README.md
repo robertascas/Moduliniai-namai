@@ -1,41 +1,42 @@
-# Moduliniai namai – svetainės projektas
+# Šiltas karkasas – svetainė
 
-Modulinių namų gamintojo svetainė: analizė, darbų planas, dizaino sistema ir veikiantis prototipas.
-Pavyzdys: [modhouse.lt](https://modhouse.lt).
+Moduliniai namai, modulinės pirtys, lauko sandėliukai ir ūkio pastatai, karkasiniai namai ir garažai.
+Vilnius ir Vilniaus rajonas.
 
-## Prototipas v0.2 (`site/`)
+## Struktūra
 
-Astro projektas, kuris yra ir prototipas klientui, ir būsimos svetainės pagrindas.
+| Aplankas | Kas jame |
+|---|---|
+| `site/` | Svetainė (Astro). Prototipas v0.3 ir būsimos svetainės pagrindas |
+| `brand/` | Logotipas (SVG, PNG), ikonos, spalvos |
+| `vizualizacijos/` | 3D vizualizacijų šaltinis (laikini vaizdai iki tikrų nuotraukų) |
+| `docs/` | Analizė, darbų seka, dizaino sistema, SEO, TVS, klausimai klientui |
+
+## Svetainė
 
 ```bash
 cd site
 npm install
-npm run dev        # vystymas: http://localhost:4321
+npm run dev        # http://localhost:4321
 npm run build      # statinė svetainė į site/dist/
-npm run artifact   # kopija publikavimui kaip claude.ai Artifact
+npm run artifact   # kopija peržiūrai claude.ai Artifact
 ```
 
-| Puslapis | Kas veikia |
+| Puslapis | Turinys |
 |---|---|
-| `index.html` | Aksonometrinis namas (išskaidymas į modulius, fasado keitimas), modelių planai tuo pačiu masteliu, sienos pjūvis, statybos grafikas |
-| `namai.html` | Katalogas su filtrais pagal plotą |
-| `modelis-*.html` | Modelio puslapis: brėžinys, planas su matmenimis, patalpų plotai, kainos pagal apdailą |
-| `konfiguratorius.html` | Kainos skaičiuoklė ir pasiūlymo dokumento generavimas |
-| `eiga.html` | Statybos grafikas savaitėmis |
-| `darbai.html`, `duk.html`, `kontaktai.html` | Objektai, DUK ir garantija, užklausos forma su validacija |
-| `kainynas.html` | Kainyno valdymo demonstracija: pakeistos kainos iškart matosi konfigūratoriuje |
+| `index.html` | Produktai, įrengimo lygiai, privalumai, darbo eiga, DUK, kontaktai |
+| `moduliniai-namai.html`, `modulines-pirtys.html`, `sandeliukai-ir-ukio-pastatai.html`, `karkasiniai-namai-ir-garazai.html` | Atskiras puslapis kiekvienai paslaugai (SEO) |
+| `kontaktai.html` | Kontaktai ir užklausos vedlys (pirčiai: krosnelė, poilsio kambarys, terasa) |
+| `/admin` | Turinio valdymas (Sveltia CMS), veiks prijungus GitHub ir Cloudflare |
 
-**Duomenys:** visi modeliai, kainos, apdaila, fasadai ir papildomi darbai yra `site/src/data/kainynas.json`.
-Tikroje svetainėje šis failas bus pildomas iš Google Sheets arba TVS.
+Visas tekstas yra `site/src/data/*.json` ir paimtas tik iš kliento pateiktos informacijos.
 
-Pavadinimas „MODULIS“, kainos, kontaktai ir objektai yra pavyzdiniai.
-
-## Dokumentai (`docs/`)
+## Dokumentai
 
 | Failas | Kas jame |
 |---|---|
-| [01-analize-modhouse.md](docs/01-analize-modhouse.md) | modhouse.lt ir konkurentų analizė |
-| [02-darbu-seka.md](docs/02-darbu-seka.md) | Darbų seka, įvertinimas, rizikos |
-| [03-svetaines-struktura.md](docs/03-svetaines-struktura.md) | Svetainės medis, turinys, formos laukai |
-| [04-dizaino-sistema.md](docs/04-dizaino-sistema.md) | Spalvos, šriftai, išskirtiniai elementai |
-| [05-klausimai-klientui.md](docs/05-klausimai-klientui.md) | Brifo klausimynas |
+| [04-dizaino-sistema.md](docs/04-dizaino-sistema.md) | Spalvos, šriftas, elementai |
+| [06-seo-ir-google.md](docs/06-seo-ir-google.md) | Kas įdiegta, ką daryti paleidžiant (Google Business Profile, Search Console, GA4) |
+| [07-tvs-ir-talpinimas.md](docs/07-tvs-ir-talpinimas.md) | TVS, nemokamas talpinimas, paleidimo žingsniai |
+| [08-klientui-patikslinti.md](docs/08-klientui-patikslinti.md) | Prieštaravimai ir trūkstama informacija |
+| [01](docs/01-analize-modhouse.md), [02](docs/02-darbu-seka.md), [03](docs/03-svetaines-struktura.md), [05](docs/05-klausimai-klientui.md) | Pradinė analizė ir planas |

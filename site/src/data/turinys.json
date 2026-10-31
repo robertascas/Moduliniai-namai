@@ -1,0 +1,108 @@
+{
+  "irengimas": [
+    {
+      "id": "daline",
+      "pavadinimas": "Dalinė apdaila",
+      "punktai": [
+        "Pagamintas karkasas",
+        "Apšiltinimas",
+        "Išorės apdaila",
+        "Sumontuoti langai ir durys",
+        "Išvedžiotos pagrindinės komunikacijos"
+      ]
+    },
+    {
+      "id": "iki-rakto",
+      "pavadinimas": "Pilnas įrengimas „iki rakto“",
+      "punktai": [
+        "Pilna vidaus apdaila",
+        "Sureguliuota elektros instaliacija",
+        "Santechnika",
+        "Šildymas",
+        "Pirties krosnis arba vonios kambario įranga"
+      ]
+    }
+  ],
+  "privalumai": [
+    {
+      "pavadinimas": "Gamyba kontroliuojamose patalpose",
+      "tekstas": "Jokių netikėtumų ir lietaus gadinamų medžiagų jūsų sklype."
+    },
+    {
+      "pavadinimas": "Greitas procesas",
+      "tekstas": "Nuo idėjos iki pastatymo sklype per kelias savaites."
+    },
+    {
+      "pavadinimas": "Energinis efektyvumas",
+      "tekstas": "Užtikriname puikią šilumos ir garso izoliaciją."
+    },
+    {
+      "pavadinimas": "Kokybiškos medžiagos",
+      "tekstas": "Naudojame tik sertifikuotą, kalibruotą medieną."
+    },
+    {
+      "pavadinimas": "Individualus požiūris",
+      "tekstas": "Deriname spalvas, medžiagas ir išplanavimą. Statome pagal jūsų arba mūsų siūlomus projektus."
+    },
+    {
+      "pavadinimas": "Skaidri kaina",
+      "tekstas": "Jokių paslėptų mokesčių, sąmatą suderiname iš anksto."
+    }
+  ],
+  "eiga": [
+    {
+      "pavadinimas": "Aptariame projektą",
+      "tekstas": "Susisiekiate telefonu ar el. paštu, išsiaiškiname, ko jums reikia."
+    },
+    {
+      "pavadinimas": "Deriname sprendimus",
+      "tekstas": "Išplanavimas, spalvos, medžiagos ir įrengimo lygis. Jūsų arba mūsų siūlomas projektas."
+    },
+    {
+      "pavadinimas": "Suderiname sąmatą",
+      "tekstas": "Kainą sutariame iš anksto, be paslėptų mokesčių."
+    },
+    {
+      "pavadinimas": "Gaminame",
+      "tekstas": "Kontroliuojamose patalpose, iš sertifikuotos, kalibruotos medienos."
+    },
+    {
+      "pavadinimas": "Pristatome ir sumontuojame",
+      "tekstas": "Vilniuje ir Vilniaus rajone."
+    },
+    {
+      "pavadinimas": "Perduodame raktus",
+      "tekstas": "Nuo pamatų iki raktų pridavimo pasirūpiname viskuo."
+    }
+  ],
+  "duk": [
+    {
+      "klausimas": "Ką gaminate?",
+      "atsakymas": "Modulinius namus (sodui, poilsiui ar nuolatiniam gyvenimui), modulines pirtis, lauko sandėliukus ir ūkio pastatus. Taip pat projektuojame ir statome karkasinius namus, vasarnamius ir garažus."
+    },
+    {
+      "klausimas": "Kuo skiriasi dalinė apdaila nuo įrengimo „iki rakto“?",
+      "atsakymas": "Dalinės apdailos atveju pagaminamas karkasas, apšiltinama, įrengiama išorės apdaila, sumontuojami langai ir durys, išvedžiojamos pagrindinės komunikacijos. Įrengiant „iki rakto“ papildomai atliekama pilna vidaus apdaila, sureguliuojama elektros instaliacija, įrengiama santechnika, šildymas, pirties krosnis ar vonios kambario įranga."
+    },
+    {
+      "klausimas": "Kiek laiko trunka gamyba ir pastatymas?",
+      "atsakymas": "Nuo idėjos iki pastatymo sklype praeina kelios savaitės. Tikslų terminą pasakome aptarę jūsų projektą."
+    },
+    {
+      "klausimas": "Kur pristatote ir montuojate?",
+      "atsakymas": "Modulinius pastatus pristatome ir montuojame Vilniuje ir Vilniaus rajone. Karkasinius namus ir garažus projektuojame ir statome visoje Lietuvoje."
+    },
+    {
+      "klausimas": "Ar galima pasirinkti išplanavimą, spalvas ir medžiagas?",
+      "atsakymas": "Taip. Kiekvienam klientui individualiai deriname spalvas, medžiagas ir išplanavimą. Statome pagal jūsų arba mūsų siūlomus projektus."
+    },
+    {
+      "klausimas": "Kokią krosnelę galima rinktis pirčiai?",
+      "atsakymas": "Malkinę arba elektrinę. Pirtį taip pat galima užsakyti su poilsio kambariu ir terasa."
+    },
+    {
+      "klausimas": "Ar bus papildomų mokesčių?",
+      "atsakymas": "Ne. Sąmatą suderiname iš anksto ir jokių paslėptų mokesčių nėra."
+    }
+  ]
+}

@@ -1,41 +1,30 @@
-# 4. Dizaino sistema (Web UI) – v0.2
+# 4. Dizaino sistema (Web UI) – v0.3 „Šiltas karkasas“
 
-Kryptis: **architektūrinis brėžinys.** Svetainės vizualas yra pats produktas: namai rodomi
-aksonometriniais brėžiniais, kuriuos galima išskaidyti į modulius, planai nubraižyti tuo pačiu
-masteliu, techniniai duomenys pateikiami kaip brėžinio spaudas. Vengiama šabloninių sprendimų:
-nėra stock nuotraukų, emoji, gradientų ir vienodų kortelių su šešėliais.
+Kryptis: **skandinaviškas katalogas.** Orientyras – kliento pateiktas katalogas (tamsus fonas,
+eglės žalios spalvos plokštumos, žiemos vakaro nuotaika, pilno pločio vaizdai), bet ne jo kopija:
+kitas logotipas, spalvos, šriftas ir išdėstymas. Katalogo nuotraukos nenaudojamos.
 
-> Galutinės spalvos ir pavadinimas tvirtinami pagal kliento prekės ženklą. Visi tokenai yra
-> `site/public/css/site.css` pradžioje, todėl keičiami vienoje vietoje.
-
-## Spalvos
+## Spalvos (`site/public/css/site.css`)
 | Tokenas | Šviesi | Tamsi | Paskirtis |
 |---|---|---|---|
-| `--bg` | `#F1F3F5` | `#0B111C` | Fonas (šaltas, ne kreminis) |
-| `--surface` | `#FFFFFF` | `#111A28` | Kortelės, formos, brėžinių fonas |
-| `--ink` | `#0E1726` | `#E8ECF3` | Tekstas, linijos |
-| `--ink-2` | `#4B5567` | `#9AA6B8` | Antrinis tekstas |
-| `--cobalt` | `#2541B2` | `#8DA2FF` | Pagrindinė: mygtukai, akcentai, modulių sujungimai planuose |
-| `--larch` | `#B9773F` | `#D89A64` | Maumedis: medžiagos, sklypo darbai grafike |
+| `--paper` | `#F4F5F2` | `#0D1513` | Fonas |
+| `--surface` | `#FFFFFF` | `#142019` | Baltos sekcijos, formos |
+| `--ink` | `#16211E` | `#E8EEEB` | Tekstas |
+| `--spruce` | `#0F4C45` | `#0F4C45` | Prekės ženklo spalva: plokštumos, kontaktų juosta |
+| `--amber` | `#E9A23B` | `#E9A23B` | Akcentas iš logotipo lango: mygtukai, žymekliai |
+| `--night` | `#0D1513` | `#080E0C` | Poraštė, tamsūs vaizdų fonai |
 
 ## Tipografija
-| Rolė | Šriftas | Kur |
-|---|---|---|
-| Antraštės | **Schibsted Grotesk** 800–900, glaudus tarpas | H1–H3, kainos, skaičiai |
-| Tekstas | **Instrument Sans** 400–600 | Pastraipos, formos, meniu |
-| Brėžinio užrašai | **IBM Plex Mono** 400–500 | Matmenys, etiketės, mastelis, pasiūlymo rekvizitai |
+**Albert Sans** (400–700) visam tekstui, tas pats šriftas kaip logotipe. Skandinaviško modernizmo
+įkvėptas, palaiko lietuviškas raides.
 
-Visi trys šriftai palaiko lietuviškas raides (latin-ext).
+## Elementai
+- Pilno pločio vaizdas su tekstu (hero, teiginio juosta)
+- Padalinti ekranai: vaizdas + eglės žalia plokštuma, kaitaliojasi pusėmis
+- Gintarinis kvadratas (logotipo langas) kaip vienintelis pasikartojantis žymeklis
+- Įrengimo lygių palyginimas: balta kortelė + eglės žalia kortelė
+- Užklausos vedlys su vaizdinėmis kortelėmis
 
-## Išskirtiniai elementai
-- **Aksonometrinis namas** (`app.js → drawAxo`): generuojamas iš kainyno duomenų, keičiasi fasadas, stogas, galima išskaidyti į modulius.
-- **Planai tuo pačiu masteliu** (`drawPlan`): modelių palyginimas, patalpų plotai, modulių sujungimai mėlyna punktyrine linija.
-- **Sienos pjūvis** su sluoksniais ir storiais (`WallSection.astro`).
-- **Statybos grafikas savaitėmis** (`Gantt.astro`): matosi, kad gamykla ir sklypas dirba vienu metu.
-- **Pasiūlymo dokumentas** su numeriu, galiojimo data, brėžiniais ir kainų išskaidymu.
-
-## Principai
-- Asimetrinis 12 stulpelių tinklelis, kampai be apvalinimo (išskyrus filtrų „piliules“)
-- Šviesi ir tamsi tema, mobilioji versija su prilipusiu „Skambinti / Apskaičiuoti kainą“ mygtuku
-- Kaina visada su nuoroda „be PVM“ arba „su PVM“
-- Prieinamumas: matomas fokusas, formų etiketės, klaidų tekstai, `prefers-reduced-motion`
+## Vaizdai
+Laikinos 3D vizualizacijos (`vizualizacijos/`), visada pažymėtos „Vizualizacija“.
+Bus pakeistos tikromis darbų nuotraukomis tais pačiais failų vardais.

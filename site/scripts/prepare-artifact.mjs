@@ -7,8 +7,9 @@ const out = "artifact";
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 cpSync("dist", out, { recursive: true });
+rmSync(`${out}/admin`, { recursive: true, force: true });
 
-const html = readFileSync(`${out}/index.html`, "utf8");
+const html = readFileSync(`${out}/index.html`, "utf8").replace(/<title>[^<]*<\/title>/, "<title>Šiltas karkasas</title>");
 const head = html.match(/<head>([\s\S]*?)<\/head>/)[1]
   .replace(/<meta charset="utf-8">/i, "")
   .replace(/<meta name="viewport"[^>]*>/i, "");
