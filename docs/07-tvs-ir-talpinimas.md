@@ -39,3 +39,19 @@ Nuotraukos įkeliamos į `site/public/img/`. Išsaugojus pakeitimą, Cloudflare 
 
 > TVS konfigūracija paruošta, bet dar neišbandyta su tikra GitHub paskyra.
 > Tai bus padaryta 4–7 žingsniuose.
+
+## Dabartinė būsena (testinė versija)
+
+- **Adresas:** https://siltaskarkasas.pages.dev
+- **Cloudflare Pages projektas:** `siltaskarkasas`, prijungtas prie GitHub `robertascas/Moduliniai-namai`.
+- **Šaka:** `claude/modular-homes-page-wdlp36` – kiekvienas įkėlimas į ją automatiškai atnaujina svetainę (1–3 min.).
+- **Kūrimas:** šakninis aplankas `site`, komanda `npm run build`, rezultatas `dist`.
+- **Kintamieji:** `PUBLIC_NOINDEX=1` (Google neindeksuoja), `NODE_VERSION=22`.
+- Kūrimo metu (`CF_PAGES`) vidinės nuorodos perrašomos be `.html` galūnės (`scripts/pretty-links.mjs`).
+- Tuščias projektas `siltas-karkasas` nenaudojamas, jį galima ištrinti Cloudflare skydelyje.
+
+### Paleidžiant tikrą svetainę
+1. Cloudflare projekto nustatymuose pašalinti `PUBLIC_NOINDEX`.
+2. Prijungti domeną (Custom domains) ir patikrinti `src/data/imone.json` → `svetaine`.
+3. Gamybinę šaką perkelti į `main`.
+4. Pateikti `sitemap.xml` Google Search Console.
