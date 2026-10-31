@@ -7,9 +7,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "artifact": "astro build && node scripts/prepare-artifact.mjs"
+    "artifact": "astro build && node scripts/prepare-artifact.mjs",
+    "deploy:test": "PUBLIC_NOINDEX=1 astro build && rm -rf dist/admin && wrangler pages deploy dist --project-name siltas-karkasas --branch main --commit-dirty=true"
   },
   "dependencies": {
     "astro": "7.3.8"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.0"
   }
 }
