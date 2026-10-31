@@ -1,0 +1,131 @@
+---
+import Arrow from "./Arrow.astro";
+import ModelCard from "./ModelCard.astro";
+import { imone, katalogas, turinys, kimg, planImg, modelHref, telHref, type Modelis } from "../lib/site";
+const { m } = Astro.props as { m: Modelis };
+const serija = katalogas.serijos.find((s) => s.id === m.serija)!;
+const stiliai = (m as any).stiliai as { id: string; nuolydis: string; nuotrauka: string }[] | undefined;
+const kiti = katalogas.modeliai.filter((x) => x.serija === m.serija && x.id !== m.id).slice(0, 3);
+const giminingi = kiti.length ? kiti : katalogas.modeliai.filter((x) => x.id !== m.id).slice(0, 3);
+const [daline, ikiRakto] = turinys.irengimas;
+---
+<section class="m-hero">
+  <div class="wrap">
+    <span class="crumbs-dark"><a href="index.html">Pradžia</a> / <a href="moduliniai-namai.html">Moduliniai namai</a> / {m.pavadinimas}</span>
+    <div class="m-hero-grid">
+      <div class="viewer" data-viewer>
+        <div class="viewer-main"><img id="viewer-img" src={kimg(m.nuotraukos[0].f)} alt={m.nuotraukos[0].alt} width="1241" height="910" fetchpriority="high"></div>
+        {m.nuotraukos.length > 1 && (
+          <div class="thumbs" role="group" aria-label="Nuotraukos">
+            {m.nuotraukos.map((f, i) => (
+              <button type="button" class="thumb" data-src={kimg(f.f)} data-alt={f.alt} aria-pressed={i === 0 ? "true" : "false"} aria-label={`Rodyti: ${f.alt}`}>
+                <img src={kimg(f.f, true)} alt="" loading="lazy">
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+      <div class="m-side">
+        <span class="eyebrow">{serija.pavadinimas}</span>
+        <h1>{m.pavadinimas}</h1>
+        <dl class="m-specs">
+          <div><dt>Plotas</dt><dd>{m.plotas} m²</dd></div>
+          <div><dt>Miegamieji</dt><dd>{m.miegamieji}</dd></div>
+          <div><dt>Stogo nuolydis</dt><dd>{m.nuolydis}</dd></div>
+          <div><dt>Kraigo aukštis</dt><dd>{m.kraigas}</dd></div>
+          <div><dt>Moduliai</dt><dd>{m.moduliai}</dd></div>
+          <div><dt>Antresolė</dt><dd>{m.antresole ? "Yra" : "Nėra"}</dd></div>
+          {(m as any).matmenys && <div class="wide"><dt>Matmenys</dt><dd>{(m as any).matmenys}</dd></div>}
+        </dl>
+        {stiliai && (
+          <div class="styles">
+            <span class="tag-small">Fasado stilius</span>
+            <div class="chips" role="group" aria-label="Fasado stilius">
+              {stiliai.map((s, i) => (
+                <button type="button" class="chip" data-style-src={kimg(s.nuotrauka)} data-style-alt={`${m.pavadinimas}, ${katalogas.stiliai[s.id as keyof typeof katalogas.stiliai].pavadinimas} stilius`} aria-pressed={i === 0 ? "true" : "false"}>
+                  {katalogas.stiliai[s.id as keyof typeof katalogas.stiliai].pavadinimas} <small>{s.nuolydis}</small>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+        <div class="actions">
+          <a class="btn btn-amber" href={`kontaktai.html#${m.id}`}>Teirautis apie modelį <Arrow /></a>
+          <a class="btn btn-ghost" href={telHref(imone.telefonai[0])}>{imone.telefonai[0]}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section surface">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Apie modelį</span>
+      <h2>{m.trumpai}</h2>
+      <div class="side prose">{m.aprasymas.map((p) => <p>{p}</p>)}</div>
+    </div>
+    {stiliai && (
+      <div class="style-cards">
+        {stiliai.map((s) => {
+          const st = katalogas.stiliai[s.id as keyof typeof katalogas.stiliai];
+          return (
+            <div class="style-card">
+              <img src={kimg(s.nuotrauka, true)} alt={`${m.pavadinimas}, ${st.pavadinimas} stilius`} loading="lazy">
+              <h3>{st.pavadinimas} <small>{s.nuolydis}</small></h3>
+              <p class="muted">{st.aprasymas}</p>
+            </div>
+          );
+        })}
+      </div>
+    )}
+  </div>
+</section>
+
+{m.planai.length > 0 && (
+  <section class="section" id="isplanavimai">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Išplanavimai</span>
+        <h2>{m.planai.length > 1 ? `${m.planai.length} išplanavimo variantai` : "Išplanavimas"}</h2>
+        <p class="lead">Langus galima perkelti, o namą veidrodiškai apversti, kad vaizdas pro langus ir kaimynų matomumas atitiktų jūsų sklypą.</p>
+      </div>
+      <div class="plans" data-tabs>
+        {m.planai.length > 1 && (
+          <div class="tabs" role="tablist" aria-label="Išplanavimo variantai">
+            {m.planai.map((p, i) => <button type="button" role="tab" id={`tab-${p.var}`} aria-controls={`plan-${p.var}`} aria-selected={i === 0 ? "true" : "false"} tabindex={i === 0 ? 0 : -1}>{p.var}</button>)}
+          </div>
+        )}
+        {m.planai.map((p, i) => (
+          <figure class="plan-panel" role="tabpanel" id={`plan-${p.var}`} aria-labelledby={`tab-${p.var}`} hidden={i !== 0}>
+            <img src={planImg(m, p.var)} alt={`${m.pavadinimas}, išplanavimas ${p.var}`} loading={i === 0 ? "eager" : "lazy"}>
+            <figcaption><b>Išplanavimas {p.var}</b>{p.pastaba && <span> · {p.pastaba}</span>}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<section class="section surface">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Įrengimo lygiai</span>
+      <h2>Pasirinkite, kiek darbų atliekame mes.</h2>
+    </div>
+    <div class="levels">
+      <article class="level"><span class="tag-small">1 variantas</span><h3>{daline.pavadinimas}</h3><ul>{daline.punktai.map((x) => <li>{x}</li>)}</ul></article>
+      <article class="level featured"><span class="tag-small">2 variantas</span><h3>{ikiRakto.pavadinimas}</h3><p class="plus">Viskas, kas įeina į dalinę apdailą, ir papildomai:</p><ul>{ikiRakto.punktai.map((x) => <li>{x}</li>)}</ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Taip pat žiūrėkite</span>
+      <h2>Panašūs modeliai</h2>
+    </div>
+    <div class="mgrid">{giminingi.map((x) => <ModelCard m={x} />)}</div>
+  </div>
+</section>

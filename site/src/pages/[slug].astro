@@ -1,0 +1,166 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import ModelCard from "../components/ModelCard.astro";
+import ModelPage from "../components/ModelPage.astro";
+import { imone, produktai, turinys, katalogas, productHref, modelHref, img, kimg, planImg, isViz, telHref, faqSchema, crumbsSchema, type Produktas, type Modelis } from "../lib/site";
+
+export function getStaticPaths() {
+  return [
+    ...produktai.map((p) => ({ params: { slug: p.slug }, props: { kind: "produktas", p } })),
+    ...katalogas.modeliai.map((m) => ({ params: { slug: m.id }, props: { kind: "modelis", m } })),
+  ];
+}
+const { kind, p, m } = Astro.props as { kind: string; p?: Produktas; m?: Modelis };
+
+const faqIds: Record<string, string[]> = {
+  namas: ["Kuo skiriasi", "Kiek laiko", "Kur pristatote", "Ar galima pasirinkti", "Ar bus papildomų"],
+  pirtis: ["Kokią krosnelę", "Kuo skiriasi", "Kiek laiko", "Kur pristatote", "Ar bus papildomų"],
+  sandeliukas: ["Kiek laiko", "Kur pristatote", "Ar galima pasirinkti", "Ar bus papildomų"],
+  karkasinis: ["Ar galima pasirinkti", "Kur pristatote", "Kuo skiriasi", "Ar bus papildomų"],
+};
+const faq = p ? turinys.duk.filter((q) => faqIds[p.id].some((k) => q.klausimas.startsWith(k))) : [];
+const others = p ? produktai.filter((x) => x.id !== p.id).slice(0, 3) : [];
+const [daline, ikiRakto] = turinys.irengimas;
+const namelis = katalogas.modeliai.find((x) => x.id === "namelis-30")!;
+const pirtiesPlanai = namelis.planai.filter((x) => x.var === "D" || x.var === "F");
+
+const title = p ? `${p.seoTitle} | Šiltas karkasas` : `${m!.pavadinimas}: modulinis namas ${m!.plotas} m² | Šiltas karkasas`;
+const description = p ? p.seoDescription : `${m!.pavadinimas}: ${m!.plotas} m², ${m!.miegamieji} miegam., stogo nuolydis ${m!.nuolydis}. ${m!.aprasymas[0]}`.slice(0, 158);
+const path = p ? productHref(p) : modelHref(m!);
+const crumbs = p
+  ? [{ name: "Pradžia", path: "" }, { name: p.pavadinimas, path }]
+  : [{ name: "Pradžia", path: "" }, { name: "Moduliniai namai", path: "moduliniai-namai.html" }, { name: m!.pavadinimas, path }];
+const image = p ? (isViz(p.nuotrauka) ? "og.jpg" : `img/${p.nuotrauka}.webp`) : `img/k/${m!.nuotraukos[0].f}.webp`;
+---
+<Base path={path} current={p ? p.id : "namas"} title={title} description={description} image={image} schema={[...(faq.length ? [faqSchema(faq)] : []), crumbsSchema(crumbs)]}>
+  {kind === "modelis" && m && <ModelPage m={m} />}
+
+  {kind === "produktas" && p && (
+    <>
+      <section class="p-hero">
+        <div class="p-hero-img">
+          <img src={img(p.nuotrauka)} srcset={`${img(p.nuotrauka, true)} 800w, ${img(p.nuotrauka)} 1600w`} sizes="(max-width: 900px) 100vw, 50vw" alt={p.alt} width="1241" height="910" fetchpriority="high">
+          {isViz(p.nuotrauka) && <span class="viz-note">Vizualizacija</span>}
+        </div>
+        <div class="p-hero-body">
+          <span class="crumbs"><a href="index.html">Pradžia</a> / {p.pavadinimas}</span>
+          <h1>{p.pavadinimas}</h1>
+          <p class="lead">{p.trumpai}</p>
+          <div class="actions">
+            <a class="btn btn-amber" href={`kontaktai.html#${p.id}`}>Aptarti projektą <Arrow /></a>
+            <a class="btn btn-ghost" href={telHref(imone.telefonai[0])}>{imone.telefonai[0]}</a>
+          </div>
+        </div>
+      </section>
+
+      {p.id === "namas" && (
+        <section class="section" id="modeliai">
+          <div class="wrap">
+            <div class="sec-head">
+              <span class="eyebrow">Modeliai</span>
+              <h2>Nuo 30 iki 124 m².</h2>
+              <p class="lead">Kiekvieną modelį galima pritaikyti: perkelti langus, apversti veidrodiškai, pasirinkti spalvą ir vidaus apdailą.</p>
+            </div>
+            <div class="filters" data-filters role="group" aria-label="Filtruoti pagal plotą">
+              <button type="button" class="chip" data-f="all" aria-pressed="true">Visi</button>
+              <button type="button" class="chip" data-f="0-45" aria-pressed="false">iki 45 m²</button>
+              <button type="button" class="chip" data-f="46-80" aria-pressed="false">50–80 m²</button>
+              <button type="button" class="chip" data-f="81-999" aria-pressed="false">nuo 90 m²</button>
+            </div>
+            {katalogas.serijos.map((s) => (
+              <div class="series" data-series>
+                <div class="series-head"><h3>{s.pavadinimas}</h3><p class="muted">{s.aprasymas}</p></div>
+                <div class="mgrid">{katalogas.modeliai.filter((x) => x.serija === s.id).map((x) => <ModelCard m={x} />)}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section class="section surface">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="eyebrow">Apie</span>
+            <h2>{p.pavadinimas}</h2>
+            <p class="lead">{p.aprasymas}</p>
+          </div>
+          <ul class="checks">{p.punktai.map((x) => <li>{x}</li>)}</ul>
+        </div>
+      </section>
+
+      {p.id === "pirtis" && (
+        <section class="section" id="isplanavimai">
+          <div class="wrap">
+            <div class="sec-head">
+              <span class="eyebrow">Pirtis 30 m² namelyje</span>
+              <h2>Du išplanavimai su pirtimi.</h2>
+              <p class="lead">Namelis 30 gaminamas ir kaip pirtis: su poilsio kambariu ir antresole arba su miegamaisiais svečiams. Fasado stilių renkatės iš keturių.</p>
+            </div>
+            <div class="plan-pair">
+              {pirtiesPlanai.map((x) => (
+                <figure class="plan-panel">
+                  <img src={planImg(namelis, x.var)} alt={`Namelis 30 su pirtimi, išplanavimas ${x.var}`} loading="lazy">
+                  <figcaption><b>Išplanavimas {x.var}</b> · {x.pastaba}</figcaption>
+                </figure>
+              ))}
+            </div>
+            <div class="actions" style="margin-top:28px"><a class="btn btn-spruce" href={modelHref(namelis)}>Visi Namelio 30 variantai <Arrow /></a></div>
+          </div>
+        </section>
+      )}
+
+      {p.id !== "karkasinis" && (
+        <section class="section surface" id="irengimas">
+          <div class="wrap">
+            <div class="sec-head">
+              <span class="eyebrow">Įrengimo lygiai</span>
+              <h2>Pasirinkite, kiek darbų atliekame mes.</h2>
+            </div>
+            <div class="levels">
+              <article class="level"><span class="tag-small">1 variantas</span><h3>{daline.pavadinimas}</h3><ul>{daline.punktai.map((x) => <li>{x}</li>)}</ul></article>
+              <article class="level featured"><span class="tag-small">2 variantas</span><h3>{ikiRakto.pavadinimas}</h3><p class="plus">Viskas, kas įeina į dalinę apdailą, ir papildomai:</p><ul>{ikiRakto.punktai.map((x) => <li>{x}</li>)}</ul></article>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section class="section">
+        <div class="wrap faq">
+          <div class="faq-head"><span class="eyebrow">DUK</span><h2>Klausimai</h2></div>
+          <div class="faq-list">
+            {faq.map((q, i) => <details open={i === 0}><summary>{q.klausimas}</summary><p>{q.atsakymas}</p></details>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="section surface">
+        <div class="wrap">
+          <div class="sec-head"><span class="eyebrow">Taip pat gaminame</span><h2>Kiti pastatai</h2></div>
+          <div class="others">
+            {others.map((o) => (
+              <a class="other" href={productHref(o)}>
+                <div class="ph"><img src={img(o.nuotrauka, true)} alt={o.alt} loading="lazy"></div>
+                <h3>{o.pavadinimas}</h3>
+                <p class="muted">{o.trumpai}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )}
+
+  <section class="contact-band">
+    <div class="wrap">
+      <span class="eyebrow">Susisiekite</span>
+      <h2>Aptarkime jūsų projektą.</h2>
+      <div class="contact-list">
+        {imone.telefonai.map((t) => <a href={telHref(t)}>{t}</a>)}
+        <a href={`mailto:${imone.elPastas}`}>{imone.elPastas}</a>
+        <small>{imone.vietove}</small>
+      </div>
+      <div class="actions"><a class="btn btn-amber" href={`kontaktai.html#${p ? p.id : m!.id}`}>Užpildyti užklausą <Arrow /></a></div>
+    </div>
+  </section>
+</Base>

@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Arrow from "../components/Arrow.astro";
-import { imone, produktai, img, telHref, crumbsSchema } from "../lib/site";
+import { imone, produktai, katalogas, img, telHref, crumbsSchema } from "../lib/site";
 ---
 <Base
   path="kontaktai.html"
@@ -49,8 +49,21 @@ import { imone, produktai, img, telHref, crumbsSchema } from "../lib/site";
             </div>
           </fieldset>
 
+          <fieldset data-only="namas" hidden>
+            <legend><span>02</span>Modelis</legend>
+            <div class="form">
+              <div class="field full">
+                <label for="u-modelis">Kuris modelis domina?</label>
+                <select id="u-modelis">
+                  <option value="">Dar nežinau / individualus</option>
+                  {katalogas.modeliai.map((m) => <option value={m.id}>{m.pavadinimas}, {m.plotas} m²</option>)}
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
           <fieldset>
-            <legend><span>02</span>Įrengimo lygis</legend>
+            <legend><span data-step-num>02</span>Įrengimo lygis</legend>
             <div class="cards three">
               <div class="card"><input type="radio" name="irengimas" id="ir-daline" value="Dalinė apdaila" checked><label for="ir-daline"><b>Dalinė apdaila</b><small>Karkasas, apšiltinimas, išorė, langai ir durys, komunikacijos</small></label></div>
               <div class="card"><input type="radio" name="irengimas" id="ir-rakto" value="Pilnas įrengimas „iki rakto“"><label for="ir-rakto"><b>„Iki rakto“</b><small>Plius vidaus apdaila, elektra, santechnika, šildymas</small></label></div>
@@ -59,7 +72,7 @@ import { imone, produktai, img, telHref, crumbsSchema } from "../lib/site";
           </fieldset>
 
           <fieldset data-only="pirtis" hidden>
-            <legend><span>03</span>Pirtis</legend>
+            <legend><span data-step-num>03</span>Pirtis</legend>
             <div class="cards three">
               <div class="card"><input type="radio" name="krosnele" id="kr-malkine" value="Malkinė krosnelė" checked><label for="kr-malkine"><b>Malkinė krosnelė</b></label></div>
               <div class="card"><input type="radio" name="krosnele" id="kr-elektrine" value="Elektrinė krosnelė"><label for="kr-elektrine"><b>Elektrinė krosnelė</b></label></div>

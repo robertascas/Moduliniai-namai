@@ -1,7 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
 import Arrow from "../components/Arrow.astro";
-import { imone, produktai, turinys, productHref, img, telHref, faqSchema } from "../lib/site";
+import ModelCard from "../components/ModelCard.astro";
+import { imone, produktai, turinys, katalogas, productHref, img, kimg, isViz, telHref, faqSchema } from "../lib/site";
+const rinktiniai = ["namelis-30", "namas-50", "pusynas-60", "horizontas-91"].map((id) => katalogas.modeliai.find((x) => x.id === id)!);
 const [daline, ikiRakto] = turinys.irengimas;
 ---
 <Base
@@ -11,7 +13,7 @@ const [daline, ikiRakto] = turinys.irengimas;
   schema={[faqSchema(turinys.duk)]}
 >
   <section class="hero">
-    <img src={img("namas-vakare")} srcset={`${img("namas-vakare", true)} 1000w, ${img("namas-vakare")} 2400w`} sizes="100vw" alt="Modulinio namo su apšviestais langais vizualizacija žiemos vakarą miške" width="2400" height="1350" fetchpriority="high">
+    <img src={kimg("namas-40-siaure")} srcset={`${kimg("namas-40-siaure", true)} 800w, ${kimg("namas-40-siaure")} 1241w`} sizes="100vw" alt="Modulinis namas su apšviestais langais ant kopos saulėlydžio metu" width="1241" height="910" fetchpriority="high">
     <div class="wrap">
       <span class="eyebrow">{imone.vietove}</span>
       <h1>Moduliniai namai, pirtys ir ūkio pastatai</h1>
@@ -21,7 +23,6 @@ const [daline, ikiRakto] = turinys.irengimas;
         <a class="btn btn-ghost" href={telHref(imone.telefonai[0])}>{imone.telefonai[0]}</a>
       </div>
     </div>
-    <span class="viz-note">Vizualizacija</span>
   </section>
 
   <div class="strip">
@@ -44,7 +45,7 @@ const [daline, ikiRakto] = turinys.irengimas;
     <div class="splits">
       {produktai.map((p) => (
         <a class="split" href={productHref(p)}>
-          <div class="split-img"><img src={img(p.nuotrauka, true)} alt={p.alt} width="1000" height="833" loading="lazy"></div>
+          <div class="split-img"><img src={img(p.nuotrauka, true)} alt={p.alt} width="800" height="587" loading="lazy">{isViz(p.nuotrauka) && <span class="viz-note">Vizualizacija</span>}</div>
           <div class="split-body">
             <h3>{p.pavadinimas}</h3>
             <p>{p.trumpai}</p>
@@ -56,7 +57,18 @@ const [daline, ikiRakto] = turinys.irengimas;
     </div>
   </section>
 
-  <section class="section surface" id="irengimas">
+  <section class="section surface" id="modeliai">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Moduliniai namai</span>
+        <h2>12 modelių nuo 30 iki 124 m².</h2>
+        <a class="split-more side" href="moduliniai-namai.html" style="color:var(--ink)">Visi modeliai <Arrow /></a>
+      </div>
+      <div class="mgrid four">{rinktiniai.map((m) => <ModelCard m={m} />)}</div>
+    </div>
+  </section>
+
+  <section class="section" id="irengimas">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Įrengimo lygiai</span>
@@ -79,7 +91,7 @@ const [daline, ikiRakto] = turinys.irengimas;
     </div>
   </section>
 
-  <section class="section" id="privalumai">
+  <section class="section surface" id="privalumai">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Kodėl verta rinktis mus</span>
@@ -94,7 +106,7 @@ const [daline, ikiRakto] = turinys.irengimas;
   </section>
 
   <section class="statement">
-    <img src={img("pirties-vidus")} alt="Pirties vidaus vizualizacija: mediniai gultai, krosnelė su akmenimis ir šilta šviesa" width="1600" height="1600" loading="lazy">
+    <img src={kimg("interjeras")} alt="Šviesi modulinio namo svetainė su virtuve ir antresole" width="1600" height="1559" loading="lazy">
     <div class="wrap">
       <span class="eyebrow" style="color:rgba(255,255,255,.8)">Visas darbas vienose rankose</span>
       <h2>Nuo pamatų iki raktų pridavimo pasirūpinsime viskuo.</h2>
@@ -102,7 +114,7 @@ const [daline, ikiRakto] = turinys.irengimas;
     </div>
   </section>
 
-  <section class="section surface" id="eiga">
+  <section class="section" id="eiga">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Kaip dirbame</span>
@@ -111,6 +123,19 @@ const [daline, ikiRakto] = turinys.irengimas;
       <ol class="steps">
         {turinys.eiga.map((x) => <li><h3>{x.pavadinimas}</h3><p>{x.tekstas}</p></li>)}
       </ol>
+    </div>
+  </section>
+
+  <section class="section surface" id="galerija">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Galerija</span>
+        <h2>Pagaminti ir pastatyti namai.</h2>
+        <a class="split-more side" href="galerija.html" style="color:var(--ink)">Visa galerija <Arrow /></a>
+      </div>
+      <div class="gallery strip-6">
+        {katalogas.galerija.slice(0, 6).map((g) => <a class="gal-item" href="galerija.html"><img src={kimg(g.f, true)} alt={g.alt} loading="lazy"></a>)}
+      </div>
     </div>
   </section>
 

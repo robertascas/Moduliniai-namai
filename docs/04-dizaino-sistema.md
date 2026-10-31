@@ -26,5 +26,5 @@ kitas logotipas, spalvos, šriftas ir išdėstymas. Katalogo nuotraukos nenaudoj
 - Užklausos vedlys su vaizdinėmis kortelėmis
 
 ## Vaizdai
-Laikinos 3D vizualizacijos (`vizualizacijos/`), visada pažymėtos „Vizualizacija“.
-Bus pakeistos tikromis darbų nuotraukomis tais pačiais failų vardais.
+Partnerio katalogo nuotraukos ir išplanavimai, perdirbti (`katalogo-irankiai/`). Sandėliuko puslapyje
+liko 3D vizualizacija, pažymėta „Vizualizacija“, kol bus tikra nuotrauka.

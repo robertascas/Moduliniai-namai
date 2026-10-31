@@ -9,7 +9,8 @@ Vilnius ir Vilniaus rajonas.
 |---|---|
 | `site/` | Svetainė (Astro). Prototipas v0.3 ir būsimos svetainės pagrindas |
 | `brand/` | Logotipas (SVG, PNG), ikonos, spalvos |
-| `vizualizacijos/` | 3D vizualizacijų šaltinis (laikini vaizdai iki tikrų nuotraukų) |
+| `vizualizacijos/` | 3D vizualizacijų šaltinis (liko tik sandėliukas) |
+| `katalogo-irankiai/` | Partnerio katalogo išplanavimų ir nuotraukų perdirbimas |
 | `docs/` | Analizė, darbų seka, dizaino sistema, SEO, TVS, klausimai klientui |
 
 ## Svetainė
@@ -24,7 +25,9 @@ npm run artifact   # kopija peržiūrai claude.ai Artifact
 
 | Puslapis | Turinys |
 |---|---|
-| `index.html` | Produktai, įrengimo lygiai, privalumai, darbo eiga, DUK, kontaktai |
+| `index.html` | Produktai, modeliai, įrengimo lygiai, privalumai, eiga, galerija, DUK, kontaktai |
+| `namelis-30.html` … `horizontas-124.html` | 12 modelių puslapių: nuotraukos, fasado stiliai, techniniai duomenys, išplanavimai |
+| `galerija.html` | Pagamintų namų nuotraukos |
 | `moduliniai-namai.html`, `modulines-pirtys.html`, `sandeliukai-ir-ukio-pastatai.html`, `karkasiniai-namai-ir-garazai.html` | Atskiras puslapis kiekvienai paslaugai (SEO) |
 | `kontaktai.html` | Kontaktai ir užklausos vedlys (pirčiai: krosnelė, poilsio kambarys, terasa) |
 | `/admin` | Turinio valdymas (Sveltia CMS), veiks prijungus GitHub ir Cloudflare |

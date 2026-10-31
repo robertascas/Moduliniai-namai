@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import Arrow from "../components/Arrow.astro";
+import { katalogas, kimg, crumbsSchema } from "../lib/site";
+---
+<Base
+  path="galerija.html"
+  current="galerija"
+  title="Pagamintų modulinių namų galerija | Šiltas karkasas"
+  description="Pagaminti ir klientams pristatyti moduliniai namai: fasadai, interjerai, montavimas. Tikros nuotraukos iš objektų."
+  schema={[crumbsSchema([{ name: "Pradžia", path: "" }, { name: "Galerija", path: "galerija.html" }])]}
+>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="crumbs"><a href="index.html">Pradžia</a> / Galerija</span>
+      <h1>Pagaminti ir pastatyti namai.</h1>
+      <p class="lead">Tikros nuotraukos iš objektų: mūsų gamybos partnerio pagaminti ir klientams pristatyti moduliniai namai.</p>
+    </div>
+  </header>
+  <section class="section">
+    <div class="wrap">
+      <div class="gallery">
+        {katalogas.galerija.map((g) => (
+          <a class="gal-item" href={kimg(g.f)} data-lightbox data-alt={g.alt}>
+            <img src={kimg(g.f, true)} alt={g.alt} loading="lazy">
+          </a>
+        ))}
+      </div>
+      <div class="actions" style="margin-top:40px"><a class="btn btn-amber" href="kontaktai.html">Aptarti savo projektą <Arrow /></a></div>
+    </div>
+  </section>
+  <dialog class="lightbox" id="lightbox" aria-label="Nuotrauka">
+    <button type="button" class="lb-close" data-lb-close aria-label="Uždaryti">×</button>
+    <img id="lb-img" src="" alt="">
+  </dialog>
+</Base>

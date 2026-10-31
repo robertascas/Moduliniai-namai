@@ -1,0 +1,17 @@
+---
+import { katalogas, kimg, modelHref, type Modelis } from "../lib/site";
+const { m } = Astro.props as { m: Modelis };
+const foto = m.nuotraukos[0];
+---
+<a class="mcard" href={modelHref(m)} data-area={m.plotas}>
+  <div class="mcard-img"><img src={kimg(foto.f, true)} alt={foto.alt} width="800" height="587" loading="lazy"></div>
+  <div class="mcard-body">
+    <div class="mcard-top"><h3>{m.pavadinimas}</h3><b>{m.plotas} m²</b></div>
+    <p class="muted">{m.trumpai}</p>
+    <dl class="mcard-specs">
+      <div><dt>Miegamieji</dt><dd>{m.miegamieji}</dd></div>
+      <div><dt>Stogas</dt><dd>{m.nuolydis}</dd></div>
+      <div><dt>Moduliai</dt><dd>{m.moduliai}</dd></div>
+    </dl>
+  </div>
+</a>

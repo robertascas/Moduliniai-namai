@@ -1,0 +1,721 @@
+{
+  "_saltinis": "Techniniai duomenys iš partnerio katalogo „Modular homes 2023/24“. Aprašymai parašyti iš naujo.",
+  "serijos": [
+    {
+      "id": "kompaktiski",
+      "pavadinimas": "Kompaktiški namai",
+      "aprasymas": "30 m² namelis su antresole: svečiams, sodui, darbo kambariui ar pirčiai.",
+      "nuotrauka": "namelis-30-siaure"
+    },
+    {
+      "id": "poilsio",
+      "pavadinimas": "Poilsio namai 40–50 m²",
+      "aprasymas": "Du miegamieji, antresolė ir erdvi virtuvė su svetaine. Trys fasado stiliai.",
+      "nuotrauka": "serija-siaure"
+    },
+    {
+      "id": "pusynas",
+      "pavadinimas": "Pušynas 45–100 m²",
+      "aprasymas": "Vienšlaičiu stogu dengti namai iš dviejų modulių, tinkami gyventi ištisus metus.",
+      "nuotrauka": "serija-pusynas"
+    },
+    {
+      "id": "horizontas",
+      "pavadinimas": "Horizontas 70–124 m²",
+      "aprasymas": "Platūs namai su stogine terasai, didelėmis stiklo sienomis ir stoglangiais voniose.",
+      "nuotrauka": "serija-horizontas"
+    }
+  ],
+  "stiliai": {
+    "tradicija": {
+      "pavadinimas": "Tradicija",
+      "aprasymas": "Klasikinis skandinaviškas namas: dvišlaitis stogas, langai su skaidymu, arkinis langas frontone."
+    },
+    "siaure": {
+      "pavadinimas": "Šiaurė",
+      "aprasymas": "Švarios formos dvišlaitis namas be karnizų, tamsi vertikali lenta ir dideli langai."
+    },
+    "linija": {
+      "pavadinimas": "Linija",
+      "aprasymas": "Modernus kubo formos namas beveik plokščiu stogu, kuris palieka daugiau vietos antresolei."
+    },
+    "pusynas": {
+      "pavadinimas": "Pušynas",
+      "aprasymas": "Vienšlaitis stogas ir tradicinė apdaila: šiuolaikiškos formos ir klasikinės detalės kartu."
+    }
+  },
+  "modeliai": [
+    {
+      "id": "namelis-30",
+      "serija": "kompaktiski",
+      "pavadinimas": "Namelis 30",
+      "plotas": 30,
+      "nuolydis": "5–20°",
+      "kraigas": "3,85 m",
+      "miegamieji": "0–3",
+      "moduliai": 1,
+      "antresole": true,
+      "trumpai": "30 m², 11 išplanavimų, 4 fasado stiliai.",
+      "aprasymas": [
+        "Mažiausias namas kataloge, bet su daugiausiai variantų. Pirmiausia pasirenkate fasado stilių, tada vieną iš 11 išplanavimų: su miegamuoju ir antresole, su dviem miegamaisiais, su kabinetu arba su pirtimi.",
+        "Tinka svečių nameliui sode, atskiram jaunimo kambariui, darbo erdvei ar pirčiai su poilsio kambariu. Išplanavimai A, B ir C gali būti su neįgaliesiems pritaikytu vonios kambariu."
+      ],
+      "stiliai": [
+        {
+          "id": "tradicija",
+          "nuolydis": "20°",
+          "nuotrauka": "namelis-30-tradicija"
+        },
+        {
+          "id": "siaure",
+          "nuolydis": "20°",
+          "nuotrauka": "namelis-30-siaure"
+        },
+        {
+          "id": "linija",
+          "nuolydis": "5°",
+          "nuotrauka": "namelis-30-linija"
+        },
+        {
+          "id": "pusynas",
+          "nuolydis": "8°",
+          "nuotrauka": "namelis-30-pusynas"
+        }
+      ],
+      "nuotraukos": [
+        {
+          "f": "namelis-30-tradicija",
+          "alt": "30 m² namelis Tradicijos stiliumi ant kopos"
+        },
+        {
+          "f": "namelis-30-ziema",
+          "alt": "30 m² namelis žiemą kalnuose, vakaro šviesa languose"
+        },
+        {
+          "f": "namelis-30-vidus",
+          "alt": "30 m² namelio vidus: valgomasis prie didelių langų"
+        },
+        {
+          "f": "namelis-30-ruduo",
+          "alt": "Šiaurės stiliaus namelis rudenį su girliandomis"
+        },
+        {
+          "f": "namelis-30-vidus-2",
+          "alt": "Namelio svetainė su laiptais į antresolę"
+        },
+        {
+          "f": "namelis-30-pjuvis",
+          "alt": "Namelio pjūvis: virtuvė, svetainė ir antresolė"
+        },
+        {
+          "f": "namelis-30-vidus-3",
+          "alt": "Linijos stiliaus namelio virtuvė ir svetainė"
+        },
+        {
+          "f": "namelis-30-is-virsaus",
+          "alt": "Namelio išplanavimas iš viršaus su baldais ir terasa"
+        }
+      ],
+      "planai": [
+        {
+          "var": "A",
+          "pastaba": "Virtuvė su svetaine, miegamasis, WC ir 14 m² antresolė"
+        },
+        {
+          "var": "B",
+          "pastaba": ""
+        },
+        {
+          "var": "C",
+          "pastaba": "Kabinetas su virtuve, be antresolės"
+        },
+        {
+          "var": "D",
+          "pastaba": "Pirtis 3 m², WC su dušu ir 17 m² poilsio kambarys"
+        },
+        {
+          "var": "E",
+          "pastaba": "Du miegamieji ir WC"
+        },
+        {
+          "var": "F",
+          "pastaba": "Miegamieji, pirtis 4 m² ir WC"
+        },
+        {
+          "var": "G",
+          "pastaba": ""
+        },
+        {
+          "var": "H",
+          "pastaba": ""
+        },
+        {
+          "var": "I",
+          "pastaba": ""
+        },
+        {
+          "var": "J",
+          "pastaba": ""
+        },
+        {
+          "var": "K",
+          "pastaba": ""
+        }
+      ]
+    },
+    {
+      "id": "namas-40",
+      "serija": "poilsio",
+      "pavadinimas": "Namas 40",
+      "plotas": 40,
+      "nuolydis": "5° arba 20°",
+      "kraigas": "4,0 m",
+      "miegamieji": "2",
+      "moduliai": 1,
+      "antresole": true,
+      "matmenys": "4,1 × 9,7 m",
+      "trumpai": "Du miegamieji, antresolė, 3 fasado stiliai.",
+      "aprasymas": [
+        "Poilsio namas, kuriame telpa šeima: du miegamieji, antresolė miegoti, virtuvė su svetaine, WC su dušu ir prieškambaris.",
+        "Galima rinktis tris fasadus: Tradicijos ir Šiaurės stiliai su 20° dvišlaičiu stogu, Linijos stilius su 5° stogu. Spalvą ir vidaus apdailą parenkate patys."
+      ],
+      "stiliai": [
+        {
+          "id": "siaure",
+          "nuolydis": "20°",
+          "nuotrauka": "namas-40-siaure"
+        },
+        {
+          "id": "tradicija",
+          "nuolydis": "20°",
+          "nuotrauka": "namas-40-tradicija"
+        },
+        {
+          "id": "linija",
+          "nuolydis": "5°",
+          "nuotrauka": "namas-40-linija"
+        }
+      ],
+      "nuotraukos": [
+        {
+          "f": "namas-40-siaure",
+          "alt": "40 m² Šiaurės stiliaus namas ant kopos saulėlydžio metu"
+        },
+        {
+          "f": "namas-40-vidus",
+          "alt": "40 m² namo svetainė ir virtuvė su laiptais į antresolę"
+        },
+        {
+          "f": "namas-40-tradicija",
+          "alt": "40 m² Tradicijos stiliaus namas prie ežero su prieplauka"
+        },
+        {
+          "f": "namas-40-vidus-2",
+          "alt": "Šviesi svetainė su valgomuoju ir antresole"
+        },
+        {
+          "f": "namas-40-linija",
+          "alt": "40 m² Linijos stiliaus namas su stiklinėmis durimis į terasą"
+        },
+        {
+          "f": "namas-40-vidus-3",
+          "alt": "Linijos namo virtuvė, valgomasis ir svetainė"
+        }
+      ],
+      "planai": [
+        {
+          "var": "A",
+          "pastaba": ""
+        },
+        {
+          "var": "A1",
+          "pastaba": ""
+        },
+        {
+          "var": "B",
+          "pastaba": "Virtuvė su svetaine 13 m², WC su dušu 3 m², antresolė 11 m²"
+        }
+      ]
+    },
+    {
+      "id": "namas-50",
+      "serija": "poilsio",
+      "pavadinimas": "Namas 50",
+      "plotas": 50,
+      "nuolydis": "5° arba 20°",
+      "kraigas": "4,0 m",
+      "miegamieji": "2",
+      "moduliai": 1,
+      "antresole": true,
+      "matmenys": "4,1 × 12,1 m",
+      "trumpai": "Du miegamieji, antresolė, 21–22 m² virtuvė su svetaine.",
+      "aprasymas": [
+        "Didesnis poilsio namas su 21–22 m² virtuve ir svetaine. Du miegamieji dvigulėms lovoms ir antresolė, į kurią veda laiptai.",
+        "Tie patys trys fasado stiliai kaip Namo 40. Tinka prie jūros, kaime ar šalia pagrindinio namo."
+      ],
+      "stiliai": [
+        {
+          "id": "siaure",
+          "nuolydis": "20°",
+          "nuotrauka": "namas-50-siaure"
+        },
+        {
+          "id": "tradicija",
+          "nuolydis": "20°",
+          "nuotrauka": "namas-50-tradicija"
+        },
+        {
+          "id": "linija",
+          "nuolydis": "5°",
+          "nuotrauka": "namas-50-linija"
+        }
+      ],
+      "nuotraukos": [
+        {
+          "f": "namas-50-siaure",
+          "alt": "50 m² Šiaurės stiliaus namas su terasa prie jūros"
+        },
+        {
+          "f": "namas-50-vidus",
+          "alt": "50 m² namo virtuvė, valgomasis ir laiptai į antresolę"
+        },
+        {
+          "f": "namas-50-tradicija",
+          "alt": "50 m² Tradicijos stiliaus namas ant kopos"
+        },
+        {
+          "f": "namas-50-vidus-2",
+          "alt": "Šviesi svetainė su valgomuoju ir kopėčiomis į antresolę"
+        },
+        {
+          "f": "namas-50-linija",
+          "alt": "50 m² Linijos stiliaus namas su didele terasa"
+        },
+        {
+          "f": "namas-50-vidus-3",
+          "alt": "Valgomasis prie stiklinių durų į terasą"
+        }
+      ],
+      "planai": [
+        {
+          "var": "A",
+          "pastaba": "Virtuvė su svetaine 22 m², du miegamieji, antresolė"
+        },
+        {
+          "var": "B",
+          "pastaba": "Virtuvė su svetaine 21 m², du vienodi miegamieji, antresolė"
+        }
+      ]
+    },
+    {
+      "id": "pusynas-45",
+      "serija": "pusynas",
+      "pavadinimas": "Pušynas 45",
+      "plotas": 45,
+      "nuolydis": "12°",
+      "kraigas": "4,0 m",
+      "miegamieji": "1–2",
+      "moduliai": 2,
+      "antresole": true,
+      "matmenys": "8,0 × 7,5 m",
+      "trumpai": "Du moduliai, 1–2 miegamieji, antresolė.",
+      "aprasymas": [
+        "Kompaktiškas namas iš dviejų modulių, sujungiamų sklype. Viduje virtuvė su svetaine, vonios kambarys, vienas ar du miegamieji ir antresolė.",
+        "Tinka ir poilsiui, ir gyventi visus metus."
+      ],
+      "nuotraukos": [
+        {
+          "f": "pusynas-45",
+          "alt": "Pušynas 45 namas ant uolų prie vandens ryto šviesoje"
+        },
+        {
+          "f": "pusynas-45-vidus",
+          "alt": "Pušyno 45 svetainė su virtuve ir antresole"
+        }
+      ],
+      "planai": [
+        {
+          "var": "A",
+          "pastaba": ""
+        },
+        {
+          "var": "B",
+          "pastaba": ""
+        },
+        {
+          "var": "C",
+          "pastaba": "Virtuvė su svetaine 24,1 m², miegamasis 6 m², antresolė 8,1 m²"
+        }
+      ]
+    },
+    {
+      "id": "pusynas-50",
+      "serija": "pusynas",
+      "pavadinimas": "Pušynas 50",
+      "plotas": 50,
+      "nuolydis": "12°",
+      "kraigas": "4,0 m",
+      "miegamieji": "1–2",
+      "moduliai": 2,
+      "antresole": false,
+      "matmenys": "8,1 × 6,2 m",
+      "trumpai": "Du moduliai, didelės stumdomos stiklo durys į terasą.",
+      "aprasymas": [
+        "Namas iš dviejų modulių su didelėmis stumdomomis stiklo durimis, kurios atveria svetainę į terasą. Ypač tinka sklypams su gražiu vaizdu.",
+        "Erdvi virtuvė, vonios kambarys ir miegamieji. Išplanavimas C turi antresolę."
+      ],
+      "nuotraukos": [
+        {
+          "f": "pusynas-50",
+          "alt": "Pušynas 50 namas su terasa ir prieplauka prie ežero"
+        },
+        {
+          "f": "pusynas-50-vidus",
+          "alt": "Pušyno 50 svetainė su stumdomomis stiklo durimis"
+        }
+      ],
+      "planai": [
+        {
+          "var": "A",
+          "pastaba": ""
+        },
+        {
+          "var": "B",
+          "pastaba": ""
+        },
+        {
+          "var": "C",
+          "pastaba": "L formos: virtuvė su svetaine 23,8 m², miegamasis 7,8 m², antresolė"
+        }
+      ]
+    },
+    {
+      "id": "pusynas-60",
+      "serija": "pusynas",
+      "pavadinimas": "Pušynas 60",
+      "plotas": 60,
+      "nuolydis": "12°",
+      "kraigas": "4,0 m",
+      "miegamieji": "2",
+      "moduliai": 2,
+      "antresole": true,
+      "matmenys": "8,0 × 7,5 m",
+      "trumpai": "Du miegamieji, antresolė, du išplanavimai.",
+      "aprasymas": [
+        "60 m² namas su dviem miegamaisiais ir antresole vaikams ar svečiams. Virtuvė su langu, erdvi bendra zona.",
+        "Galima rinktis iš dviejų išplanavimų."
+      ],
+      "nuotraukos": [
+        {
+          "f": "pusynas-60",
+          "alt": "Pušynas 60 namas vakare tarp pušų prie jūros"
+        },
+        {
+          "f": "pusynas-60-is-virsaus",
+          "alt": "Pušyno 60 išplanavimas iš viršaus su baldais"
+        }
+      ],
+      "planai": [
+        {
+          "var": "B",
+          "pastaba": "Du miegamieji po 7 m², WC su dušu, atskiras WC, antresolė 13 m²"
+        }
+      ]
+    },
+    {
+      "id": "pusynas-80",
+      "serija": "pusynas",
+      "pavadinimas": "Pušynas 80",
+      "plotas": 80,
+      "nuolydis": "12°",
+      "kraigas": "4,0 m",
+      "miegamieji": "3",
+      "moduliai": 2,
+      "antresole": true,
+      "matmenys": "8,0 × 10,0 m",
+      "trumpai": "Trys miegamieji, antresolė, viena ar dvi vonios.",
+      "aprasymas": [
+        "Šeimos namas su trimis miegamaisiais, antresole ir vienu arba dviem vonios kambariais. Vietos užtenka ir kasdieniam gyvenimui, ir svečiams.",
+        "Du išplanavimo variantai."
+      ],
+      "nuotraukos": [
+        {
+          "f": "pusynas-80",
+          "alt": "Pušynas 80 namas su pavėsine pušyne"
+        },
+        {
+          "f": "pusynas-80-pastatytas",
+          "alt": "Pastatytas Pušynas 80 namas su didele terasa"
+        }
+      ],
+      "planai": [
+        {
+          "var": "B",
+          "pastaba": "Trys miegamieji, WC su dušu, atskiras WC, antresolė 10 m²"
+        }
+      ]
+    },
+    {
+      "id": "pusynas-100",
+      "serija": "pusynas",
+      "pavadinimas": "Pušynas 100",
+      "plotas": 100,
+      "nuolydis": "12°",
+      "kraigas": "4,0 m",
+      "miegamieji": "3–4",
+      "moduliai": 2,
+      "antresole": true,
+      "matmenys": "8,0 × 12,5 m",
+      "trumpai": "3–4 miegamieji, dvi vonios, didelė antresolė.",
+      "aprasymas": [
+        "Didžiausias Pušyno serijos namas: trys arba keturi miegamieji, du vonios kambariai, erdvi svetainė ir gerai suplanuota virtuvė.",
+        "Tinka šeimoms, kurios dažnai priima svečius. Išplanavimus atsiųsime pagal užklausą."
+      ],
+      "nuotraukos": [
+        {
+          "f": "pusynas-100",
+          "alt": "Pušynas 100 namas vakare tarp pušų prie jūros"
+        },
+        {
+          "f": "pusynas-100-vidus",
+          "alt": "Pušyno 100 virtuvė ir valgomasis"
+        }
+      ],
+      "planai": []
+    },
+    {
+      "id": "horizontas-70",
+      "serija": "horizontas",
+      "pavadinimas": "Horizontas 70",
+      "plotas": 70,
+      "nuolydis": "12°",
+      "kraigas": "4,2 m",
+      "miegamieji": "2",
+      "moduliai": 2,
+      "antresole": false,
+      "matmenys": "7,5 × 8,0 m + terasa",
+      "trumpai": "Du miegamieji, stoglangis vonioje, terasa po stogu.",
+      "aprasymas": [
+        "Namas su didele bendra erdve: svetainės langas jungia vidų su terasa. Du miegamieji su vieta spintoms atskirti nuo svetainės.",
+        "Vonios kambarį apšviečia stoglangis. Terasos dydį galima pritaikyti pagal sklypą."
+      ],
+      "nuotraukos": [
+        {
+          "f": "horizontas-70",
+          "alt": "Horizontas 70 namas vakare prie jūros"
+        },
+        {
+          "f": "horizontas-70-2",
+          "alt": "Horizontas 70 su terasa po stogu"
+        },
+        {
+          "f": "horizontas-70-vidus",
+          "alt": "Horizonto 70 svetainė ir virtuvė"
+        },
+        {
+          "f": "horizontas-70-is-virsaus",
+          "alt": "Horizonto 70 išplanavimas iš viršaus"
+        }
+      ],
+      "planai": [
+        {
+          "var": "A",
+          "pastaba": "Du miegamieji, vonia, virtuvė su svetaine, terasa 2,5 m"
+        }
+      ]
+    },
+    {
+      "id": "horizontas-91",
+      "serija": "horizontas",
+      "pavadinimas": "Horizontas 91",
+      "plotas": 91,
+      "nuolydis": "12°",
+      "kraigas": "4,2 m",
+      "miegamieji": "2",
+      "moduliai": 2,
+      "antresole": false,
+      "matmenys": "9,0 × 8,3 m + terasa",
+      "trumpai": "Dvejos stumdomos durys į terasą, du erdvūs miegamieji.",
+      "aprasymas": [
+        "Svetainė su dvejomis stumdomomis durimis į terasą. Du erdvūs miegamieji su vieta spintoms, vonios kambarys su stoglangiu.",
+        "Didelė virtuvė jungiasi su svetaine, o terasa po stogu prailgina gyvenamąją erdvę lauke."
+      ],
+      "nuotraukos": [
+        {
+          "f": "horizontas-91",
+          "alt": "Horizontas 91 namas vakare ant uolų"
+        },
+        {
+          "f": "horizontas-91-vidus",
+          "alt": "Horizonto 91 svetainė su stumdomomis durimis"
+        },
+        {
+          "f": "horizontas-91-miegamasis",
+          "alt": "Horizonto 91 miegamasis"
+        },
+        {
+          "f": "horizontas-91-is-virsaus",
+          "alt": "Horizonto 91 išplanavimas iš viršaus"
+        }
+      ],
+      "planai": [
+        {
+          "var": "A",
+          "pastaba": "Miegamieji vienoje pusėje, svetainė su virtuve ir terasa kitoje"
+        }
+      ]
+    },
+    {
+      "id": "horizontas-107",
+      "serija": "horizontas",
+      "pavadinimas": "Horizontas 107",
+      "plotas": 107,
+      "nuolydis": "12°",
+      "kraigas": "4,2 m",
+      "miegamieji": "3",
+      "moduliai": 3,
+      "antresole": false,
+      "trumpai": "Trys moduliai, trys miegamieji, dvi vonios.",
+      "aprasymas": [
+        "Namas iš trijų modulių: trys miegamieji, du vonios kambariai su stoglangiais, sandėliukas ir didelė svetainė su virtuve bei valgomuoju.",
+        "Dvejos stumdomos stiklo durys prisileidžia daug dienos šviesos, terasos dydis pritaikomas."
+      ],
+      "nuotraukos": [
+        {
+          "f": "horizontas-107",
+          "alt": "Horizontas 107 namas prie ežero su prieplauka"
+        },
+        {
+          "f": "horizontas-107-ziema",
+          "alt": "Horizontas 107 žiemą ant kalvos"
+        },
+        {
+          "f": "horizontas-107-is-virsaus",
+          "alt": "Horizonto 107 išplanavimas iš viršaus"
+        }
+      ],
+      "planai": [
+        {
+          "var": "A",
+          "pastaba": "Trys miegamieji, dvi vonios, sandėliukas, svetainė su terasa"
+        }
+      ]
+    },
+    {
+      "id": "horizontas-124",
+      "serija": "horizontas",
+      "pavadinimas": "Horizontas 124",
+      "plotas": 124,
+      "nuolydis": "12°",
+      "kraigas": "4,2 m",
+      "miegamieji": "3",
+      "moduliai": 3,
+      "antresole": false,
+      "trumpai": "Didžiausias modelis: trys miegamieji, dvi vonios, sandėliukas.",
+      "aprasymas": [
+        "Didžiausias modulinis namas kataloge. Trys moduliai, trys miegamieji, du vonios kambariai ir atskiras sandėliukas.",
+        "Svetainė, valgomasis ir virtuvė apšviesti dvejomis didelėmis stumdomomis stiklo durimis, o terasa po stogu pritaikoma pagal jūsų norus."
+      ],
+      "nuotraukos": [
+        {
+          "f": "horizontas-124",
+          "alt": "Horizontas 124 namas pušyne su žvyro keliuku"
+        },
+        {
+          "f": "horizontas-124-vakaras",
+          "alt": "Horizontas 124 vakare su apšvietimu"
+        },
+        {
+          "f": "horizontas-124-is-virsaus",
+          "alt": "Horizonto 124 išplanavimas iš viršaus"
+        }
+      ],
+      "planai": [
+        {
+          "var": "A",
+          "pastaba": "Trys miegamieji, dvi vonios, sandėliukas, ilga svetainė su terasa"
+        }
+      ]
+    }
+  ],
+  "gamyba": [
+    "Namai gaminami gamykloje su kontroliuojamu klimatu.",
+    "Gamyba trunka apie 8–10 savaičių mažesniems namams ir 10–12 savaičių didesniems.",
+    "Pagamintas modulis sveria nuo 8 iki 18 tonų ir į vietą keliamas autokranu.",
+    "Montuotojai pastato namą ir sumontuoja tai, ko negalima įrengti prieš transportavimą: lietvamzdžius, fasado apšvietimą ir pan."
+  ],
+  "galerija": [
+    {
+      "f": "g-04",
+      "alt": "Pagamintas namas su terasa sode"
+    },
+    {
+      "f": "g-10",
+      "alt": "Du moduliniai namai prie upės"
+    },
+    {
+      "f": "g-19",
+      "alt": "Namelis žiemą su sniegu ir šviečiančiais langais"
+    },
+    {
+      "f": "g-16",
+      "alt": "Šviesi svetainė su antresole"
+    },
+    {
+      "f": "g-05",
+      "alt": "Namelis su terasa prie baseino"
+    },
+    {
+      "f": "g-15",
+      "alt": "Baltas namas su dideliais langais kieme"
+    },
+    {
+      "f": "g-13",
+      "alt": "Svetainė su laiptais į antresolę"
+    },
+    {
+      "f": "g-07",
+      "alt": "Pastatytas namas žiemą"
+    },
+    {
+      "f": "g-12",
+      "alt": "Svetainė su dideliais langais"
+    },
+    {
+      "f": "g-03",
+      "alt": "Namelis su juodais langais ant polių"
+    },
+    {
+      "f": "g-08",
+      "alt": "Virtuvė su langu virš kriauklės"
+    },
+    {
+      "f": "g-14",
+      "alt": "Modernus namas su terasa ant kalvos"
+    },
+    {
+      "f": "g-11",
+      "alt": "Virtuvė su arkiniu langu"
+    },
+    {
+      "f": "g-09",
+      "alt": "Raudonas Tradicijos stiliaus namelis miške"
+    },
+    {
+      "f": "g-17",
+      "alt": "Svetainė su stiklinėmis durimis"
+    },
+    {
+      "f": "g-18",
+      "alt": "Miegamasis antresolėje"
+    },
+    {
+      "f": "g-01",
+      "alt": "Svetainė prie stiklinių durų į terasą"
+    },
+    {
+      "f": "g-06",
+      "alt": "Namelis kalnuose"
+    }
+  ]
+}

@@ -1,18 +1,25 @@
 import imone from "../data/imone.json";
 import produktai from "../data/produktai.json";
 import turinys from "../data/turinys.json";
+import katalogas from "../data/modeliai.json";
 
-export { imone, produktai, turinys };
+export { imone, produktai, turinys, katalogas };
 export type Produktas = (typeof produktai)[number];
+export type Modelis = (typeof katalogas.modeliai)[number];
+export const modelHref = (m: { id: string }) => `${m.id}.html`;
+export const planImg = (m: { id: string }, v: string) => `img/planai/${m.id}-${v.toLowerCase()}.webp`;
+export const isViz = (name: string) => !name.startsWith("k/");
 
 export const BRAND = imone.pavadinimas;
 export const SITE = imone.svetaine.replace(/\/$/, "");
 export const telHref = (t: string) => `tel:${t.replace(/[^\d+]/g, "")}`;
 export const productHref = (p: Produktas) => `${p.slug}.html`;
-export const img = (name: string, small = false) => `img/${name}${small ? "-1000" : ""}.webp`;
+export const img = (name: string, small = false) => `img/${name}${small ? (name.startsWith("k/") ? "-800" : "-1000") : ""}.webp`;
+export const kimg = (name: string, small = false) => img(`k/${name}`, small);
 
 export const NAV = [
   ...produktai.map((p) => ({ href: productHref(p), label: p.id === "sandeliukas" ? "Sandėliukai" : p.id === "karkasinis" ? "Karkasiniai namai" : p.pavadinimas, key: p.id })),
+  { href: "galerija.html", label: "Galerija", key: "galerija" },
   { href: "kontaktai.html", label: "Kontaktai", key: "kontaktai" },
 ];
 
