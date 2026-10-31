@@ -14,5 +14,5 @@ const head = html.match(/<head>([\s\S]*?)<\/head>/)[1]
   .replace(/<meta charset="utf-8">/i, "")
   .replace(/<meta name="viewport"[^>]*>/i, "");
 const body = html.match(/<body>([\s\S]*?)<\/body>/)[1];
-writeFileSync(`${out}/index.html`, head.trim() + "\n" + body.trim() + "\n");
+writeFileSync(`${out}/index.html`, '<meta name="claude:viewport-fit-sides" content="cover">\n' + head.trim() + "\n" + body.trim() + "\n");
 console.log("artifact/ paruoštas");

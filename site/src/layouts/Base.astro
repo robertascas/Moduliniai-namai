@@ -16,7 +16,7 @@ const tel = imone.telefonai[0];
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{title}</title>
   <meta name="description" content={description}>
-  <meta name="claude:viewport-fit-sides" content="cover">
+  {import.meta.env.PUBLIC_NOINDEX === "1" && <meta name="robots" content="noindex, nofollow">}
   <link rel="canonical" href={canonical}>
   <meta property="og:type" content="website">
   <meta property="og:locale" content="lt_LT">
