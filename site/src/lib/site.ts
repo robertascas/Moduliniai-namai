@@ -41,7 +41,7 @@ export function orgSchema() {
     ],
     makesOffer: produktai.map((p) => ({
       "@type": "Offer",
-      itemOffered: { "@type": "Service", name: p.pavadinimas, url: `${SITE}/${p.slug}.html` },
+      itemOffered: { "@type": "Service", name: p.pavadinimas, url: `${SITE}/${p.slug}` },
     })),
   };
 }
@@ -56,6 +56,6 @@ export function crumbsSchema(items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: `${SITE}/${c.path}` })),
+    itemListElement: items.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: `${SITE}/${c.path.replace(/\.html$/, "")}` })),
   };
 }

@@ -5,7 +5,7 @@ import { imone, produktai, NAV, BRAND, SITE, telHref, productHref, orgSchema } f
 
 interface Props { title: string; description: string; path: string; current?: string; image?: string; schema?: object[]; }
 const { title, description, path, current, image = "og.jpg", schema = [] } = Astro.props;
-const canonical = `${SITE}/${path === "index.html" ? "" : path}`;
+const canonical = `${SITE}/${path === "index.html" ? "" : path.replace(/\.html$/, "")}`;
 const ld = [orgSchema(), ...schema];
 const tel = imone.telefonai[0];
 ---
