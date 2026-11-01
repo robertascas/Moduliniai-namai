@@ -417,3 +417,10 @@ details p { padding: 0 0 24px; color: var(--ink-2); max-width: 64ch; }
 .lb-close { position: absolute; top: 8px; right: 8px; width: 40px; height: 40px; font-size: 26px; line-height: 1; border: 0; background: rgba(0,0,0,.55); color: #fff; cursor: pointer; }
 .split-img { position: relative; }
 .split-img .viz-note { right: 14px; bottom: 12px; }
+
+/* Modelio aprašymas */
+.m-text { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 56px; }
+.m-text > div { display: grid; gap: 12px; align-content: start; border-top: 1px solid var(--ink); padding-top: 18px; }
+.m-text h3 { font-size: var(--s-2); }
+.m-text p { color: var(--ink-2); font-size: var(--s-1); line-height: 1.6; max-width: 62ch; }
+@media (max-width: 860px) { .m-text { grid-template-columns: 1fr; } }
