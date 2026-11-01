@@ -312,7 +312,7 @@ details p { padding: 0 0 24px; color: var(--ink-2); max-width: 64ch; }
 .foot-brand p { color: color-mix(in srgb, var(--on-night) 68%, transparent); max-width: 34ch; }
 .foot-col { grid-column: span 2; display: grid; gap: 12px; align-content: start; }
 .foot-col.wide { grid-column: span 4; }
-.foot-col h4 { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: color-mix(in srgb, var(--on-night) 55%, transparent); }
+.foot-col .foot-h { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: color-mix(in srgb, var(--on-night) 55%, transparent); }
 .foot-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .foot-col a { text-decoration: none; color: color-mix(in srgb, var(--on-night) 88%, transparent); }
 .foot-col a:hover { color: var(--amber); }

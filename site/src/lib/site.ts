@@ -16,6 +16,7 @@ export const telHref = (t: string) => `tel:${t.replace(/[^\d+]/g, "")}`;
 export const productHref = (p: Produktas) => `${p.slug}.html`;
 export const img = (name: string, small = false) => `img/${name}${small ? (name.startsWith("k/") ? "-800" : "-1000") : ""}.webp`;
 export const kimg = (name: string, small = false) => img(`k/${name}`, small);
+export const kthumb = (name: string) => `img/k/${name}-320.webp`;
 
 export const NAV = [
   ...produktai.map((p) => ({ href: productHref(p), label: p.id === "sandeliukas" ? "Sandėliukai" : p.id === "karkasinis" ? "Karkasiniai namai" : p.pavadinimas, key: p.id })),

@@ -39,7 +39,7 @@
 
   // Modelio nuotraukų peržiūra ir fasado stiliai
   var vImg = document.getElementById("viewer-img");
-  function show(src, alt) { if (vImg) { vImg.src = src; vImg.alt = alt; } }
+  function show(src, alt) { if (vImg) { vImg.removeAttribute("srcset"); vImg.src = src; vImg.alt = alt; } }
   document.addEventListener("click", function (e) {
     var t = e.target.closest(".thumb");
     if (t) {

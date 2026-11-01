@@ -1,7 +1,7 @@
 ---
 import Arrow from "./Arrow.astro";
 import ModelCard from "./ModelCard.astro";
-import { imone, katalogas, turinys, kimg, planImg, modelHref, telHref, type Modelis } from "../lib/site";
+import { imone, katalogas, turinys, kimg, kthumb, planImg, modelHref, telHref, type Modelis } from "../lib/site";
 const { m } = Astro.props as { m: Modelis };
 const serija = katalogas.serijos.find((s) => s.id === m.serija)!;
 const stiliai = (m as any).stiliai as { id: string; nuolydis: string; nuotrauka: string }[] | undefined;
@@ -14,12 +14,12 @@ const [daline, ikiRakto] = turinys.irengimas;
     <span class="crumbs-dark"><a href="index.html">Pradžia</a> / <a href="moduliniai-namai.html">Moduliniai namai</a> / {m.pavadinimas}</span>
     <div class="m-hero-grid">
       <div class="viewer" data-viewer>
-        <div class="viewer-main"><img id="viewer-img" src={kimg(m.nuotraukos[0].f)} alt={m.nuotraukos[0].alt} width="1241" height="910" fetchpriority="high"></div>
+        <div class="viewer-main"><img id="viewer-img" src={kimg(m.nuotraukos[0].f)} srcset={`${kimg(m.nuotraukos[0].f, true)} 800w, ${kimg(m.nuotraukos[0].f)} 1241w`} sizes="(max-width: 960px) 100vw, 60vw" alt={m.nuotraukos[0].alt} width="1241" height="910" fetchpriority="high"></div>
         {m.nuotraukos.length > 1 && (
           <div class="thumbs" role="group" aria-label="Nuotraukos">
             {m.nuotraukos.map((f, i) => (
               <button type="button" class="thumb" data-src={kimg(f.f)} data-alt={f.alt} aria-pressed={i === 0 ? "true" : "false"} aria-label={`Rodyti: ${f.alt}`}>
-                <img src={kimg(f.f, true)} alt="" loading="lazy">
+                <img src={kthumb(f.f)} alt="" width="92" height="69" loading="lazy">
               </button>
             ))}
           </div>
@@ -71,7 +71,7 @@ const [daline, ikiRakto] = turinys.irengimas;
           const st = katalogas.stiliai[s.id as keyof typeof katalogas.stiliai];
           return (
             <div class="style-card">
-              <img src={kimg(s.nuotrauka, true)} alt={`${m.pavadinimas}, ${st.pavadinimas} stilius`} loading="lazy">
+              <img src={kimg(s.nuotrauka, true)} alt={`${m.pavadinimas}, ${st.pavadinimas} stilius`} width="800" height="587" loading="lazy">
               <h3>{st.pavadinimas} <small>{s.nuolydis}</small></h3>
               <p class="muted">{st.aprasymas}</p>
             </div>
