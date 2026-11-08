@@ -171,8 +171,18 @@
     if (form.querySelector('input[name="botcheck"]').checked) return;
     var btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
-    var payload = { access_key: key, subject: "Nauja užklausa iš svetainės: " + rows[0][1], from_name: document.getElementById("u-vardas").value.trim(), email: document.getElementById("u-pastas").value.trim() };
-    rows.forEach(function (r) { payload[r[0]] = r[1]; });
+    var vardas = document.getElementById("u-vardas").value.trim();
+    var pastas = document.getElementById("u-pastas").value.trim();
+    var payload = {
+      access_key: key,
+      subject: "Užklausa iš svetainės: " + rows[0][1] + ", " + vardas,
+      from_name: "Šiltas karkasas svetainė",
+      replyto: pastas,
+      "Vardas": vardas,
+      "Telefonas": document.getElementById("u-tel").value.trim(),
+      "El. paštas": pastas
+    };
+    rows.forEach(function (r) { if (r[0] !== "Kontaktai") payload[r[0]] = r[1]; });
     fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) })
       .then(function (r) { return r.text().then(function (t) { var j; try { j = JSON.parse(t); } catch (e) { j = { message: "HTTP " + r.status + " " + t.slice(0, 160) }; } return j; }); })
       .then(function (j) {
