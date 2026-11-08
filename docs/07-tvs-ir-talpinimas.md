@@ -46,7 +46,7 @@ Nuotraukos įkeliamos į `site/public/img/`. Išsaugojus pakeitimą, Cloudflare 
 - **Cloudflare Pages projektas:** `siltaskarkasas`, prijungtas prie GitHub `robertascas/Moduliniai-namai`.
 - **Šaka:** `claude/modular-homes-page-wdlp36` – kiekvienas įkėlimas į ją automatiškai atnaujina svetainę (1–3 min.).
 - **Kūrimas:** šakninis aplankas `site`, komanda `npm run build`, rezultatas `dist`.
-- **Kintamieji:** `PUBLIC_NOINDEX=1` (Google neindeksuoja), `NODE_VERSION=22`.
+- **Kintamieji:** `PUBLIC_NOINDEX=1` (Google neindeksuoja), `NODE_VERSION=22`, `PUBLIC_WEB3FORMS_KEY` (Web3Forms raktas, sukurtas be registracijos, užklausos į modulonamas@gmail.com).
 - Kūrimo metu (`CF_PAGES`) vidinės nuorodos perrašomos be `.html` galūnės (`scripts/pretty-links.mjs`).
 - Tuščias projektas `siltas-karkasas` nenaudojamas, jį galima ištrinti Cloudflare skydelyje.
 
