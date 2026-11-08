@@ -154,6 +154,8 @@
     rows.push(["Projektas", val("projektas")]);
     rows.push(["Vieta", document.getElementById("u-vieta").value.trim() || "Nenurodyta"]);
     rows.push(["Kontaktai", document.getElementById("u-vardas").value.trim() + ", " + document.getElementById("u-tel").value.trim() + ", " + document.getElementById("u-pastas").value.trim()]);
+    var link = document.getElementById("u-failas");
+    if (link && link.value.trim()) rows.push(["Projekto failas", link.value.trim()]);
     var msg = document.getElementById("u-zinute").value.trim();
     if (msg) rows.push(["Žinutė", msg]);
 

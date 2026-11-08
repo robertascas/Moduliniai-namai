@@ -126,6 +126,11 @@ import { imone, produktai, katalogas, img, telHref, crumbsSchema } from "../lib/
                 <span class="err" data-err-for="u-pastas" hidden>Įrašykite el. paštą, pvz. vardas@pastas.lt.</span>
               </div>
               <div class="field full">
+                <label for="u-failas">Nuoroda į projektą ar eskizą, jei turite</label>
+                <input id="u-failas" type="url" inputmode="url" placeholder="Google Drive, Dropbox ar WeTransfer nuoroda">
+                <small class="muted">Failą taip pat galite atsiųsti el. paštu {imone.elPastas}.</small>
+              </div>
+              <div class="field full">
                 <label for="u-zinute">Žinutė</label>
                 <textarea id="u-zinute" placeholder="Matmenys, pageidavimai, kada norėtumėte pradėti"></textarea>
               </div>
