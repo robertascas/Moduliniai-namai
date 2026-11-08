@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+import { imone, crumbsSchema } from "../lib/site";
+---
+<Base
+  path="privatumo-politika.html"
+  title="Privatumo politika | Šiltas karkasas"
+  description="Kaip Šiltas karkasas tvarko užklausos formoje pateiktus asmens duomenis."
+  schema={[crumbsSchema([{ name: "Pradžia", path: "" }, { name: "Privatumo politika", path: "privatumo-politika.html" }])]}
+>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="crumbs"><a href="index.html">Pradžia</a> / Privatumo politika</span>
+      <h1>Privatumo politika</h1>
+    </div>
+  </header>
+  <section class="section">
+    <div class="wrap legal">
+      <h2>Kas tvarko duomenis</h2>
+      <p>Duomenų valdytojas: {imone.pavadinimas}{imone.rekvizitai ? `, ${imone.rekvizitai}` : ""}. Klausimais dėl duomenų rašykite {imone.elPastas} arba skambinkite {imone.telefonai[0]}.</p>
+
+      <h2>Kokius duomenis renkame</h2>
+      <p>Tik tuos, kuriuos patys įrašote užklausos formoje: vardą, telefono numerį, el. pašto adresą, statybos vietą, žinutę ir pasirinktus pastato parametrus.</p>
+
+      <h2>Kam naudojame</h2>
+      <p>Atsakyti į jūsų užklausą, parengti pasiūlymą ir sąmatą. Duomenis tvarkome jūsų sutikimo ir prašymo prieš sudarant sutartį pagrindu (BDAR 6 str. 1 d. a ir b punktai).</p>
+
+      <h2>Kas gauna duomenis</h2>
+      <p>Užklausa perduodama el. paštu per formų paslaugą Web3Forms. Svetainė talpinama Cloudflare serveriuose. Duomenų neparduodame ir neperduodame kitiems asmenims reklamai.</p>
+
+      <h2>Kiek laiko saugome</h2>
+      <p>Užklausas saugome tiek, kiek reikia susitarti dėl darbų. Jei sutartis nesudaroma, duomenis ištriname ne vėliau kaip po vienų metų.</p>
+
+      <h2>Jūsų teisės</h2>
+      <p>Galite prašyti susipažinti su savo duomenimis, juos ištaisyti, ištrinti, apriboti tvarkymą arba atšaukti sutikimą. Parašykite {imone.elPastas}. Jei manote, kad duomenys tvarkomi netinkamai, galite kreiptis į Valstybinę duomenų apsaugos inspekciją (vdai.lrv.lt).</p>
+
+      <h2>Slapukai</h2>
+      <p>Svetainė nenaudoja reklaminių ar analitinių slapukų ir neseka lankytojų. Jei ateityje bus įdiegta lankomumo statistika, apie tai informuosime ir paprašysime sutikimo.</p>
+    </div>
+  </section>
+</Base>

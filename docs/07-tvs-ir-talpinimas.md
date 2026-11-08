@@ -51,7 +51,8 @@ Nuotraukos įkeliamos į `site/public/img/`. Išsaugojus pakeitimą, Cloudflare 
 - Tuščias projektas `siltas-karkasas` nenaudojamas, jį galima ištrinti Cloudflare skydelyje.
 
 ### Paleidžiant tikrą svetainę
-1. Cloudflare projekto nustatymuose pašalinti `PUBLIC_NOINDEX`.
+1. Cloudflare projekto nustatymuose pašalinti `PUBLIC_NOINDEX` (dings ir „Testinė versija“ juosta) ir pridėti `PUBLIC_WEB3FORMS_KEY` (Web3Forms raktas modulonamas@gmail.com adresui).
+1a. Į `src/data/imone.json` → `rekvizitai` įrašyti įmonės pavadinimą ir kodą (rodomi privatumo politikoje).
 2. Prijungti domeną (Custom domains) ir patikrinti `src/data/imone.json` → `svetaine`.
 3. Gamybinę šaką perkelti į `main`.
 4. Pateikti `sitemap.xml` Google Search Console.

@@ -164,7 +164,29 @@
       dt.textContent = r[0]; dd.textContent = r[1];
       dl.appendChild(dt); dl.appendChild(dd);
     });
-    sum.hidden = false;
-    sum.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+    var title = sum.querySelector("h3"), state = document.getElementById("u-busena");
+    var key = form.dataset.key;
+    function reveal() { sum.hidden = false; sum.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" }); }
+    if (!key) { reveal(); return; }
+    if (form.querySelector('input[name="botcheck"]').checked) return;
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    var payload = { access_key: key, subject: "Nauja užklausa iš svetainės: " + rows[0][1], from_name: document.getElementById("u-vardas").value.trim(), email: document.getElementById("u-pastas").value.trim() };
+    rows.forEach(function (r) { payload[r[0]] = r[1]; });
+    fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (!j.success) throw new Error(j.message || "klaida");
+        title.textContent = "Užklausa išsiųsta";
+        state.textContent = "Ačiū. Susisieksime su jumis artimiausiu metu.";
+        form.querySelectorAll("fieldset").forEach(function (f) { f.hidden = true; });
+        reveal();
+      })
+      .catch(function () {
+        btn.disabled = false;
+        title.textContent = "Užklausos išsiųsti nepavyko";
+        state.textContent = "Pabandykite dar kartą arba paskambinkite / parašykite mums tiesiogiai.";
+        reveal();
+      });
   });
 })();

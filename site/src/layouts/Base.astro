@@ -37,11 +37,13 @@ const tel = imone.telefonai[0];
   {ld.map((s) => <script is:inline type="application/ld+json" set:html={JSON.stringify(s)}></script>)}
 </head>
 <body>
-  <div class="proto">
-    <div class="wrap">
-      <span>Prototipas v0.4 · modeliai, nuotraukos ir išplanavimai iš gamybos partnerio katalogo</span>
+  {import.meta.env.PUBLIC_NOINDEX === "1" && (
+    <div class="proto">
+      <div class="wrap">
+        <span>Testinė versija · modeliai, nuotraukos ir išplanavimai iš gamybos partnerio katalogo</span>
+      </div>
     </div>
-  </div>
+  )}
 
   <header class="site-head">
     <div class="wrap">
@@ -87,7 +89,7 @@ const tel = imone.telefonai[0];
       </div>
       <div class="foot-legal">
         <span>© 2026 {BRAND}</span>
-        <span>Privatumo politika · Slapukai</span>
+        <a href="privatumo-politika.html">Privatumo politika</a>
       </div>
     </div>
   </footer>

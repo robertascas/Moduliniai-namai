@@ -454,7 +454,7 @@ details p { padding: 0 0 24px; color: var(--ink-2); max-width: 64ch; }
 .tech-list dd { margin: 0; font-weight: 700; }
 .eclass { display: flex; gap: 6px; flex-wrap: wrap; }
 .ec { min-width: 52px; padding: 8px 12px; text-align: center; font-weight: 700; color: #10241c; clip-path: polygon(0 0, 82% 0, 100% 50%, 82% 100%, 0 100%); padding-right: 18px; }
-.ec-0 { background: #C7D34A; } .ec-1 { background: #8CC04B; } .ec-2 { background: #4FAE4C; } .ec-3 { background: #2A9147; color: #fff; }
+.ec-0 { background: #C7D34A; } .ec-1 { background: #8CC04B; } .ec-2 { background: #4FAE4C; } .ec-3 { background: #1B6B34; color: #fff; }
 
 /* Pirčių dydžiai ir nameliai ant vandens */
 .sizes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
@@ -471,3 +471,6 @@ details p { padding: 0 0 24px; color: var(--ink-2); max-width: 64ch; }
 @media (max-width: 860px) { .options { grid-template-columns: 1fr; } }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .lvl-price-note { margin-top: -6px; font-size: 14px; font-weight: 600; color: var(--link); }
+.legal { display: grid; gap: 14px; max-width: 72ch; }
+.legal h2 { font-size: var(--s-2); margin-top: 18px; }
+.legal p { color: var(--ink-2); font-size: var(--s-1); }

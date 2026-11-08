@@ -36,7 +36,8 @@ import { imone, produktai, katalogas, img, telHref, crumbsSchema } from "../lib/
       </aside>
 
       <div class="contact-form">
-        <form class="wizard" id="uzklausa" novalidate aria-label="Užklausos forma">
+        <form class="wizard" id="uzklausa" novalidate aria-label="Užklausos forma" data-key={import.meta.env.PUBLIC_WEB3FORMS_KEY || ""}>
+          <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
           <fieldset>
             <legend><span>01</span>Kas jus domina?</legend>
             <div class="cards">
@@ -130,7 +131,7 @@ import { imone, produktai, katalogas, img, telHref, crumbsSchema } from "../lib/
               </div>
               <label class="consent full" for="u-sutikimas">
                 <input type="checkbox" id="u-sutikimas" required>
-                <span>Sutinku, kad mano duomenys būtų naudojami atsakyti į šią užklausą.</span>
+                <span>Sutinku, kad mano duomenys būtų naudojami atsakyti į šią užklausą. Daugiau: <a href="privatumo-politika.html">privatumo politika</a>.</span>
               </label>
               <span class="err full" data-err-for="u-sutikimas" hidden>Pažymėkite sutikimą, kad galėtume atsakyti.</span>
               <div class="actions full">
@@ -142,7 +143,7 @@ import { imone, produktai, katalogas, img, telHref, crumbsSchema } from "../lib/
           <div class="summary" id="u-santrauka" hidden role="status">
             <h3>Užklausa paruošta</h3>
             <dl id="u-santrauka-dl"></dl>
-            <p class="muted">Prototipe užklausa niekur nesiunčiama. Paleistoje svetainėje ji ateis į {imone.elPastas}.</p>
+            <p class="muted" id="u-busena">Prototipe užklausa niekur nesiunčiama. Paleistoje svetainėje ji ateis į {imone.elPastas}.</p>
           </div>
         </form>
       </div>
