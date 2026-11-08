@@ -1,6 +1,6 @@
 {
   "irengimas": {
-    "pastaba": "Kainos nurodytos mažiausiam modeliui (ŠK30), be PVM. Premium paketo kainą suderiname individualiai. Pamatai, komunikacijų atvedimas, transportavimas į sklypą ir montavimas į bazinę kainą neįskaičiuoti: juos suderiname sąmatoje.",
+    "pastaba": "Kainos nurodytos mažiausiam modeliui (ŠK30), be PVM. Premium paketo kaina tikslinama pagal projekto apimtį. Pamatai, komunikacijų atvedimas, transportavimas į sklypą ir montavimas į bazinę kainą neįskaičiuoti: juos suderiname sąmatoje.",
     "lygiai": [
       {
         "id": "daline",
@@ -21,10 +21,11 @@
       {
         "id": "premium",
         "pavadinimas": "Iki rakto (Premium)",
-        "kaina": null,
+        "kaina": 40000,
         "nuotrauka": "interjeras",
         "alt": "Šviesus modulinio namo interjeras su antresole",
-        "aprasymas": "Visas pilnos apdailos paketas ir šilumos siurblys oras–oras, veikiantis iki −25 °C lauke."
+        "aprasymas": "Visas pilnos apdailos paketas ir šilumos siurblys oras–oras, veikiantis iki −25 °C lauke.",
+        "kainosPastaba": "Tikslinama pagal projekto apimtį"
       }
     ],
     "punktai": [
