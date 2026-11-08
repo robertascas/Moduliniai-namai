@@ -22,18 +22,16 @@ ko trūksta ir kas yra laikina.
 
 - Modeliai, techniniai duomenys, nuotraukos ir išplanavimai paimti iš Bitus katalogo (partnerio leidimas, pasak kliento).
   Rekomenduojama turėti leidimą raštu.
-- Modelių pavadinimai sukurti nauji (Namelis 30, Namas 40/50, Pušynas, Horizontas), aprašymai parašyti iš naujo lietuviškai.
+- Modelių pavadinimai sukurti nauji (ŠK30…ŠK124H), aprašymai parašyti iš naujo lietuviškai.
 - Galerijoje nurodyta, kad tai **gamybos partnerio** pagaminti namai. Kai bus kliento objektų nuotraukų, jas rodyti atskirai.
 - Pušynas 100 išplanavimai kataloge tik rastriniai su švediškais užrašais, todėl svetainėje nerodomi („atsiųsime pagal užklausą“).
 - Švediškų trumpinių (G, TM, K/F ir pan.) brėžiniuose neliko, patalpų pavadinimai išversti.
 
 ## Trūksta informacijos
 
-- [ ] **Tikros darbų nuotraukos** (svarbiausia). Dabar naudojamos laikinos 3D vizualizacijos, pažymėtos „Vizualizacija“.
+- [ ] **Tikros darbų nuotraukos** (svarbiausia). Dabar naudojamos partnerio katalogo nuotraukos ir 3D vizualizacijos (pirtys, nameliai ant vandens, sandėliukas).
 - [ ] Įmonės teisinis pavadinimas ir kodas (privatumo politikai, poraštei, Google Business Profile).
-- [ ] Ar galima viešai rodyti kainas „nuo“? Jei taip, kokios.
 - [ ] Garantijos sąlygos (nebuvo pateiktos, todėl svetainėje neminimos).
-- [ ] Ar yra standartiniai išmatavimai / modeliai (pvz. pirtis 3×4 m)?
 - [ ] Kuris telefonas pagrindinis (rodomas antraštėje), ar numeriai priklauso skirtingiems žmonėms ar paslaugoms?
 - [ ] Darbo laikas.
 - [ ] Domenas: ar `siltaskarkasas.lt` tinka ir yra laisvas?
@@ -41,15 +39,9 @@ ko trūksta ir kas yra laikina.
 
 ## Laikina prototipe
 
-- 3D vizualizacijos vietoj nuotraukų.
+- 3D vizualizacijos pirtims, nameliams ant vandens ir sandėliukui.
 - Užklausos forma niekur nesiunčiama (rodo santrauką).
 - Domenas `canonical` ir `sitemap` nuorodose.
-
-## Apie pateiktą katalogą
-
-Katalogas naudotas **tik kaip stiliaus orientyras**: tamsus fonas, eglės žalios spalvos plokštumos,
-žiemos vakaro nuotaika, pilno pločio vaizdai. Katalogo nuotraukos, logotipas ir tekstai svetainėje **nenaudojami**,
-nes priklauso kitai įmonei.
 
 ## Kliento atsakymai (įdiegta v0.5)
 
