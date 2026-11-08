@@ -62,7 +62,7 @@ const image = p ? (isViz(p.nuotrauka) ? "og.jpg" : `img/${p.nuotrauka}.webp`) : 
             <div class="sec-head">
               <span class="eyebrow">Modeliai</span>
               <h2>Nuo 30 iki 124 m².</h2>
-              <p class="lead">Kiekvieną modelį galima pritaikyti: perkelti langus, apversti veidrodiškai, pasirinkti spalvą ir vidaus apdailą.</p>
+              <p class="lead">Kiekvieną modelį galima pritaikyti. Langus galima perkelti, namą apversti veidrodiškai, spalvą ir vidaus apdailą pasirenkate patys.</p>
             </div>
             <div class="filters" data-filters role="group" aria-label="Filtruoti pagal plotą">
               <button type="button" class="chip" data-f="all" aria-pressed="true">Visi</button>
@@ -100,7 +100,7 @@ const image = p ? (isViz(p.nuotrauka) ? "og.jpg" : `img/${p.nuotrauka}.webp`) : 
               <p class="lead">Dydį renkatės pagal tai, kiek žmonių pirtyje lankysis ir ar reikia poilsio kambario.</p>
             </div>
             <div class="sizes">
-              {[["pirtis-3x4","3 × 4 m","12 m²","Kompaktiška pirtis su garine ir persirengimo patalpa."],["pirtis-5x5","5 × 5 m","25 m²","Erdvi pirtis su poilsio kambariu ir terasa po stogu."],["pirtis-4x6","4 × 6 m","24 m²","Pailga pirtis: garinė, dušas ir poilsio kambarys su dideliu langu."]].map(([f,d,a,t]) => (
+              {[["pirtis-3x4","3 × 4 m","12 m²","Kompaktiška pirtis su garine ir persirengimo patalpa."],["pirtis-5x5","5 × 5 m","25 m²","Erdvi pirtis su poilsio kambariu ir terasa po stogu."],["pirtis-4x6","4 × 6 m","24 m²","Pailga pirtis su garine, dušu ir poilsio kambariu su dideliu langu."]].map(([f,d,a,t]) => (
                 <article class="size">
                   <img src={img(f, true)} alt={`Modulinė pirtis ${d}, vizualizacija`} width="1000" height="781" loading="lazy">
                   <div class="size-body"><h3>{d} <span>{a}</span></h3><p class="muted">{t}</p></div>
@@ -161,7 +161,7 @@ const image = p ? (isViz(p.nuotrauka) ? "og.jpg" : `img/${p.nuotrauka}.webp`) : 
             <div class="sec-head">
               <span class="eyebrow">Pirtis ŠK30 namelyje</span>
               <h2>Du išplanavimai su pirtimi.</h2>
-              <p class="lead">ŠK30 namelis gaminamas ir kaip pirtis: su poilsio kambariu ir antresole arba su miegamaisiais svečiams. Fasado stilių renkatės iš keturių.</p>
+              <p class="lead">ŠK30 namelis gaminamas ir kaip pirtis, su poilsio kambariu ir antresole arba su miegamaisiais svečiams. Fasado stilių renkatės iš keturių.</p>
             </div>
             <div class="plan-pair">
               {pirtiesPlanai.map((x) => (

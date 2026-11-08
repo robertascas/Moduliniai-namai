@@ -8,25 +8,25 @@
     "punktai": [
       "Sodui, poilsiui ar nuolatiniam gyvenimui",
       "Išplanavimas, spalvos ir medžiagos derinami individualiai",
-      "Dalinė apdaila arba pilnas įrengimas „iki rakto“",
+      "Dalinė apdaila, pilna apdaila arba iki rakto",
       "Pristatymas ir montavimas Vilniuje ir Vilniaus rajone"
     ],
     "nuotrauka": "k/pusynas-50",
     "alt": "Modulinis namas su terasa ir prieplauka prie ežero",
     "seoTitle": "Moduliniai namai Vilniuje ir Vilniaus rajone",
-    "seoDescription": "Moduliniai namai sodui, poilsiui ar nuolatiniam gyvenimui. Gamyba kontroliuojamose patalpose, dalinė apdaila arba „iki rakto“. Montavimas Vilniuje ir Vilniaus r."
+    "seoDescription": "Moduliniai namai sodui, poilsiui ar nuolatiniam gyvenimui. Gamyba kontroliuojamose patalpose, dalinė arba pilna apdaila, taip pat iki rakto. Montavimas Vilniuje ir Vilniaus r."
   },
   {
     "id": "pirtis",
     "slug": "modulines-pirtys",
     "pavadinimas": "Modulinės pirtys",
     "trumpai": "Su malkinėmis arba elektrinėmis krosnelėmis, poilsio kambariais, terasomis.",
-    "aprasymas": "Modulines pirtis gaminame trijų dydžių: 3 × 4, 5 × 5 ir 4 × 6 m. Krosnelę, apšiltinimą, gultų medieną, poilsio kambarį, terasą ir dušą parenkate patys, o pilno įrengimo atveju pirtis perduodama su sumontuota ir sureguliuota krosnimi.",
+    "aprasymas": "Modulines pirtis gaminame trijų dydžių, 3 × 4, 5 × 5 ir 4 × 6 m. Krosnelę, apšiltinimą, gultų medieną, poilsio kambarį, terasą ir dušą parenkate patys, o pilno įrengimo atveju pirtis perduodama su sumontuota ir sureguliuota krosnimi.",
     "punktai": [
       "Dydžiai 3 × 4, 5 × 5 arba 4 × 6 m",
       "Malkinė arba elektrinė krosnelė",
       "Poilsio kambarys, terasa ir dušas pagal pageidavimą",
-      "Pilnu įrengimu: su sumontuota pirties krosnimi"
+      "Pilnai įrengta pirtis perduodama su sumontuota krosnimi"
     ],
     "nuotrauka": "pirtis-5x5",
     "alt": "Modulinė pirtis 5 × 5 m su terasa po stogu žiemos vakarą",
@@ -38,7 +38,7 @@
     "slug": "nameliai-ant-vandens",
     "pavadinimas": "Nameliai ant vandens",
     "trumpai": "20–25 m² nameliai ant pontono arba ant plūdurų.",
-    "aprasymas": "Nameliai ant vandens gaminami taip pat kaip moduliniai namai: kontroliuojamose patalpose, iš sertifikuotos medienos. Pagrindą renkatės patys: tvirtą pontoną arba lengvesnę konstrukciją ant plūdurų. Plotas 20–25 m², išplanavimą, apdailą ir terasą deriname pagal jūsų pageidavimus.",
+    "aprasymas": "Namelius ant vandens gaminame taip pat kaip modulinius namus, kontroliuojamose patalpose ir iš sertifikuotos medienos. Pagrindą renkatės patys. Tai gali būti tvirtas pontonas arba lengvesnė konstrukcija ant plūdurų. Plotas 20–25 m², išplanavimą, apdailą ir terasą deriname pagal jūsų pageidavimus.",
     "punktai": [
       "Plotas 20–25 m²",
       "Ant pontono arba ant plūdurų",
@@ -47,7 +47,7 @@
     ],
     "nuotrauka": "namelis-ant-pontono",
     "alt": "Namelis ant pontono ežere saulėlydžio metu",
-    "seoTitle": "Nameliai ant vandens: ant pontono arba plūdurų",
+    "seoTitle": "Nameliai ant vandens ant pontono arba plūdurų",
     "seoDescription": "20–25 m² nameliai ant vandens ant pontono arba plūdurų. Gamyba kontroliuojamose patalpose, išplanavimas ir apdaila pagal pageidavimą. Vilnius ir Vilniaus rajonas."
   },
   {
@@ -55,7 +55,7 @@
     "slug": "sandeliukai-ir-ukio-pastatai",
     "pavadinimas": "Lauko sandėliukai ir ūkio pastatai",
     "trumpai": "Tvarkingi, ilgaamžiai, greitai pastatomi.",
-    "aprasymas": "Lauko sandėliukus ir ūkio pastatus gaminame taip pat kaip namus: kontroliuojamose patalpose, iš sertifikuotos, kalibruotos medienos. Spalvas ir medžiagas deriname, kad pastatas derėtų prie jūsų namo ir sklypo.",
+    "aprasymas": "Lauko sandėliukus ir ūkio pastatus gaminame taip pat kaip namus, kontroliuojamose patalpose ir iš sertifikuotos, kalibruotos medienos. Spalvas ir medžiagas deriname, kad pastatas derėtų prie jūsų namo ir sklypo.",
     "punktai": [
       "Tvarkingi ir ilgaamžiai",
       "Greitai pastatomi",

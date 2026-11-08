@@ -1,6 +1,6 @@
 {
   "irengimas": {
-    "pastaba": "Kainos nurodytos mažiausiam modeliui (ŠK30), be PVM. Premium paketo kaina tikslinama pagal projekto apimtį. Pamatai, komunikacijų atvedimas, transportavimas į sklypą ir montavimas į bazinę kainą neįskaičiuoti: juos suderiname sąmatoje.",
+    "pastaba": "Kainos nurodytos mažiausiam modeliui ŠK30, be PVM. Premium paketo kaina tikslinama pagal projekto apimtį. Pamatai, komunikacijų atvedimas, transportavimas į sklypą ir montavimas į bazinę kainą neįskaičiuoti. Juos suderiname sąmatoje.",
     "lygiai": [
       {
         "id": "daline",
@@ -20,7 +20,7 @@
       },
       {
         "id": "premium",
-        "pavadinimas": "Iki rakto (Premium)",
+        "pavadinimas": "Iki rakto Premium",
         "kaina": 40000,
         "nuotrauka": "interjeras",
         "alt": "Šviesus modulinio namo interjeras su antresole",
@@ -173,7 +173,7 @@
         ]
       },
       {
-        "pav": "Šilumos siurblys oras–oras (iki −25 °C)",
+        "pav": "Šilumos siurblys oras–oras, veikiantis iki −25 °C",
         "lygiai": [
           "premium"
         ]
@@ -235,15 +235,15 @@
   "duk": [
     {
       "klausimas": "Ką gaminate?",
-      "atsakymas": "Modulinius namus (sodui, poilsiui ar nuolatiniam gyvenimui), modulines pirtis, namelius ant vandens, lauko sandėliukus ir ūkio pastatus. Taip pat projektuojame ir statome karkasinius namus, vasarnamius ir garažus: pagal susitarimą vietoje arba moduliais."
+      "atsakymas": "Modulinius namus sodui, poilsiui ar nuolatiniam gyvenimui, modulines pirtis, namelius ant vandens, lauko sandėliukus ir ūkio pastatus. Taip pat projektuojame ir statome karkasinius namus, vasarnamius ir garažus. Pagal susitarimą juos statome vietoje arba moduliais."
     },
     {
-      "klausimas": "Kuo skiriasi dalinė apdaila, pilna apdaila ir „iki rakto“?",
-      "atsakymas": "Dalinė apdaila: medinis C24 karkasas, šilumos izoliacija, elektros instaliacija, santechnika, A klasės langai, fasado apdaila ir apšvietimas, stogo danga. Pilnoje apdailoje papildomai yra vidaus dailylentės, grindų danga, šviestuvai, įrengtas WC, virtuvės komplektas, vandens šildytuvas ir šildymas. „Iki rakto“ (Premium) paketas prideda šilumos siurblį oras–oras, veikiantį iki −25 °C."
+      "klausimas": "Kuo skiriasi dalinė apdaila, pilna apdaila ir iki rakto?",
+      "atsakymas": "Dalinė apdaila apima medinį C24 karkasą, šilumos izoliaciją, elektros instaliaciją, santechniką, A klasės langus, fasado apdailą ir apšvietimą, stogo dangą. Pilnoje apdailoje papildomai yra vidaus dailylentės, grindų danga, šviestuvai, įrengtas WC, virtuvės komplektas, vandens šildytuvas ir šildymas. Iki rakto paketas prideda šilumos siurblį oras–oras, veikiantį iki −25 °C."
     },
     {
       "klausimas": "Kokia namo energinė klasė?",
-      "atsakymas": "Galite rinktis B, A, A+ arba A++ energinę klasę. Standartinis apšiltinimas: grindys 200 mm, sienos 150–200 mm, stogas 200 mm. Šilumos siurblys veikia iki −25 °C lauke."
+      "atsakymas": "Galite rinktis B, A, A+ arba A++ energinę klasę. Standartiškai grindys apšiltinamos 200 mm, sienos 150–200 mm, stogas 200 mm sluoksniu. Šilumos siurblys veikia iki −25 °C lauke."
     },
     {
       "klausimas": "Kiek laiko trunka gamyba ir pastatymas?",
@@ -251,7 +251,7 @@
     },
     {
       "klausimas": "Kur pristatote ir montuojate?",
-      "atsakymas": "Dirbame Vilniuje ir Vilniaus rajone: ten pristatome ir sumontuojame modulinius pastatus, statome karkasinius namus ir garažus."
+      "atsakymas": "Dirbame Vilniuje ir Vilniaus rajone. Čia pristatome ir sumontuojame modulinius pastatus, statome karkasinius namus ir garažus."
     },
     {
       "klausimas": "Ar galima pasirinkti išplanavimą, spalvas ir medžiagas?",
@@ -279,7 +279,7 @@
     },
     {
       "klausimas": "Kokia garantija?",
-      "atsakymas": "Garantija – pagal Lietuvos Respublikos civilinį kodeksą: 5 metai statiniui, 10 metų paslėptiems elementams (konstrukcijoms, vamzdynams), 20 metų tyčia paslėptiems defektams. Įrenginiams taikoma gamintojų garantija. Sąlygos surašomos sutartyje."
+      "atsakymas": "Garantija suteikiama pagal Lietuvos Respublikos civilinį kodeksą. Statiniui ji yra 5 metai, paslėptiems elementams, tokiems kaip konstrukcijos ir vamzdynai, 10 metų, o tyčia paslėptiems defektams 20 metų. Įrenginiams taikoma gamintojų garantija. Sąlygos surašomos sutartyje."
     }
   ],
   "technika": {

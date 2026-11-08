@@ -4,7 +4,7 @@
     {
       "id": "kompaktiski",
       "pavadinimas": "Kompaktiški namai",
-      "aprasymas": "30 m² namelis su antresole: svečiams, sodui, darbo kambariui ar pirčiai.",
+      "aprasymas": "30 m² namelis su antresole svečiams, sodui, darbo kambariui ar pirčiai.",
       "nuotrauka": "namelis-30-siaure"
     },
     {
@@ -15,13 +15,13 @@
     },
     {
       "id": "pusynas",
-      "pavadinimas": "ŠK45P–100 m²",
+      "pavadinimas": "Pušyno serija, 45–100 m²",
       "aprasymas": "Vienšlaičiu stogu dengti namai iš dviejų modulių, tinkami gyventi ištisus metus.",
       "nuotrauka": "serija-pusynas"
     },
     {
       "id": "horizontas",
-      "pavadinimas": "ŠK70H–124 m²",
+      "pavadinimas": "Horizonto serija, 70–124 m²",
       "aprasymas": "Platūs namai su stogine terasai, didelėmis stiklo sienomis ir stoglangiais voniose.",
       "nuotrauka": "serija-horizontas"
     }
@@ -29,7 +29,7 @@
   "stiliai": {
     "tradicija": {
       "pavadinimas": "Tradicija",
-      "aprasymas": "Klasikinis skandinaviškas namas: dvišlaitis stogas, langai su skaidymu, arkinis langas frontone."
+      "aprasymas": "Klasikinis skandinaviškas namas su dvišlaičiu stogu, langais su skaidymu ir arkiniu langu frontone."
     },
     "siaure": {
       "pavadinimas": "Šiaurė",
@@ -41,7 +41,7 @@
     },
     "pusynas": {
       "pavadinimas": "Pušynas",
-      "aprasymas": "Vienšlaitis stogas ir tradicinė apdaila: šiuolaikiškos formos ir klasikinės detalės kartu."
+      "aprasymas": "Vienšlaitis stogas ir tradicinė apdaila, todėl šiuolaikiška forma dera su klasikinėmis detalėmis."
     }
   },
   "modeliai": [
@@ -57,7 +57,7 @@
       "antresole": true,
       "trumpai": "30 m², 11 išplanavimų, 4 fasado stiliai.",
       "aprasymas": [
-        "Mažiausias namas kataloge, bet su daugiausiai variantų. Pirmiausia pasirenkate fasado stilių, tada vieną iš 11 išplanavimų: su miegamuoju ir antresole, su dviem miegamaisiais, su kabinetu arba su pirtimi.",
+        "Mažiausias namas kataloge, bet su daugiausiai variantų. Pirmiausia pasirenkate fasado stilių, tada vieną iš 11 išplanavimų. Yra variantų su miegamuoju ir antresole, su dviem miegamaisiais, su kabinetu ir su pirtimi.",
         "Tinka svečių nameliui sode, atskiram jaunimo kambariui, darbo erdvei ar pirčiai su poilsio kambariu. Išplanavimai A, B ir C gali būti su neįgaliesiems pritaikytu vonios kambariu."
       ],
       "stiliai": [
@@ -169,7 +169,7 @@
         },
         {
           "h": "Kaip pasirinkti išplanavimą",
-          "p": "Pirma nuspręskite, kam namelis reikalingas. Jei ten kas nors gyvens nuolat, rinkitės išplanavimą su miegamuoju, virtuve su svetaine ir WC, pavyzdžiui A arba G. Jei reikia daugiau lovų svečiams, tinka E arba I su dviem miegamaisiais. Darbui iš namų skirtas C: jame kabinetas sujungtas su virtuve ir nėra antresolės. Pirčiai yra du variantai. D turi 3 m² pirtį, WC su dušu ir 17 m² poilsio kambarį. F turi pirtį ir miegamuosius, todėl pirtis ir nakvynė svečiams būna po vienu stogu."
+          "p": "Pirma nuspręskite, kam namelis reikalingas. Jei ten kas nors gyvens nuolat, rinkitės išplanavimą su miegamuoju, virtuve su svetaine ir WC, pavyzdžiui A arba G. Jei reikia daugiau lovų svečiams, tinka E arba I su dviem miegamaisiais. Darbui iš namų skirtas C. Jame kabinetas sujungtas su virtuve, o antresolės nėra. Pirčiai yra du variantai. D turi 3 m² pirtį, WC su dušu ir 17 m² poilsio kambarį. F turi pirtį ir miegamuosius, todėl pirtis ir nakvynė svečiams būna po vienu stogu."
         },
         {
           "h": "Keturi fasadai",
@@ -194,8 +194,8 @@
       "matmenys": "4,1 × 9,7 m",
       "trumpai": "Du miegamieji, antresolė, 3 fasado stiliai.",
       "aprasymas": [
-        "Poilsio namas, kuriame telpa šeima: du miegamieji, antresolė miegoti, virtuvė su svetaine, WC su dušu ir prieškambaris.",
-        "Galima rinktis tris fasadus: Tradicijos ir Šiaurės stiliai su 20° dvišlaičiu stogu, Linijos stilius su 5° stogu. Spalvą ir vidaus apdailą parenkate patys."
+        "Poilsio namas, kuriame telpa šeima. Jame yra du miegamieji, antresolė miegoti, virtuvė su svetaine, WC su dušu ir prieškambaris.",
+        "Galima rinktis iš trijų fasadų. Tradicijos ir Šiaurės stiliai turi 20° dvišlaitį stogą, Linijos stilius beveik plokščią 5° stogą. Spalvą ir vidaus apdailą parenkate patys."
       ],
       "stiliai": [
         {
@@ -349,7 +349,7 @@
         },
         {
           "h": "Du išplanavimai",
-          "p": "Išplanavime A yra 22 m² virtuvė su svetaine, 6 m² prieškambaris, WC ir du miegamieji: 5 ir 4 m². Išplanavime B virtuvė su svetaine užima 21 m², abu miegamieji vienodi, po 5 m². Ten taip pat yra 3 m² WC su dušu ir 5 m² prieškambaris. Abiem atvejais virš miegamųjų įrengiama antresolė, pritaikyta dvigulei lovai."
+          "p": "Išplanavime A yra 22 m² virtuvė su svetaine, 6 m² prieškambaris, WC ir du miegamieji po 5 ir 4 m². Išplanavime B virtuvė su svetaine užima 21 m², abu miegamieji vienodi, po 5 m². Ten taip pat yra 3 m² WC su dušu ir 5 m² prieškambaris. Abiem atvejais virš miegamųjų įrengiama antresolė, pritaikyta dvigulei lovai."
         },
         {
           "h": "Fasadai",
@@ -408,7 +408,7 @@
         },
         {
           "h": "Trys išplanavimai",
-          "p": "Išplanavime A yra 14 m² virtuvė su svetaine, du miegamieji (7 ir 5 m²), 3 m² WC, 2 m² sandėliukas, prieškambaris ir 13 m² antresolė. Išplanavime B lieka vienas 6 m² miegamasis, o virtuvei su svetaine atitenka net 24 m². Ten taip pat yra WC ir 11 m² antresolė. Išplanavimas C panašus į B: 24,1 m² virtuvė su svetaine, 6 m² miegamasis, 2,9 m² WC, 1,9 m² prieškambaris ir 8,1 m² antresolė."
+          "p": "Išplanavime A yra 14 m² virtuvė su svetaine, du miegamieji po 7 ir 5 m², 3 m² WC, 2 m² sandėliukas, prieškambaris ir 13 m² antresolė. Išplanavime B lieka vienas 6 m² miegamasis, o virtuvei su svetaine atitenka net 24 m². Ten taip pat yra WC ir 11 m² antresolė. Išplanavimas C panašus į B. Jame 24,1 m² virtuvė su svetaine, 6 m² miegamasis, 2,9 m² WC, 1,9 m² prieškambaris ir 8,1 m² antresolė."
         },
         {
           "h": "Kam tinka",
@@ -453,7 +453,7 @@
         },
         {
           "var": "C",
-          "pastaba": "L formos: virtuvė su svetaine 23,8 m², miegamasis 7,8 m², antresolė"
+          "pastaba": "L formos namas su 23,8 m² virtuve ir svetaine, 7,8 m² miegamuoju ir antresole"
         }
       ],
       "tekstas": [
@@ -463,7 +463,7 @@
         },
         {
           "h": "Trys išplanavimai",
-          "p": "Išplanavimuose A ir B bendra erdvė eina per visą namo ilgį, o kitoje pusėje yra du miegamieji ir vonios kambarys. B variante papildomai atskirtas prieškambaris. Išplanavimas C turi L formą: 23,8 m² virtuvė su svetaine, 7,8 m² miegamasis, 3,6 m² WC, 3,7 m² prieškambaris ir antresolė virš dalies patalpų."
+          "p": "Išplanavimuose A ir B bendra erdvė eina per visą namo ilgį, o kitoje pusėje yra du miegamieji ir vonios kambarys. B variante papildomai atskirtas prieškambaris. Išplanavimas C yra L formos. Jame 23,8 m² virtuvė su svetaine, 7,8 m² miegamasis, 3,6 m² WC, 3,7 m² prieškambaris ir antresolė virš dalies patalpų."
         },
         {
           "h": "Konstrukcija ir stogas",
@@ -514,7 +514,7 @@
         },
         {
           "h": "Vonia ir WC atskirai",
-          "p": "Išplanavime B vonios kambarys su dušu (4 m²) ir atskiras WC (2 m²) yra skirtingose vietose. Kai name gyvena keli žmonės, rytais tai labai patogu. Įėjimas veda į 2 m² prieškambarį, iš kurio patenkate į virtuvę su svetaine. Virtuvėje yra langas, todėl gaminant matyti lauką."
+          "p": "Išplanavime B 4 m² vonios kambarys su dušu ir 2 m² WC yra atskirai. Kai name gyvena keli žmonės, rytais tai labai patogu. Įėjimas veda į 2 m² prieškambarį, iš kurio patenkate į virtuvę su svetaine. Virtuvėje yra langas, todėl gaminant matyti lauką."
         },
         {
           "h": "Stogas ir aukštis",
@@ -561,7 +561,7 @@
       "tekstas": [
         {
           "h": "Trys miegamieji",
-          "p": "ŠK80P skirtas šeimai, kuriai dviejų miegamųjų nebeužtenka. Išplanavime B yra trys miegamieji: 11, 8 ir 5 m². Mažiausias tinka vaiko kambariui ar darbo vietai. Virš dalies patalpų dar įrengiama 10 m² antresolė."
+          "p": "ŠK80P skirtas šeimai, kuriai dviejų miegamųjų nebeužtenka. Išplanavime B yra trys miegamieji po 11, 8 ir 5 m². Mažiausias tinka vaiko kambariui ar darbo vietai. Virš dalies patalpų dar įrengiama 10 m² antresolė."
         },
         {
           "h": "Viena ar dvi vonios",
@@ -590,7 +590,7 @@
       "matmenys": "8,0 × 12,5 m",
       "trumpai": "3–4 miegamieji, dvi vonios, didelė antresolė.",
       "aprasymas": [
-        "Didžiausias Pušyno serijos namas: trys arba keturi miegamieji, du vonios kambariai, erdvi svetainė ir gerai suplanuota virtuvė.",
+        "Didžiausias Pušyno serijos namas su trimis arba keturiais miegamaisiais, dviem vonios kambariais, erdvia svetaine ir gerai suplanuota virtuve.",
         "Tinka šeimoms, kurios dažnai priima svečius. Išplanavimus atsiųsime pagal užklausą."
       ],
       "nuotraukos": [
@@ -611,7 +611,7 @@
         },
         {
           "h": "Du išplanavimai",
-          "p": "Kataloge yra du variantai: su keturiais ir su trimis miegamaisiais. Abiem atvejais name yra du vonios kambariai. Svetainė erdvi, o virtuvė gerai suplanuota."
+          "p": "Yra du variantai, su keturiais ir su trimis miegamaisiais. Abiem atvejais name yra du vonios kambariai. Svetainė erdvi, o virtuvė gerai suplanuota."
         },
         {
           "h": "Stogas",
@@ -636,7 +636,7 @@
       "matmenys": "7,5 × 8,0 m + terasa",
       "trumpai": "Du miegamieji, stoglangis vonioje, terasa po stogu.",
       "aprasymas": [
-        "Namas su didele bendra erdve: svetainės langas jungia vidų su terasa. Du miegamieji su vieta spintoms atskirti nuo svetainės.",
+        "Namas su didele bendra erdve, kurios langas atsiveria į terasą. Du miegamieji su vieta spintoms atskirti nuo svetainės.",
         "Vonios kambarį apšviečia stoglangis. Terasos dydį galima pritaikyti pagal sklypą."
       ],
       "nuotraukos": [
@@ -753,7 +753,7 @@
       "antresole": false,
       "trumpai": "Trys moduliai, trys miegamieji, dvi vonios.",
       "aprasymas": [
-        "Namas iš trijų modulių: trys miegamieji, du vonios kambariai su stoglangiais, sandėliukas ir didelė svetainė su virtuve bei valgomuoju.",
+        "Namas iš trijų modulių. Jame trys miegamieji, du vonios kambariai su stoglangiais, sandėliukas ir didelė svetainė su virtuve bei valgomuoju.",
         "Dvejos stumdomos stiklo durys prisileidžia daug dienos šviesos, terasos dydis pritaikomas."
       ],
       "nuotraukos": [
@@ -805,7 +805,7 @@
       "miegamieji": "3",
       "moduliai": 3,
       "antresole": false,
-      "trumpai": "Didžiausias modelis: trys miegamieji, dvi vonios, sandėliukas.",
+      "trumpai": "Didžiausias modelis su trimis miegamaisiais, dviem voniomis ir sandėliuku.",
       "aprasymas": [
         "Didžiausias modulinis namas kataloge. Trys moduliai, trys miegamieji, du vonios kambariai ir atskiras sandėliukas.",
         "Svetainė, valgomasis ir virtuvė apšviesti dvejomis didelėmis stumdomomis stiklo durimis, o terasa po stogu pritaikoma pagal jūsų norus."
@@ -854,7 +854,7 @@
     "Namai gaminami gamykloje su kontroliuojamu klimatu.",
     "Gamyba trunka apie 8–10 savaičių mažesniems namams ir 10–12 savaičių didesniems.",
     "Pagamintas modulis sveria nuo 8 iki 18 tonų ir į vietą keliamas autokranu.",
-    "Montuotojai pastato namą ir sumontuoja tai, ko negalima įrengti prieš transportavimą: lietvamzdžius, fasado apšvietimą ir pan."
+    "Montuotojai pastato namą ir sumontuoja tai, ko negalima įrengti prieš transportavimą, pavyzdžiui lietvamzdžius ir fasado apšvietimą."
   ],
   "galerija": [
     {
