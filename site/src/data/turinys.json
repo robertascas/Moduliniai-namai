@@ -217,7 +217,7 @@
     },
     {
       "pavadinimas": "Suderiname sąmatą",
-      "tekstas": "Kainą sutariame iš anksto, be paslėptų mokesčių."
+      "tekstas": "Kainą sutariame iš anksto, be paslėptų mokesčių. Patvirtinus projektą mokamas avansas."
     },
     {
       "pavadinimas": "Gaminame",
@@ -235,7 +235,7 @@
   "duk": [
     {
       "klausimas": "Ką gaminate?",
-      "atsakymas": "Modulinius namus (sodui, poilsiui ar nuolatiniam gyvenimui), modulines pirtis, lauko sandėliukus ir ūkio pastatus. Taip pat projektuojame ir statome karkasinius namus, vasarnamius ir garažus."
+      "atsakymas": "Modulinius namus (sodui, poilsiui ar nuolatiniam gyvenimui), modulines pirtis, namelius ant vandens, lauko sandėliukus ir ūkio pastatus. Taip pat projektuojame ir statome karkasinius namus, vasarnamius ir garažus: pagal susitarimą vietoje arba moduliais."
     },
     {
       "klausimas": "Kuo skiriasi dalinė apdaila, pilna apdaila ir „iki rakto“?",
@@ -264,6 +264,10 @@
     {
       "klausimas": "Ar bus papildomų mokesčių?",
       "atsakymas": "Pamatai, komunikacijų atvedimas, transportavimas į sklypą ir montavimas į bazinę kainą neįskaičiuoti. Visus šiuos darbus suderiname sąmatoje iš anksto, todėl jokių paslėptų mokesčių nėra."
+    },
+    {
+      "klausimas": "Kaip mokama?",
+      "atsakymas": "Avansas mokamas patvirtinus projektą, jo dydis sutariamas individualiai. Kiti mokėjimai ir jų terminai aprašomi sutartyje."
     },
     {
       "klausimas": "Ar gaminate namelius ant vandens?",

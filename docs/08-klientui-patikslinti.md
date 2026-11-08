@@ -58,3 +58,11 @@ ko trūksta ir kas yra laikina.
       (Dalinėje jis pažymėtas ✗, Pilnos sąraše jo nėra). Jei Premium apima daugiau, reikia sąrašo.
 - [ ] Kliento nurodyti €/m² intervalai (dalinė 450–900, pilna 750–1300 €/m²) nesutampa su paketų kainomis
       (20 610 € / 30 m² ≈ 687 €/m²), todėl svetainėje neskelbiami. Reikia nuspręsti, kurią kainodarą rodyti kitiems modeliams.
+
+## Atsakymai (v0.5.1)
+- Karkasiniai namai: statomi vietoje arba moduliais, pagal susitarimą ir projektą (įdiegta).
+- Terminas: „nuo idėjos iki pastatymo per kelias savaites“ (paliekama).
+- Mokėjimas: avansas po projekto patvirtinimo, dydis individualiai, kiti mokėjimai sutartyje (įdiegta DUK ir eigoje).
+- Domenas: siltaskarkasas.lt. Pagrindinis telefonas: pirmasis. Darbo laikas nenurodomas.
+- Vėliau: rekvizitai, socialiniai tinklai, nuotraukos.
+- Laukia sprendimo: teritorija, kranas, garantijos tekstas.
