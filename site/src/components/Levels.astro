@@ -11,7 +11,7 @@ const eur = (v: number) => v.toLocaleString("lt-LT").replace(/ /g, " ") + " €
       <div class="lvl-body">
         <span class="tag-small">{i + 1} lygis</span>
         <h3>{l.pavadinimas}</h3>
-        <p class="lvl-price"><span>nuo</span> <b>{eur(l.kaina)}</b> <span>+ PVM</span></p>
+        {l.kaina ? <p class="lvl-price"><span>nuo</span> <b>{eur(l.kaina)}</b> <span>+ PVM</span></p> : <p class="lvl-price"><b>Pagal susitarimą</b></p>}
         <p class="muted">{l.aprasymas}</p>
         {!compact && (
           <ul class="lvl-list">
