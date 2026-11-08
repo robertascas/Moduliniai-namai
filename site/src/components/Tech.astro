@@ -1,0 +1,19 @@
+---
+import { turinys } from "../lib/site";
+const T = turinys.technika;
+---
+<div class="tech">
+  <div class="tech-col">
+    <h3>Apšiltinimo sluoksnis</h3>
+    <dl class="tech-list">{T.apsiltinimas.map((a) => <div><dt>{a.kur}</dt><dd>{a.mm}</dd></div>)}</dl>
+  </div>
+  <div class="tech-col">
+    <h3>Energinė klasė</h3>
+    <div class="eclass">{T.energineKlase.map((k, i) => <span class={`ec ec-${i}`}>{k}</span>)}</div>
+    <p class="muted">Klasę pasirenkate patys. Kuo aukštesnė klasė, tuo mažiau kainuoja šildymas.</p>
+  </div>
+  <div class="tech-col">
+    <h3>Šildymas</h3>
+    <p class="muted">{T.siurblys}.</p>
+  </div>
+</div>

@@ -2,9 +2,10 @@
 import Base from "../layouts/Base.astro";
 import Arrow from "../components/Arrow.astro";
 import ModelCard from "../components/ModelCard.astro";
+import Levels from "../components/Levels.astro";
+import Tech from "../components/Tech.astro";
 import { imone, produktai, turinys, katalogas, productHref, img, kimg, isViz, telHref, faqSchema } from "../lib/site";
 const rinktiniai = ["namelis-30", "namas-50", "pusynas-60", "horizontas-91"].map((id) => katalogas.modeliai.find((x) => x.id === id)!);
-const [daline, ikiRakto] = turinys.irengimas;
 ---
 <Base
   path="index.html"
@@ -16,7 +17,7 @@ const [daline, ikiRakto] = turinys.irengimas;
     <img src={kimg("namas-40-siaure")} srcset={`${kimg("namas-40-siaure", true)} 800w, ${kimg("namas-40-siaure")} 1241w`} sizes="100vw" alt="Modulinis namas su apšviestais langais ant kopos saulėlydžio metu" width="1241" height="910" fetchpriority="high">
     <div class="wrap">
       <span class="eyebrow">{imone.vietove}</span>
-      <h1>Moduliniai namai, pirtys ir ūkio pastatai</h1>
+      <h1>Moduliniai namai, pirtys ir nameliai ant vandens</h1>
       <p class="lead">Projektuojame ir statome ilgaamžius, šiltus bei modernius karkasinius namus, pirtis, vasarnamius ir garažus. Nuo pamatų iki raktų pridavimo.</p>
       <div class="actions">
         <a class="btn btn-amber" href="kontaktai.html">Aptarti projektą <Arrow /></a>
@@ -71,27 +72,25 @@ const [daline, ikiRakto] = turinys.irengimas;
   <section class="section" id="irengimas">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow">Įrengimo lygiai</span>
-        <h2>Vidų įsirengiate patys arba gaunate raktus.</h2>
-        <p class="lead">Abu variantai gaminami tomis pačiomis sąlygomis. Skiriasi tik tai, kiek darbų atliekame mes.</p>
+        <span class="eyebrow">Įrengimo lygiai ir kainos</span>
+        <h2>Trys lygiai: nuo šilto karkaso iki raktų.</h2>
+        <p class="lead">Visi lygiai gaminami tomis pačiomis sąlygomis. Skiriasi tik tai, kiek vidaus darbų atliekame mes.</p>
       </div>
-      <div class="levels">
-        <article class="level">
-          <span class="tag-small">1 variantas</span>
-          <h3>{daline.pavadinimas}</h3>
-          <ul>{daline.punktai.map((x) => <li>{x}</li>)}</ul>
-        </article>
-        <article class="level featured">
-          <span class="tag-small">2 variantas</span>
-          <h3>{ikiRakto.pavadinimas}</h3>
-          <p class="plus">Viskas, kas įeina į dalinę apdailą, ir papildomai:</p>
-          <ul>{ikiRakto.punktai.map((x) => <li>{x}</li>)}</ul>
-        </article>
-      </div>
+      <Levels />
     </div>
   </section>
 
-  <section class="section surface" id="privalumai">
+  <section class="section surface" id="technika">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Techniniai duomenys</span>
+        <h2>Šilta siena, šiltas stogas, šiltos grindys.</h2>
+      </div>
+      <Tech />
+    </div>
+  </section>
+
+  <section class="section" id="privalumai">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Kodėl verta rinktis mus</span>

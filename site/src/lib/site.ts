@@ -19,7 +19,7 @@ export const kimg = (name: string, small = false) => img(`k/${name}`, small);
 export const kthumb = (name: string) => `img/k/${name}-320.webp`;
 
 export const NAV = [
-  ...produktai.map((p) => ({ href: productHref(p), label: p.id === "sandeliukas" ? "Sandėliukai" : p.id === "karkasinis" ? "Karkasiniai namai" : p.pavadinimas, key: p.id })),
+  ...produktai.map((p) => ({ href: productHref(p), label: ({ namas: "Namai", pirtis: "Pirtys", vanduo: "Ant vandens", sandeliukas: "Sandėliukai", karkasinis: "Karkasiniai" } as Record<string, string>)[p.id] ?? p.pavadinimas, key: p.id })),
   { href: "galerija.html", label: "Galerija", key: "galerija" },
   { href: "kontaktai.html", label: "Kontaktai", key: "kontaktai" },
 ];

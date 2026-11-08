@@ -64,9 +64,10 @@ import { imone, produktai, katalogas, img, telHref, crumbsSchema } from "../lib/
 
           <fieldset>
             <legend><span data-step-num>02</span>Įrengimo lygis</legend>
-            <div class="cards three">
-              <div class="card"><input type="radio" name="irengimas" id="ir-daline" value="Dalinė apdaila" checked><label for="ir-daline"><b>Dalinė apdaila</b><small>Karkasas, apšiltinimas, išorė, langai ir durys, komunikacijos</small></label></div>
-              <div class="card"><input type="radio" name="irengimas" id="ir-rakto" value="Pilnas įrengimas „iki rakto“"><label for="ir-rakto"><b>„Iki rakto“</b><small>Plius vidaus apdaila, elektra, santechnika, šildymas</small></label></div>
+            <div class="cards">
+              <div class="card"><input type="radio" name="irengimas" id="ir-daline" value="Dalinė apdaila" checked><label for="ir-daline"><b>Dalinė apdaila</b><small>Karkasas, izoliacija, elektra, santechnika, langai, fasadas</small></label></div>
+              <div class="card"><input type="radio" name="irengimas" id="ir-pilna" value="Pilna apdaila"><label for="ir-pilna"><b>Pilna apdaila</b><small>Plius vidaus apdaila, WC, virtuvė, šildymas</small></label></div>
+              <div class="card"><input type="radio" name="irengimas" id="ir-premium" value="Iki rakto (Premium)"><label for="ir-premium"><b>Iki rakto (Premium)</b><small>Plius šilumos siurblys oras–oras</small></label></div>
               <div class="card"><input type="radio" name="irengimas" id="ir-nezinau" value="Dar nežinau"><label for="ir-nezinau"><b>Dar nežinau</b><small>Patarsime pokalbio metu</small></label></div>
             </div>
           </fieldset>
@@ -78,7 +79,13 @@ import { imone, produktai, katalogas, img, telHref, crumbsSchema } from "../lib/
               <div class="card"><input type="radio" name="krosnele" id="kr-elektrine" value="Elektrinė krosnelė"><label for="kr-elektrine"><b>Elektrinė krosnelė</b></label></div>
               <div class="card"><input type="radio" name="krosnele" id="kr-nezinau" value="Krosnelė dar nepasirinkta"><label for="kr-nezinau"><b>Dar nežinau</b></label></div>
             </div>
+            <div class="cards three">
+              <div class="card"><input type="radio" name="dydis" id="dy-34" value="3 × 4 m" checked><label for="dy-34"><b>3 × 4 m</b></label></div>
+              <div class="card"><input type="radio" name="dydis" id="dy-55" value="5 × 5 m"><label for="dy-55"><b>5 × 5 m</b></label></div>
+              <div class="card"><input type="radio" name="dydis" id="dy-46" value="4 × 6 m"><label for="dy-46"><b>4 × 6 m</b></label></div>
+            </div>
             <div class="cards">
+              <div class="card"><input type="checkbox" name="priedai" id="pr-dusas" value="Dušas"><label for="pr-dusas"><b>Dušas</b></label></div>
               <div class="card"><input type="checkbox" name="priedai" id="pr-poilsio" value="Poilsio kambarys"><label for="pr-poilsio"><b>Poilsio kambarys</b></label></div>
               <div class="card"><input type="checkbox" name="priedai" id="pr-terasa" value="Terasa"><label for="pr-terasa"><b>Terasa</b></label></div>
             </div>

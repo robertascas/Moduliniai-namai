@@ -50,3 +50,19 @@ ko trūksta ir kas yra laikina.
 Katalogas naudotas **tik kaip stiliaus orientyras**: tamsus fonas, eglės žalios spalvos plokštumos,
 žiemos vakaro nuotaika, pilno pločio vaizdai. Katalogo nuotraukos, logotipas ir tekstai svetainėje **nenaudojami**,
 nes priklauso kitai įmonei.
+
+## Kliento atsakymai (įdiegta v0.5)
+
+- **Įrengimo lygiai:** Dalinė apdaila, Pilna apdaila, Iki rakto (Premium). Sudėtis kaip modhouse.lt sąraše (kliento nurodymas).
+- **Kainos „nuo“:** modhouse kainos −10 %: 20 610 / 33 300 / 40 500 € + PVM, nurodytos mažiausiam modeliui ŠK30.
+  Pamatai, komunikacijų atvedimas, transportavimas ir montavimas neįskaičiuoti.
+- **Technika:** apšiltinimas grindys 200 mm, sienos 150–200 mm, stogas 200 mm; energinė klasė B, A, A+, A++; šilumos siurblys iki −25 °C.
+- **Pirtys:** 3 × 4, 5 × 5, 4 × 6 m; krosnelė, apšiltinimas, gultai, poilsio kambarys, terasa, dušas – pagal pageidavimą.
+- **Nameliai ant vandens:** 20–25 m², ant pontono arba plūdurų. Vaizdai – 3D vizualizacijos.
+- **Pavadinimai:** ŠK30, ŠK40, ŠK50, Pušyno serija ŠK…P, Horizonto serija ŠK…H.
+
+### Dar patikslinti
+- [ ] modhouse ekrano kopijoje nesimatė Premium sąrašo pabaigos. Kol kas Premium nuo Pilnos skiriasi šilumos siurbliu oras–oras
+      (Dalinėje jis pažymėtas ✗, Pilnos sąraše jo nėra). Jei Premium apima daugiau, reikia sąrašo.
+- [ ] Kliento nurodyti €/m² intervalai (dalinė 450–900, pilna 750–1300 €/m²) nesutampa su paketų kainomis
+      (20 610 € / 30 m² ≈ 687 €/m²), todėl svetainėje neskelbiami. Reikia nuspręsti, kurią kainodarą rodyti kitiems modeliams.

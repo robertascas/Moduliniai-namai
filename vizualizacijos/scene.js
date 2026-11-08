@@ -3,6 +3,7 @@ import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+import { Reflector } from "three/addons/objects/Reflector.js";
 
 const Q = new URLSearchParams(location.search);
 const SCENE = Q.get("scene") || "hero";
@@ -442,6 +443,94 @@ const scenes = {
     return composer(0.25, 0.4, 0.93);
   },
 };
+
+
+// ---------- pirtys trijų dydžių ----------
+function saunaScene({ w, d, front, cam, look, deckW }) {
+  sky("#07101e", "#1b2c4a", "#4f6386");
+  scene.fog = new THREE.FogExp2("#3e4d68", 0.014);
+  scene.add(new THREE.HemisphereLight("#7f9acb", "#1a212c", 0.6));
+  moon("#b7c7e8", 1.5, new THREE.Vector3(-18, 26, -14), 16);
+  ground("#e9eff6", 8);
+  const dark = boards("#5b3b26", { boardsPerM: 8 });
+  const b = gableBuilding({ w, d, h: 2.4, pitch: THREE.MathUtils.degToRad(25), clad: dark, oh: 0.4, front, plinth: 0.5 });
+  const orange = { glow: true, glowColor: "#ff9a45" };
+  place(b, "front", -w / 4, 0.02, { ww: 0.85, wh: 1.95, glowI: 2.6, light: 1.3, ...orange });
+  place(b, "front", w / 4, 0.95, { ww: Math.min(1.4, w / 2.6), wh: 0.85, glowI: 2.2, light: 0.9, ...orange });
+  place(b, "right", d / 5, 0.9, { ww: 0.7, wh: 0.6, glowI: 1.8, light: 0.5, ...orange });
+  if (d > 5) place(b, "right", -d / 4, 0.4, { ww: 1.6, wh: 1.6, glowI: 1.6, light: 0.8, glow: true });
+  if (front > 0) {
+    const deckTex = boards("#7b5435", { boardsPerM: 7 });
+    const deck = new THREE.Mesh(new THREE.BoxGeometry(deckW, 0.12, front + 0.1), texMat(deckTex, deckW, front));
+    deck.position.set(0, 0.46, d / 2 + front / 2); deck.receiveShadow = true; deck.castShadow = true; scene.add(deck);
+    [-1, 1].forEach((s) => { const p = frameBox(0.12, 2.45, 0.12, std("#3a2618")); p.position.set(s * (w / 2 - 0.1), 0.5 + 1.22, d / 2 + front - 0.1); scene.add(p); });
+  }
+  const ch = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 1.5, 16), std("#121212", { roughness: 0.4, metalness: 0.6 }));
+  ch.position.set(w / 5, b.userData.yr + 0.25, -d / 6); ch.castShadow = true; scene.add(ch);
+  mound(-w - 0.5, 1, 1.2, 0.45, 3.2); mound(w + 0.8, -1, 1.2, 0.4, 3); lamp(1.2, d / 2 + front + 2.2, 0.5);
+  forest(130, (x, z) => (z < -6 || Math.abs(x) > 9) && Math.hypot(x - cam[0], z - cam[2]) > 8, 7, 16);
+  camera.fov = 34; camera.updateProjectionMatrix();
+  camera.position.set(...cam); camera.lookAt(...look);
+  return composer(0.32, 0.45, 0.9);
+}
+scenes.pirtis34 = () => saunaScene({ w: 3, d: 4, front: 0, cam: [5.6, 1.5, 8.6], look: [-0.2, 1.6, 0.4], deckW: 3 });
+scenes.pirtis55 = () => saunaScene({ w: 5, d: 3.4, front: 1.6, cam: [7.4, 1.6, 10.6], look: [-0.2, 1.7, 0.8], deckW: 5 });
+scenes.pirtis46 = () => saunaScene({ w: 4, d: 6, front: 0, cam: [7.6, 1.6, 9.4], look: [-0.3, 1.7, 0.2], deckW: 4 });
+
+// ---------- nameliai ant vandens ----------
+function waterScene(kind) {
+  sky("#0b1630", "#2a3f66", "#c98b6e", "#ff9a5e");
+  scene.fog = new THREE.FogExp2("#56607a", 0.012);
+  scene.add(new THREE.HemisphereLight("#9fb4dc", "#26303d", 0.7));
+  moon("#ffc79a", 1.6, new THREE.Vector3(-30, 10, -40), 14);
+  const refl = new Reflector(new THREE.PlaneGeometry(400, 400), { clipBias: 0.003, textureWidth: 1024, textureHeight: 1024, color: 0x6b7f99 });
+  refl.rotation.x = -Math.PI / 2; refl.position.y = 0; scene.add(refl);
+  const tint = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshStandardMaterial({ color: "#14243a", transparent: true, opacity: 0.55, roughness: 1, metalness: 0 }));
+  tint.rotation.x = -Math.PI / 2; tint.position.y = 0.01; scene.add(tint);
+  // tolimas krantas su mišku
+  const shore = new THREE.Mesh(new THREE.BoxGeometry(260, 1.2, 40), std("#1d2a22")); shore.position.set(0, 0.2, -90); scene.add(shore);
+  for (let i = 0; i < 160; i++) { const x = rr(-120, 120), z = rr(-105, -72); spruce(x, z, rr(8, 18), false); }
+  const W = kind === "pontonas" ? 4.2 : 4.6, D = kind === "pontonas" ? 5.2 : 5.6, H = 2.6;
+  // pagrindas
+  const platW = W + 2.2, platD = D + 3.2, top = 0.55;
+  if (kind === "pontonas") {
+    const pont = frameBox(platW, 0.75, platD, std("#2b2e33", { roughness: 0.9 })); pont.position.set(0, top - 0.375 - 0.08, 0.6); scene.add(pont);
+  } else {
+    [-1, 1].forEach((s) => {
+      const f = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, platD - 0.2, 24), std("#d8dbd8", { roughness: 0.4 }));
+      f.rotation.x = Math.PI / 2; f.position.set(s * (platW / 2 - 0.6), 0.05, 0.6); f.castShadow = true; scene.add(f);
+    });
+    const frame = frameBox(platW, 0.18, platD, std("#3b3f44")); frame.position.set(0, 0.42, 0.6); scene.add(frame);
+  }
+  const deckTex = boards("#8a5e3a", { boardsPerM: 8 });
+  const deck = new THREE.Mesh(new THREE.BoxGeometry(platW, 0.08, platD), texMat(deckTex, platW, platD)); deck.position.set(0, top, 0.6); deck.receiveShadow = true; scene.add(deck);
+  // vienšlaitis namelis
+  const clad = boards(kind === "pontonas" ? "#8d8f88" : "#b07440", { boardsPerM: 8 });
+  const mats = [texMat(clad, D, H), texMat(clad, D, H), std("#333"), std("#333"), texMat(clad, W, H), texMat(clad, W, H)];
+  const body = new THREE.Mesh(new THREE.BoxGeometry(W, H, D), mats); body.position.set(0, top + H / 2, -0.4); body.castShadow = true; scene.add(body);
+  const rise = 0.6, ang = Math.atan2(rise, D);
+  const roof = frameBox(W + 0.7, 0.14, (D + 1.6) / Math.cos(ang), std("#22262b", { roughness: 0.5, metalness: 0.3 }));
+  roof.rotation.x = -ang; roof.position.set(0, top + H + rise / 2 + 0.06, -0.1); scene.add(roof);
+  const tri = new THREE.Shape([new THREE.Vector2(-D / 2, 0), new THREE.Vector2(D / 2, 0), new THREE.Vector2(D / 2, rise)]);
+  const tm = texMat(clad, 1, 1); tm.side = THREE.DoubleSide;
+  [1, -1].forEach((s) => { const m = new THREE.Mesh(new THREE.ShapeGeometry(tri), tm); m.rotation.y = -s * Math.PI / 2; m.position.set(s * (W / 2 + 0.002), top + H, -0.4); m.scale.x = s; scene.add(m); });
+  const fake = { userData: { w: W, d: D, plinth: top, h: H } }; const g = new THREE.Group(); scene.add(g); fake.add = (o) => g.add(o);
+  const big = opening(fake, { ww: W - 1.2, wh: 2.2, glow: true, mull: 2, glowI: 1.4, light: 0.25 }); big.position.set(0, top + 1.15, -0.4 + D / 2 + 0.05);
+  const side = opening(fake, { ww: 1.6, wh: 1.0, glow: true, glowI: 1.4, light: 0.6 }); side.rotation.y = Math.PI / 2; side.position.set(W / 2 + 0.05, top + 1.5, -1.4);
+  // turėklas ir kopėtėlės
+  const rail = std("#1c1c1c", { metalness: 0.6, roughness: 0.4 });
+  const rl = frameBox(platW, 0.04, 0.04, rail); rl.position.set(0, top + 0.95, 0.6 + platD / 2 - 0.05); scene.add(rl);
+  for (let x = -platW / 2; x <= platW / 2 + 0.01; x += 0.9) { const p = frameBox(0.04, 0.95, 0.04, rail); p.position.set(x, top + 0.48, 0.6 + platD / 2 - 0.05); scene.add(p); }
+  // kėdės ir žibintas
+  [[-1.3, 2.6], [-0.4, 2.9]].forEach(([x, z]) => { const c = frameBox(0.55, 0.45, 0.55, std("#6b4a30")); c.position.set(x, top + 0.23, z); scene.add(c); });
+  
+  camera.fov = 34; camera.updateProjectionMatrix();
+  if (kind === "pontonas") { camera.position.set(9.5, 2.4, 13.5); camera.lookAt(0, 1.6, 0); }
+  else { camera.position.set(-10.5, 2.0, 12.5); camera.lookAt(0, 1.5, 0); }
+  return composer(0.25, 0.45, 0.93);
+}
+scenes.vanduoPontonas = () => waterScene("pontonas");
+scenes.vanduoPluduras = () => waterScene("pluduras");
 
 scenes.house2 = () => { const c = scenes.hero(); camera.position.set(-6.5, 1.7, 22); camera.lookAt(0.6, 2.5, 0); return c; };
 const comp = scenes[SCENE]();

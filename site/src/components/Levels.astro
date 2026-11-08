@@ -1,0 +1,28 @@
+---
+import { turinys, kimg } from "../lib/site";
+const { compact = false } = Astro.props;
+const L = turinys.irengimas;
+const eur = (v: number) => v.toLocaleString("lt-LT").replace(/ /g, " ") + " €";
+---
+<div class="levels3">
+  {L.lygiai.map((l, i) => (
+    <article class={`lvl${i === 1 ? " featured" : ""}`}>
+      <div class="lvl-img"><img src={kimg(l.nuotrauka, true)} alt={l.alt} width="800" height="587" loading="lazy"></div>
+      <div class="lvl-body">
+        <span class="tag-small">{i + 1} lygis</span>
+        <h3>{l.pavadinimas}</h3>
+        <p class="lvl-price"><span>nuo</span> <b>{eur(l.kaina)}</b> <span>+ PVM</span></p>
+        <p class="muted">{l.aprasymas}</p>
+        {!compact && (
+          <ul class="lvl-list">
+            {L.punktai.map((x) => {
+              const yes = x.lygiai.includes(l.id);
+              return <li class={yes ? "yes" : "no"}><span class="visually-hidden">{yes ? "Įeina: " : "Neįeina: "}</span>{x.pav}</li>;
+            })}
+          </ul>
+        )}
+      </div>
+    </article>
+  ))}
+</div>
+<p class="note lvl-note">{L.pastaba}</p>

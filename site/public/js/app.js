@@ -149,7 +149,7 @@
     rows.push(["Įrengimas", val("irengimas")]);
     if (val("tipas") === "pirtis") {
       var pr = Array.prototype.map.call(form.querySelectorAll('input[name="priedai"]:checked'), function (x) { return x.value; });
-      rows.push(["Pirtis", [val("krosnele")].concat(pr).join(", ")]);
+      rows.push(["Pirtis", [val("dydis"), val("krosnele")].concat(pr).join(", ")]);
     }
     rows.push(["Projektas", val("projektas")]);
     rows.push(["Vieta", document.getElementById("u-vieta").value.trim() || "Nenurodyta"]);

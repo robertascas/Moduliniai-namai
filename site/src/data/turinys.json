@@ -1,28 +1,184 @@
 {
-  "irengimas": [
-    {
-      "id": "daline",
-      "pavadinimas": "Dalinė apdaila",
-      "punktai": [
-        "Pagamintas karkasas",
-        "Apšiltinimas",
-        "Išorės apdaila",
-        "Sumontuoti langai ir durys",
-        "Išvedžiotos pagrindinės komunikacijos"
-      ]
-    },
-    {
-      "id": "iki-rakto",
-      "pavadinimas": "Pilnas įrengimas „iki rakto“",
-      "punktai": [
-        "Pilna vidaus apdaila",
-        "Sureguliuota elektros instaliacija",
-        "Santechnika",
-        "Šildymas",
-        "Pirties krosnis arba vonios kambario įranga"
-      ]
-    }
-  ],
+  "irengimas": {
+    "pastaba": "Kainos nurodytos mažiausiam modeliui (ŠK30), be PVM. Pamatai, komunikacijų atvedimas, transportavimas į sklypą ir montavimas į bazinę kainą neįskaičiuoti: juos suderiname sąmatoje.",
+    "lygiai": [
+      {
+        "id": "daline",
+        "pavadinimas": "Dalinė apdaila",
+        "kaina": 20610,
+        "nuotrauka": "g-02",
+        "alt": "Modulinis namas su išorės apdaila ir langais",
+        "aprasymas": "Šiltas, uždaras namas su komunikacijomis. Vidaus apdailą atliekate patys arba su savo meistrais."
+      },
+      {
+        "id": "pilna",
+        "pavadinimas": "Pilna apdaila",
+        "kaina": 33300,
+        "nuotrauka": "namas-40-vidus",
+        "alt": "Įrengta modulinio namo svetainė su virtuve",
+        "aprasymas": "Įrengtas namas su vidaus apdaila, virtuve, WC ir šildymu. Belieka atsivežti baldus."
+      },
+      {
+        "id": "premium",
+        "pavadinimas": "Iki rakto (Premium)",
+        "kaina": 40500,
+        "nuotrauka": "interjeras",
+        "alt": "Šviesus modulinio namo interjeras su antresole",
+        "aprasymas": "Visas pilnos apdailos paketas ir šilumos siurblys oras–oras, veikiantis iki −25 °C lauke."
+      }
+    ],
+    "punktai": [
+      {
+        "pav": "Medinis C24 karkasas",
+        "lygiai": [
+          "daline",
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Šilumos izoliacija",
+        "lygiai": [
+          "daline",
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Elektros instaliacija",
+        "lygiai": [
+          "daline",
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Santechnika",
+        "lygiai": [
+          "daline",
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Impregnuotos grindų plokštės",
+        "lygiai": [
+          "daline",
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "A klasės langai",
+        "lygiai": [
+          "daline",
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Išorės fasado apdaila",
+        "lygiai": [
+          "daline",
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Fasado apšvietimas",
+        "lygiai": [
+          "daline",
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Stogo danga",
+        "lygiai": [
+          "daline",
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Langų apdirbimas",
+        "lygiai": [
+          "daline",
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Vidaus dailylentės",
+        "lygiai": [
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Grindų danga",
+        "lygiai": [
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Grindjuostės",
+        "lygiai": [
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Rozetės ir jungikliai",
+        "lygiai": [
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Šviestuvai",
+        "lygiai": [
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Įrengtas WC",
+        "lygiai": [
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Virtuvės komplektas",
+        "lygiai": [
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Vandens šildytuvas",
+        "lygiai": [
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Šilumos siurblys arba infraraudonųjų spindulių šildomos grindys",
+        "lygiai": [
+          "pilna",
+          "premium"
+        ]
+      },
+      {
+        "pav": "Šilumos siurblys oras–oras (iki −25 °C)",
+        "lygiai": [
+          "premium"
+        ]
+      }
+    ]
+  },
   "privalumai": [
     {
       "pavadinimas": "Gamyba kontroliuojamose patalpose",
@@ -81,8 +237,12 @@
       "atsakymas": "Modulinius namus (sodui, poilsiui ar nuolatiniam gyvenimui), modulines pirtis, lauko sandėliukus ir ūkio pastatus. Taip pat projektuojame ir statome karkasinius namus, vasarnamius ir garažus."
     },
     {
-      "klausimas": "Kuo skiriasi dalinė apdaila nuo įrengimo „iki rakto“?",
-      "atsakymas": "Dalinės apdailos atveju pagaminamas karkasas, apšiltinama, įrengiama išorės apdaila, sumontuojami langai ir durys, išvedžiojamos pagrindinės komunikacijos. Įrengiant „iki rakto“ papildomai atliekama pilna vidaus apdaila, sureguliuojama elektros instaliacija, įrengiama santechnika, šildymas, pirties krosnis ar vonios kambario įranga."
+      "klausimas": "Kuo skiriasi dalinė apdaila, pilna apdaila ir „iki rakto“?",
+      "atsakymas": "Dalinė apdaila: medinis C24 karkasas, šilumos izoliacija, elektros instaliacija, santechnika, A klasės langai, fasado apdaila ir apšvietimas, stogo danga. Pilnoje apdailoje papildomai yra vidaus dailylentės, grindų danga, šviestuvai, įrengtas WC, virtuvės komplektas, vandens šildytuvas ir šildymas. „Iki rakto“ (Premium) paketas prideda šilumos siurblį oras–oras, veikiantį iki −25 °C."
+    },
+    {
+      "klausimas": "Kokia namo energinė klasė?",
+      "atsakymas": "Galite rinktis B, A, A+ arba A++ energinę klasę. Standartinis apšiltinimas: grindys 200 mm, sienos 150–200 mm, stogas 200 mm. Šilumos siurblys veikia iki −25 °C lauke."
     },
     {
       "klausimas": "Kiek laiko trunka gamyba ir pastatymas?",
@@ -102,7 +262,34 @@
     },
     {
       "klausimas": "Ar bus papildomų mokesčių?",
-      "atsakymas": "Ne. Sąmatą suderiname iš anksto ir jokių paslėptų mokesčių nėra."
+      "atsakymas": "Pamatai, komunikacijų atvedimas, transportavimas į sklypą ir montavimas į bazinę kainą neįskaičiuoti. Visus šiuos darbus suderiname sąmatoje iš anksto, todėl jokių paslėptų mokesčių nėra."
+    },
+    {
+      "klausimas": "Ar gaminate namelius ant vandens?",
+      "atsakymas": "Taip. 20–25 m² namelius gaminame ant pontono arba ant plūdurų. Išplanavimą ir apdailą deriname pagal jūsų pageidavimus."
     }
-  ]
+  ],
+  "technika": {
+    "apsiltinimas": [
+      {
+        "kur": "Grindys",
+        "mm": "200 mm"
+      },
+      {
+        "kur": "Sienos",
+        "mm": "150–200 mm"
+      },
+      {
+        "kur": "Stogas",
+        "mm": "200 mm"
+      }
+    ],
+    "energineKlase": [
+      "B",
+      "A",
+      "A+",
+      "A++"
+    ],
+    "siurblys": "Šilumos siurblys, veikiantis iki −25 °C lauke"
+  }
 }

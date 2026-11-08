@@ -1,13 +1,14 @@
 ---
 import Arrow from "./Arrow.astro";
 import ModelCard from "./ModelCard.astro";
+import Levels from "./Levels.astro";
+import Tech from "./Tech.astro";
 import { imone, katalogas, turinys, kimg, kthumb, planImg, modelHref, telHref, type Modelis } from "../lib/site";
 const { m } = Astro.props as { m: Modelis };
 const serija = katalogas.serijos.find((s) => s.id === m.serija)!;
 const stiliai = (m as any).stiliai as { id: string; nuolydis: string; nuotrauka: string }[] | undefined;
 const kiti = katalogas.modeliai.filter((x) => x.serija === m.serija && x.id !== m.id).slice(0, 3);
 const giminingi = kiti.length ? kiti : katalogas.modeliai.filter((x) => x.id !== m.id).slice(0, 3);
-const [daline, ikiRakto] = turinys.irengimas;
 ---
 <section class="m-hero">
   <div class="wrap">
@@ -127,12 +128,10 @@ const [daline, ikiRakto] = turinys.irengimas;
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Įrengimo lygiai</span>
-      <h2>Pasirinkite, kiek darbų atliekame mes.</h2>
+      <h2>Įrengimo lygiai ir techniniai duomenys</h2>
     </div>
-    <div class="levels">
-      <article class="level"><span class="tag-small">1 variantas</span><h3>{daline.pavadinimas}</h3><ul>{daline.punktai.map((x) => <li>{x}</li>)}</ul></article>
-      <article class="level featured"><span class="tag-small">2 variantas</span><h3>{ikiRakto.pavadinimas}</h3><p class="plus">Viskas, kas įeina į dalinę apdailą, ir papildomai:</p><ul>{ikiRakto.punktai.map((x) => <li>{x}</li>)}</ul></article>
-    </div>
+    <Levels />
+    <div style="margin-top:56px"><Tech /></div>
   </div>
 </section>
 

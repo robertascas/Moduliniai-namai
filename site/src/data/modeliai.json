@@ -15,13 +15,13 @@
     },
     {
       "id": "pusynas",
-      "pavadinimas": "Pušynas 45–100 m²",
+      "pavadinimas": "ŠK45P–100 m²",
       "aprasymas": "Vienšlaičiu stogu dengti namai iš dviejų modulių, tinkami gyventi ištisus metus.",
       "nuotrauka": "serija-pusynas"
     },
     {
       "id": "horizontas",
-      "pavadinimas": "Horizontas 70–124 m²",
+      "pavadinimas": "ŠK70H–124 m²",
       "aprasymas": "Platūs namai su stogine terasai, didelėmis stiklo sienomis ir stoglangiais voniose.",
       "nuotrauka": "serija-horizontas"
     }
@@ -48,7 +48,7 @@
     {
       "id": "namelis-30",
       "serija": "kompaktiski",
-      "pavadinimas": "Namelis 30",
+      "pavadinimas": "ŠK30",
       "plotas": 30,
       "nuolydis": "5–20°",
       "kraigas": "3,85 m",
@@ -165,7 +165,7 @@
       "tekstas": [
         {
           "h": "Vienas dydis, daug paskirčių",
-          "p": "Namelis 30 užima 30 m², o kraigas iškyla iki 3,85 m. Tokio aukščio užtenka antresolei, kurioje telpa dvigulė lova. Todėl mažame plote atsiranda atskira miegamoji zona, o apačia lieka gyvenimui. Pasirinkus išplanavimą be antresolės, visas aukštis lieka erdviam kambariui."
+          "p": "ŠK30 užima 30 m², o kraigas iškyla iki 3,85 m. Tokio aukščio užtenka antresolei, kurioje telpa dvigulė lova. Todėl mažame plote atsiranda atskira miegamoji zona, o apačia lieka gyvenimui. Pasirinkus išplanavimą be antresolės, visas aukštis lieka erdviam kambariui."
         },
         {
           "h": "Kaip pasirinkti išplanavimą",
@@ -184,7 +184,7 @@
     {
       "id": "namas-40",
       "serija": "poilsio",
-      "pavadinimas": "Namas 40",
+      "pavadinimas": "ŠK40",
       "plotas": 40,
       "nuolydis": "5° arba 20°",
       "kraigas": "4,0 m",
@@ -276,7 +276,7 @@
     {
       "id": "namas-50",
       "serija": "poilsio",
-      "pavadinimas": "Namas 50",
+      "pavadinimas": "ŠK50",
       "plotas": 50,
       "nuolydis": "5° arba 20°",
       "kraigas": "4,0 m",
@@ -287,7 +287,7 @@
       "trumpai": "Du miegamieji, antresolė, 21–22 m² virtuvė su svetaine.",
       "aprasymas": [
         "Didesnis poilsio namas su 21–22 m² virtuve ir svetaine. Du miegamieji dvigulėms lovoms ir antresolė, į kurią veda laiptai.",
-        "Tie patys trys fasado stiliai kaip Namo 40. Tinka prie jūros, kaime ar šalia pagrindinio namo."
+        "Tie patys trys fasado stiliai kaip ŠK40. Tinka prie jūros, kaime ar šalia pagrindinio namo."
       ],
       "stiliai": [
         {
@@ -345,7 +345,7 @@
       "tekstas": [
         {
           "h": "Daugiau vietos bendrai erdvei",
-          "p": "Palyginti su Namu 40, papildomi dešimt kvadratinių metrų beveik visi atitenka virtuvei su svetaine. Jos plotas 21–22 m², todėl prie stalo susėda visa šeima, o šalia dar lieka vietos minkštasuoliui. Namo matmenys 4,1 × 12,1 m."
+          "p": "Palyginti su ŠK40, papildomi dešimt kvadratinių metrų beveik visi atitenka virtuvei su svetaine. Jos plotas 21–22 m², todėl prie stalo susėda visa šeima, o šalia dar lieka vietos minkštasuoliui. Namo matmenys 4,1 × 12,1 m."
         },
         {
           "h": "Du išplanavimai",
@@ -364,7 +364,7 @@
     {
       "id": "pusynas-45",
       "serija": "pusynas",
-      "pavadinimas": "Pušynas 45",
+      "pavadinimas": "ŠK45P",
       "plotas": 45,
       "nuolydis": "12°",
       "kraigas": "4,0 m",
@@ -380,11 +380,11 @@
       "nuotraukos": [
         {
           "f": "pusynas-45",
-          "alt": "Pušynas 45 namas ant uolų prie vandens ryto šviesoje"
+          "alt": "ŠK45P namas ant uolų prie vandens ryto šviesoje"
         },
         {
           "f": "pusynas-45-vidus",
-          "alt": "Pušyno 45 svetainė su virtuve ir antresole"
+          "alt": "ŠK45P svetainė su virtuve ir antresole"
         }
       ],
       "planai": [
@@ -404,7 +404,7 @@
       "tekstas": [
         {
           "h": "Du moduliai, sujungti sklype",
-          "p": "Pušynas 45 gaminamas iš dviejų modulių, kurie atvežami atskirai ir sujungiami vietoje. Namas užima apie 8 × 7,5 m. Stogas vienšlaitis, 12° nuolydžio, kraigas iškyla iki 4,0 m, todėl virš dalies patalpų lieka vietos antresolei."
+          "p": "ŠK45P gaminamas iš dviejų modulių, kurie atvežami atskirai ir sujungiami vietoje. Namas užima apie 8 × 7,5 m. Stogas vienšlaitis, 12° nuolydžio, kraigas iškyla iki 4,0 m, todėl virš dalies patalpų lieka vietos antresolei."
         },
         {
           "h": "Trys išplanavimai",
@@ -419,7 +419,7 @@
     {
       "id": "pusynas-50",
       "serija": "pusynas",
-      "pavadinimas": "Pušynas 50",
+      "pavadinimas": "ŠK50P",
       "plotas": 50,
       "nuolydis": "12°",
       "kraigas": "4,0 m",
@@ -435,11 +435,11 @@
       "nuotraukos": [
         {
           "f": "pusynas-50",
-          "alt": "Pušynas 50 namas su terasa ir prieplauka prie ežero"
+          "alt": "ŠK50P namas su terasa ir prieplauka prie ežero"
         },
         {
           "f": "pusynas-50-vidus",
-          "alt": "Pušyno 50 svetainė su stumdomomis stiklo durimis"
+          "alt": "ŠK50P svetainė su stumdomomis stiklo durimis"
         }
       ],
       "planai": [
@@ -459,7 +459,7 @@
       "tekstas": [
         {
           "h": "Namas su vaizdu",
-          "p": "Pušynas 50 sukurtas sklypams, kuriuose norisi matyti aplinką. Didelės stumdomos stiklo durys atveria svetainę į terasą, todėl vasarą vidus ir lauko erdvė tampa viena. Namas gaminamas iš dviejų modulių, kurie sklype sujungiami į 8,1 × 6,2 m stačiakampį."
+          "p": "ŠK50P sukurtas sklypams, kuriuose norisi matyti aplinką. Didelės stumdomos stiklo durys atveria svetainę į terasą, todėl vasarą vidus ir lauko erdvė tampa viena. Namas gaminamas iš dviejų modulių, kurie sklype sujungiami į 8,1 × 6,2 m stačiakampį."
         },
         {
           "h": "Trys išplanavimai",
@@ -478,7 +478,7 @@
     {
       "id": "pusynas-60",
       "serija": "pusynas",
-      "pavadinimas": "Pušynas 60",
+      "pavadinimas": "ŠK60P",
       "plotas": 60,
       "nuolydis": "12°",
       "kraigas": "4,0 m",
@@ -494,11 +494,11 @@
       "nuotraukos": [
         {
           "f": "pusynas-60",
-          "alt": "Pušynas 60 namas vakare tarp pušų prie jūros"
+          "alt": "ŠK60P namas vakare tarp pušų prie jūros"
         },
         {
           "f": "pusynas-60-is-virsaus",
-          "alt": "Pušyno 60 išplanavimas iš viršaus su baldais"
+          "alt": "ŠK60P išplanavimas iš viršaus su baldais"
         }
       ],
       "planai": [
@@ -510,7 +510,7 @@
       "tekstas": [
         {
           "h": "Du miegamieji ir antresolė",
-          "p": "Pušynas 60 užima 60 m² ir yra sudarytas iš dviejų modulių, kurie kartu sudaro 8 × 7,5 m namą. Abu miegamieji po 7 m², o virš dalies patalpų įrengta 13 m² antresolė. Ji praverčia vaikams ar svečiams, kai apačioje esančių lovų nebeužtenka."
+          "p": "ŠK60P užima 60 m² ir yra sudarytas iš dviejų modulių, kurie kartu sudaro 8 × 7,5 m namą. Abu miegamieji po 7 m², o virš dalies patalpų įrengta 13 m² antresolė. Ji praverčia vaikams ar svečiams, kai apačioje esančių lovų nebeužtenka."
         },
         {
           "h": "Vonia ir WC atskirai",
@@ -529,7 +529,7 @@
     {
       "id": "pusynas-80",
       "serija": "pusynas",
-      "pavadinimas": "Pušynas 80",
+      "pavadinimas": "ŠK80P",
       "plotas": 80,
       "nuolydis": "12°",
       "kraigas": "4,0 m",
@@ -545,11 +545,11 @@
       "nuotraukos": [
         {
           "f": "pusynas-80",
-          "alt": "Pušynas 80 namas su pavėsine pušyne"
+          "alt": "ŠK80P namas su pavėsine pušyne"
         },
         {
           "f": "pusynas-80-pastatytas",
-          "alt": "Pastatytas Pušynas 80 namas su didele terasa"
+          "alt": "Pastatytas ŠK80P namas su didele terasa"
         }
       ],
       "planai": [
@@ -561,7 +561,7 @@
       "tekstas": [
         {
           "h": "Trys miegamieji",
-          "p": "Pušynas 80 skirtas šeimai, kuriai dviejų miegamųjų nebeužtenka. Išplanavime B yra trys miegamieji: 11, 8 ir 5 m². Mažiausias tinka vaiko kambariui ar darbo vietai. Virš dalies patalpų dar įrengiama 10 m² antresolė."
+          "p": "ŠK80P skirtas šeimai, kuriai dviejų miegamųjų nebeužtenka. Išplanavime B yra trys miegamieji: 11, 8 ir 5 m². Mažiausias tinka vaiko kambariui ar darbo vietai. Virš dalies patalpų dar įrengiama 10 m² antresolė."
         },
         {
           "h": "Viena ar dvi vonios",
@@ -580,7 +580,7 @@
     {
       "id": "pusynas-100",
       "serija": "pusynas",
-      "pavadinimas": "Pušynas 100",
+      "pavadinimas": "ŠK100P",
       "plotas": 100,
       "nuolydis": "12°",
       "kraigas": "4,0 m",
@@ -596,18 +596,18 @@
       "nuotraukos": [
         {
           "f": "pusynas-100",
-          "alt": "Pušynas 100 namas vakare tarp pušų prie jūros"
+          "alt": "ŠK100P namas vakare tarp pušų prie jūros"
         },
         {
           "f": "pusynas-100-vidus",
-          "alt": "Pušyno 100 virtuvė ir valgomasis"
+          "alt": "ŠK100P virtuvė ir valgomasis"
         }
       ],
       "planai": [],
       "tekstas": [
         {
           "h": "Didžiausias Pušyno serijos namas",
-          "p": "Pušynas 100 sudarytas iš dviejų modulių ir užima 8 × 12,5 m. Viduje telpa trys arba keturi miegamieji, du vonios kambariai, erdvi svetainė, virtuvė ir 11 m² antresolė."
+          "p": "ŠK100P sudarytas iš dviejų modulių ir užima 8 × 12,5 m. Viduje telpa trys arba keturi miegamieji, du vonios kambariai, erdvi svetainė, virtuvė ir 11 m² antresolė."
         },
         {
           "h": "Du išplanavimai",
@@ -626,7 +626,7 @@
     {
       "id": "horizontas-70",
       "serija": "horizontas",
-      "pavadinimas": "Horizontas 70",
+      "pavadinimas": "ŠK70H",
       "plotas": 70,
       "nuolydis": "12°",
       "kraigas": "4,2 m",
@@ -642,19 +642,19 @@
       "nuotraukos": [
         {
           "f": "horizontas-70",
-          "alt": "Horizontas 70 namas vakare prie jūros"
+          "alt": "ŠK70H namas vakare prie jūros"
         },
         {
           "f": "horizontas-70-2",
-          "alt": "Horizontas 70 su terasa po stogu"
+          "alt": "ŠK70H su terasa po stogu"
         },
         {
           "f": "horizontas-70-vidus",
-          "alt": "Horizonto 70 svetainė ir virtuvė"
+          "alt": "ŠK70H svetainė ir virtuvė"
         },
         {
           "f": "horizontas-70-is-virsaus",
-          "alt": "Horizonto 70 išplanavimas iš viršaus"
+          "alt": "ŠK70H išplanavimas iš viršaus"
         }
       ],
       "planai": [
@@ -666,7 +666,7 @@
       "tekstas": [
         {
           "h": "Stogas, kuris dengia ir terasą",
-          "p": "Horizonto serijos atpažįstamiausia detalė yra didelis vienšlaitis stogas. Jis ne tik dengia namą, bet ir išsikiša virš terasos, todėl lauke galima sėdėti ir lyjant. Horizontas 70 užima 7,5 × 8 m, o terasa po stogu yra 2,5 m pločio."
+          "p": "Horizonto serijos atpažįstamiausia detalė yra didelis vienšlaitis stogas. Jis ne tik dengia namą, bet ir išsikiša virš terasos, todėl lauke galima sėdėti ir lyjant. ŠK70H užima 7,5 × 8 m, o terasa po stogu yra 2,5 m pločio."
         },
         {
           "h": "Išplanavimas",
@@ -685,7 +685,7 @@
     {
       "id": "horizontas-91",
       "serija": "horizontas",
-      "pavadinimas": "Horizontas 91",
+      "pavadinimas": "ŠK91H",
       "plotas": 91,
       "nuolydis": "12°",
       "kraigas": "4,2 m",
@@ -701,19 +701,19 @@
       "nuotraukos": [
         {
           "f": "horizontas-91",
-          "alt": "Horizontas 91 namas vakare ant uolų"
+          "alt": "ŠK91H namas vakare ant uolų"
         },
         {
           "f": "horizontas-91-vidus",
-          "alt": "Horizonto 91 svetainė su stumdomomis durimis"
+          "alt": "ŠK91H svetainė su stumdomomis durimis"
         },
         {
           "f": "horizontas-91-miegamasis",
-          "alt": "Horizonto 91 miegamasis"
+          "alt": "ŠK91H miegamasis"
         },
         {
           "f": "horizontas-91-is-virsaus",
-          "alt": "Horizonto 91 išplanavimas iš viršaus"
+          "alt": "ŠK91H išplanavimas iš viršaus"
         }
       ],
       "planai": [
@@ -725,7 +725,7 @@
       "tekstas": [
         {
           "h": "Dvejos durys į terasą",
-          "p": "Horizontas 91 svetainė į terasą atsiveria dvejomis stumdomomis durimis. Atidarius abejas, svetainė ir terasa tampa viena erdve. Namas užima 9 × 8,3 m, o stogas su terasa siekia 13 m ilgio."
+          "p": "ŠK91H svetainė į terasą atsiveria dvejomis stumdomomis durimis. Atidarius abejas, svetainė ir terasa tampa viena erdve. Namas užima 9 × 8,3 m, o stogas su terasa siekia 13 m ilgio."
         },
         {
           "h": "Išplanavimas",
@@ -744,7 +744,7 @@
     {
       "id": "horizontas-107",
       "serija": "horizontas",
-      "pavadinimas": "Horizontas 107",
+      "pavadinimas": "ŠK107H",
       "plotas": 107,
       "nuolydis": "12°",
       "kraigas": "4,2 m",
@@ -759,15 +759,15 @@
       "nuotraukos": [
         {
           "f": "horizontas-107",
-          "alt": "Horizontas 107 namas prie ežero su prieplauka"
+          "alt": "ŠK107H namas prie ežero su prieplauka"
         },
         {
           "f": "horizontas-107-ziema",
-          "alt": "Horizontas 107 žiemą ant kalvos"
+          "alt": "ŠK107H žiemą ant kalvos"
         },
         {
           "f": "horizontas-107-is-virsaus",
-          "alt": "Horizonto 107 išplanavimas iš viršaus"
+          "alt": "ŠK107H išplanavimas iš viršaus"
         }
       ],
       "planai": [
@@ -779,7 +779,7 @@
       "tekstas": [
         {
           "h": "Trys moduliai",
-          "p": "Horizontas 107 surenkamas iš trijų gamykloje pagamintų modulių. Juose telpa trys miegamieji, du vonios kambariai, sandėliukas ir didelė bendra erdvė su svetaine, virtuve ir valgomuoju."
+          "p": "ŠK107H surenkamas iš trijų gamykloje pagamintų modulių. Juose telpa trys miegamieji, du vonios kambariai, sandėliukas ir didelė bendra erdvė su svetaine, virtuve ir valgomuoju."
         },
         {
           "h": "Šviesa iš dviejų pusių",
@@ -798,7 +798,7 @@
     {
       "id": "horizontas-124",
       "serija": "horizontas",
-      "pavadinimas": "Horizontas 124",
+      "pavadinimas": "ŠK124H",
       "plotas": 124,
       "nuolydis": "12°",
       "kraigas": "4,2 m",
@@ -813,15 +813,15 @@
       "nuotraukos": [
         {
           "f": "horizontas-124",
-          "alt": "Horizontas 124 namas pušyne su žvyro keliuku"
+          "alt": "ŠK124H namas pušyne su žvyro keliuku"
         },
         {
           "f": "horizontas-124-vakaras",
-          "alt": "Horizontas 124 vakare su apšvietimu"
+          "alt": "ŠK124H vakare su apšvietimu"
         },
         {
           "f": "horizontas-124-is-virsaus",
-          "alt": "Horizonto 124 išplanavimas iš viršaus"
+          "alt": "ŠK124H išplanavimas iš viršaus"
         }
       ],
       "planai": [
@@ -833,7 +833,7 @@
       "tekstas": [
         {
           "h": "Didžiausias modelis",
-          "p": "Horizontas 124 yra didžiausias modulinis namas mūsų pasiūloje. Jį sudaro trys moduliai, sujungiami sklype. Viduje yra trys miegamieji, du vonios kambariai, sandėliukas ir ilga bendra erdvė su svetaine, valgomuoju ir virtuve."
+          "p": "ŠK124H yra didžiausias modulinis namas mūsų pasiūloje. Jį sudaro trys moduliai, sujungiami sklype. Viduje yra trys miegamieji, du vonios kambariai, sandėliukas ir ilga bendra erdvė su svetaine, valgomuoju ir virtuve."
         },
         {
           "h": "Išplanavimas",

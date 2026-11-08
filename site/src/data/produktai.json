@@ -21,17 +21,34 @@
     "slug": "modulines-pirtys",
     "pavadinimas": "Modulinės pirtys",
     "trumpai": "Su malkinėmis arba elektrinėmis krosnelėmis, poilsio kambariais, terasomis.",
-    "aprasymas": "Modulines pirtis gaminame su malkine arba elektrine krosnele, poilsio kambariu ir terasa pagal jūsų pageidavimus. Pilno įrengimo atveju pirtis perduodama su sumontuota ir sureguliuota krosnimi.",
+    "aprasymas": "Modulines pirtis gaminame trijų dydžių: 3 × 4, 5 × 5 ir 4 × 6 m. Krosnelę, apšiltinimą, gultų medieną, poilsio kambarį, terasą ir dušą parenkate patys, o pilno įrengimo atveju pirtis perduodama su sumontuota ir sureguliuota krosnimi.",
     "punktai": [
+      "Dydžiai 3 × 4, 5 × 5 arba 4 × 6 m",
       "Malkinė arba elektrinė krosnelė",
-      "Poilsio kambarys",
-      "Terasa",
+      "Poilsio kambarys, terasa ir dušas pagal pageidavimą",
       "Pilnu įrengimu: su sumontuota pirties krosnimi"
     ],
-    "nuotrauka": "k/namelis-30-ezeras",
-    "alt": "30 m² namelis prie ežero, kurį galima įrengti su pirtimi",
+    "nuotrauka": "pirtis-5x5",
+    "alt": "Modulinė pirtis 5 × 5 m su terasa po stogu žiemos vakarą",
     "seoTitle": "Modulinės pirtys su malkine ar elektrine krosnele",
     "seoDescription": "Modulinės pirtys su malkinėmis arba elektrinėmis krosnelėmis, poilsio kambariais ir terasomis. Pristatymas ir montavimas Vilniuje ir Vilniaus rajone."
+  },
+  {
+    "id": "vanduo",
+    "slug": "nameliai-ant-vandens",
+    "pavadinimas": "Nameliai ant vandens",
+    "trumpai": "20–25 m² nameliai ant pontono arba ant plūdurų.",
+    "aprasymas": "Nameliai ant vandens gaminami taip pat kaip moduliniai namai: kontroliuojamose patalpose, iš sertifikuotos medienos. Pagrindą renkatės patys: tvirtą pontoną arba lengvesnę konstrukciją ant plūdurų. Plotas 20–25 m², išplanavimą, apdailą ir terasą deriname pagal jūsų pageidavimus.",
+    "punktai": [
+      "Plotas 20–25 m²",
+      "Ant pontono arba ant plūdurų",
+      "Terasa aplink namelį",
+      "Išplanavimas ir apdaila pagal pageidavimą"
+    ],
+    "nuotrauka": "namelis-ant-pontono",
+    "alt": "Namelis ant pontono ežere saulėlydžio metu",
+    "seoTitle": "Nameliai ant vandens: ant pontono arba plūdurų",
+    "seoDescription": "20–25 m² nameliai ant vandens ant pontono arba plūdurų. Gamyba kontroliuojamose patalpose, išplanavimas ir apdaila pagal pageidavimą. Vilnius ir Vilniaus rajonas."
   },
   {
     "id": "sandeliukas",

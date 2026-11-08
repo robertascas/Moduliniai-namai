@@ -3,6 +3,8 @@ import Base from "../layouts/Base.astro";
 import Arrow from "../components/Arrow.astro";
 import ModelCard from "../components/ModelCard.astro";
 import ModelPage from "../components/ModelPage.astro";
+import Levels from "../components/Levels.astro";
+import Tech from "../components/Tech.astro";
 import { imone, produktai, turinys, katalogas, productHref, modelHref, img, kimg, planImg, isViz, telHref, faqSchema, crumbsSchema, type Produktas, type Modelis } from "../lib/site";
 
 export function getStaticPaths() {
@@ -14,14 +16,14 @@ export function getStaticPaths() {
 const { kind, p, m } = Astro.props as { kind: string; p?: Produktas; m?: Modelis };
 
 const faqIds: Record<string, string[]> = {
-  namas: ["Kuo skiriasi", "Kiek laiko", "Kur pristatote", "Ar galima pasirinkti", "Ar bus papildomų"],
+  namas: ["Kuo skiriasi", "Kokia namo energinė", "Kiek laiko", "Kur pristatote", "Ar galima pasirinkti", "Ar bus papildomų"],
   pirtis: ["Kokią krosnelę", "Kuo skiriasi", "Kiek laiko", "Kur pristatote", "Ar bus papildomų"],
   sandeliukas: ["Kiek laiko", "Kur pristatote", "Ar galima pasirinkti", "Ar bus papildomų"],
   karkasinis: ["Ar galima pasirinkti", "Kur pristatote", "Kuo skiriasi", "Ar bus papildomų"],
+  vanduo: ["Ar gaminate namelius", "Ar galima pasirinkti", "Kur pristatote", "Ar bus papildomų"],
 };
 const faq = p ? turinys.duk.filter((q) => faqIds[p.id].some((k) => q.klausimas.startsWith(k))) : [];
 const others = p ? produktai.filter((x) => x.id !== p.id).slice(0, 3) : [];
-const [daline, ikiRakto] = turinys.irengimas;
 const namelis = katalogas.modeliai.find((x) => x.id === "namelis-30")!;
 const pirtiesPlanai = namelis.planai.filter((x) => x.var === "D" || x.var === "F");
 
@@ -90,37 +92,99 @@ const image = p ? (isViz(p.nuotrauka) ? "og.jpg" : `img/${p.nuotrauka}.webp`) : 
       </section>
 
       {p.id === "pirtis" && (
-        <section class="section" id="isplanavimai">
+        <section class="section" id="dydziai">
           <div class="wrap">
             <div class="sec-head">
-              <span class="eyebrow">Pirtis 30 m² namelyje</span>
-              <h2>Du išplanavimai su pirtimi.</h2>
-              <p class="lead">Namelis 30 gaminamas ir kaip pirtis: su poilsio kambariu ir antresole arba su miegamaisiais svečiams. Fasado stilių renkatės iš keturių.</p>
+              <span class="eyebrow">Dydžiai</span>
+              <h2>Trys pirčių dydžiai.</h2>
+              <p class="lead">Dydį renkatės pagal tai, kiek žmonių pirtyje lankysis ir ar reikia poilsio kambario.</p>
             </div>
-            <div class="plan-pair">
-              {pirtiesPlanai.map((x) => (
-                <figure class="plan-panel">
-                  <img src={planImg(namelis, x.var)} alt={`Namelis 30 su pirtimi, išplanavimas ${x.var}`} loading="lazy">
-                  <figcaption><b>Išplanavimas {x.var}</b> · {x.pastaba}</figcaption>
-                </figure>
+            <div class="sizes">
+              {[["pirtis-3x4","3 × 4 m","12 m²","Kompaktiška pirtis su garine ir persirengimo patalpa."],["pirtis-5x5","5 × 5 m","25 m²","Erdvi pirtis su poilsio kambariu ir terasa po stogu."],["pirtis-4x6","4 × 6 m","24 m²","Pailga pirtis: garinė, dušas ir poilsio kambarys su dideliu langu."]].map(([f,d,a,t]) => (
+                <article class="size">
+                  <img src={img(f, true)} alt={`Modulinė pirtis ${d}, vizualizacija`} width="1000" height="781" loading="lazy">
+                  <div class="size-body"><h3>{d} <span>{a}</span></h3><p class="muted">{t}</p></div>
+                </article>
               ))}
             </div>
-            <div class="actions" style="margin-top:28px"><a class="btn btn-spruce" href={modelHref(namelis)}>Visi Namelio 30 variantai <Arrow /></a></div>
+            <p class="note" style="margin-top:14px">Vaizdai yra vizualizacijos. Išplanavimą kiekvienam dydžiui deriname pagal jūsų pageidavimus.</p>
           </div>
         </section>
       )}
 
-      {p.id !== "karkasinis" && (
+      {p.id === "pirtis" && (
+        <section class="section surface" id="parinktys">
+          <div class="wrap">
+            <div class="sec-head">
+              <span class="eyebrow">Techninės parinktys</span>
+              <h2>Kiekvieną pirties detalę renkatės patys.</h2>
+              <p class="lead">Žemiau parinktys, kurias suderiname prieš gamybą. Pasakykite, kaip pirtimi naudositės, ir pasiūlysime tinkamą derinį.</p>
+            </div>
+            <ul class="options">
+              <li><b>Krosnelė</b><span>Malkinė arba elektrinė. Galią parenkame pagal garinės tūrį.</span></li>
+              <li><b>Apšiltinimas</b><span>Pagal tai, ar pirtimi naudositės visus metus, ar tik šiltuoju sezonu.</span></li>
+              <li><b>Gultų mediena</b><span>Pasirenkate medienos rūšį gultams ir sienų apdailai.</span></li>
+              <li><b>Poilsio kambarys</b><span>Atskira patalpa poilsiui po garinės, su langu.</span></li>
+              <li><b>Terasa</b><span>Po stogu arba atvira, dydis pagal sklypą.</span></li>
+              <li><b>Dušas</b><span>Atskira dušo patalpa arba dušas prie garinės.</span></li>
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {p.id === "vanduo" && (
+        <section class="section" id="variantai">
+          <div class="wrap">
+            <div class="sec-head">
+              <span class="eyebrow">Pagrindas</span>
+              <h2>Ant pontono arba ant plūdurų.</h2>
+              <p class="lead">Abu variantai yra 20–25 m² ploto. Pagrindą parenkame pagal vandens telkinį ir tai, kaip namelis bus naudojamas.</p>
+            </div>
+            <div class="plan-pair">
+              <article class="size">
+                <img src={img("namelis-ant-pontono", true)} alt="Namelis ant pontono, vizualizacija" width="1000" height="639" loading="lazy">
+                <div class="size-body"><h3>Ant pontono <span>20–25 m²</span></h3><p class="muted">Pontonas yra plokščias plaukiojantis pagrindas visu namelio plotu. Ant jo telpa ir terasa aplink namelį.</p></div>
+              </article>
+              <article class="size">
+                <img src={img("namelis-ant-pluduru", true)} alt="Namelis ant plūdurų, vizualizacija" width="1000" height="639" loading="lazy">
+                <div class="size-body"><h3>Ant plūdurų <span>20–25 m²</span></h3><p class="muted">Namelis stovi ant rėmo, kurį laiko plūdurai. Tai lengvesnė konstrukcija su terasa ir turėklais.</p></div>
+              </article>
+            </div>
+            <p class="note" style="margin-top:14px">Vaizdai yra vizualizacijos. Išplanavimą, apdailą ir terasos dydį deriname pagal jūsų pageidavimus.</p>
+          </div>
+        </section>
+      )}
+
+      {p.id === "pirtis" && (
+        <section class="section" id="isplanavimai">
+          <div class="wrap">
+            <div class="sec-head">
+              <span class="eyebrow">Pirtis ŠK30 namelyje</span>
+              <h2>Du išplanavimai su pirtimi.</h2>
+              <p class="lead">ŠK30 namelis gaminamas ir kaip pirtis: su poilsio kambariu ir antresole arba su miegamaisiais svečiams. Fasado stilių renkatės iš keturių.</p>
+            </div>
+            <div class="plan-pair">
+              {pirtiesPlanai.map((x) => (
+                <figure class="plan-panel">
+                  <img src={planImg(namelis, x.var)} alt={`ŠK30 su pirtimi, išplanavimas ${x.var}`} loading="lazy">
+                  <figcaption><b>Išplanavimas {x.var}</b> · {x.pastaba}</figcaption>
+                </figure>
+              ))}
+            </div>
+            <div class="actions" style="margin-top:28px"><a class="btn btn-spruce" href={modelHref(namelis)}>Visi ŠK30 variantai <Arrow /></a></div>
+          </div>
+        </section>
+      )}
+
+      {(p.id === "namas" || p.id === "vanduo") && (
         <section class="section surface" id="irengimas">
           <div class="wrap">
             <div class="sec-head">
               <span class="eyebrow">Įrengimo lygiai</span>
-              <h2>Pasirinkite, kiek darbų atliekame mes.</h2>
+              <h2>Įrengimo lygiai ir kainos</h2>
             </div>
-            <div class="levels">
-              <article class="level"><span class="tag-small">1 variantas</span><h3>{daline.pavadinimas}</h3><ul>{daline.punktai.map((x) => <li>{x}</li>)}</ul></article>
-              <article class="level featured"><span class="tag-small">2 variantas</span><h3>{ikiRakto.pavadinimas}</h3><p class="plus">Viskas, kas įeina į dalinę apdailą, ir papildomai:</p><ul>{ikiRakto.punktai.map((x) => <li>{x}</li>)}</ul></article>
-            </div>
+            <Levels />
+            <div style="margin-top:56px"><Tech /></div>
           </div>
         </section>
       )}
