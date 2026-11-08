@@ -251,7 +251,7 @@
     },
     {
       "klausimas": "Kur pristatote ir montuojate?",
-      "atsakymas": "Modulinius pastatus pristatome ir montuojame Vilniuje ir Vilniaus rajone. Karkasinius namus ir garažus projektuojame ir statome visoje Lietuvoje."
+      "atsakymas": "Dirbame Vilniuje ir Vilniaus rajone: ten pristatome ir sumontuojame modulinius pastatus, statome karkasinius namus ir garažus."
     },
     {
       "klausimas": "Ar galima pasirinkti išplanavimą, spalvas ir medžiagas?",
@@ -266,12 +266,20 @@
       "atsakymas": "Pamatai, komunikacijų atvedimas, transportavimas į sklypą ir montavimas į bazinę kainą neįskaičiuoti. Visus šiuos darbus suderiname sąmatoje iš anksto, todėl jokių paslėptų mokesčių nėra."
     },
     {
+      "klausimas": "Kas organizuoja transportavimą ir kėlimą kranu?",
+      "atsakymas": "Transportavimas, kėlimas kranu, montavimas ir sklypo paruošimas yra atskiri sąmatos punktai. Dėl jų susitariame prieš sutartį, atsižvelgdami į atstumą, privažiavimą ir sklypą."
+    },
+    {
       "klausimas": "Kaip mokama?",
       "atsakymas": "Avansas mokamas patvirtinus projektą, jo dydis sutariamas individualiai. Kiti mokėjimai ir jų terminai aprašomi sutartyje."
     },
     {
       "klausimas": "Ar gaminate namelius ant vandens?",
       "atsakymas": "Taip. 20–25 m² namelius gaminame ant pontono arba ant plūdurų. Išplanavimą ir apdailą deriname pagal jūsų pageidavimus."
+    },
+    {
+      "klausimas": "Kokia garantija?",
+      "atsakymas": "Garantija – pagal Lietuvos Respublikos civilinį kodeksą: 5 metai statiniui, 10 metų paslėptiems elementams (konstrukcijoms, vamzdynams), 20 metų tyčia paslėptiems defektams. Įrenginiams taikoma gamintojų garantija. Sąlygos surašomos sutartyje."
     }
   ],
   "technika": {

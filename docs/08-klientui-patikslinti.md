@@ -65,4 +65,6 @@ ko trūksta ir kas yra laikina.
 - Mokėjimas: avansas po projekto patvirtinimo, dydis individualiai, kiti mokėjimai sutartyje (įdiegta DUK ir eigoje).
 - Domenas: siltaskarkasas.lt. Pagrindinis telefonas: pirmasis. Darbo laikas nenurodomas.
 - Vėliau: rekvizitai, socialiniai tinklai, nuotraukos.
-- Laukia sprendimo: teritorija, kranas, garantijos tekstas.
+- Teritorija: tik Vilnius ir Vilniaus rajonas (įdiegta).
+- Kranas, transportavimas, montavimas, sklypo paruošimas: atskiri sąmatos punktai (įdiegta DUK).
+- Garantija: pagal CK 6.698, 5 / 10 / 20 metų (įdiegta DUK).

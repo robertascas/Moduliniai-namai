@@ -16,11 +16,11 @@ export function getStaticPaths() {
 const { kind, p, m } = Astro.props as { kind: string; p?: Produktas; m?: Modelis };
 
 const faqIds: Record<string, string[]> = {
-  namas: ["Kuo skiriasi", "Kokia namo energinė", "Kiek laiko", "Kaip mokama", "Kur pristatote", "Ar galima pasirinkti", "Ar bus papildomų"],
-  pirtis: ["Kokią krosnelę", "Kuo skiriasi", "Kiek laiko", "Kur pristatote", "Ar bus papildomų"],
+  namas: ["Kuo skiriasi", "Kokia namo energinė", "Kiek laiko", "Kaip mokama", "Kur pristatote", "Ar galima pasirinkti", "Ar bus papildomų", "Kas organizuoja", "Kokia garantija"],
+  pirtis: ["Kokią krosnelę", "Kuo skiriasi", "Kiek laiko", "Kur pristatote", "Ar bus papildomų", "Kokia garantija"],
   sandeliukas: ["Kaip mokama", "Kiek laiko", "Kur pristatote", "Ar galima pasirinkti", "Ar bus papildomų"],
-  karkasinis: ["Ką gaminate", "Ar galima pasirinkti", "Kur pristatote", "Kuo skiriasi", "Ar bus papildomų"],
-  vanduo: ["Ar gaminate namelius", "Ar galima pasirinkti", "Kur pristatote", "Ar bus papildomų"],
+  karkasinis: ["Ką gaminate", "Ar galima pasirinkti", "Kur pristatote", "Ar bus papildomų", "Kokia garantija"],
+  vanduo: ["Ar gaminate namelius", "Ar galima pasirinkti", "Kur pristatote", "Ar bus papildomų", "Kas organizuoja", "Kokia garantija"],
 };
 const faq = p ? turinys.duk.filter((q) => faqIds[p.id].some((k) => q.klausimas.startsWith(k))) : [];
 const others = p ? produktai.filter((x) => x.id !== p.id).slice(0, 3) : [];
