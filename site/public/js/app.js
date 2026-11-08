@@ -174,18 +174,18 @@
     var payload = { access_key: key, subject: "Nauja užklausa iš svetainės: " + rows[0][1], from_name: document.getElementById("u-vardas").value.trim(), email: document.getElementById("u-pastas").value.trim() };
     rows.forEach(function (r) { payload[r[0]] = r[1]; });
     fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload) })
-      .then(function (r) { return r.json(); })
+      .then(function (r) { return r.text().then(function (t) { var j; try { j = JSON.parse(t); } catch (e) { j = { message: "HTTP " + r.status + " " + t.slice(0, 160) }; } return j; }); })
       .then(function (j) {
-        if (!j.success) throw new Error(j.message || "klaida");
+        if (!j.success) throw new Error(j.message || "nežinoma klaida");
         title.textContent = "Užklausa išsiųsta";
         state.textContent = "Ačiū. Susisieksime su jumis artimiausiu metu.";
         form.querySelectorAll("fieldset").forEach(function (f) { f.hidden = true; });
         reveal();
       })
-      .catch(function () {
+      .catch(function (err) {
         btn.disabled = false;
         title.textContent = "Užklausos išsiųsti nepavyko";
-        state.textContent = "Pabandykite dar kartą arba paskambinkite / parašykite mums tiesiogiai.";
+        state.textContent = "Pabandykite dar kartą arba paskambinkite ar parašykite mums tiesiogiai. Klaidos informacija: " + (err && err.message ? err.message : "nėra ryšio");
         reveal();
       });
   });
